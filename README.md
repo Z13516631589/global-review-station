@@ -3,7 +3,11 @@
 零预算、半自动的**客观股市复盘站**。
 Python 脚本抓数据填 JSON，复盘观点人工撰写 MDX，GitHub Actions 多时段定时 `fetch → build → deploy` 实现自动更新。
 
+**线上地址**：https://z13516631589.github.io/global-review-station/
+**源码仓库**：https://github.com/Z13516631589/global-review-station
+
 > 立场：只做客观记录与事后检验。全站不输出买卖点位、不臆测涨跌结论、**不构成投资建议**。
+> 数据纪律：`src/data/*.json` 只放脚本真实抓取的结果，**没有示例数据**；未抓取到的板块显示空态。
 
 ---
 
@@ -13,7 +17,7 @@ Python 脚本抓数据填 JSON，复盘观点人工撰写 MDX，GitHub Actions �
 # 1) 安装前端依赖
 npm install
 
-# 2) 安装数据抓取依赖（可选，不装也能跑，展示内置示例数据）
+# 2) 安装数据抓取依赖（抓取数据前必须安装）
 npm run bootstrap:py          # 等价于 pip install -r scripts/requirements.txt
 
 # 3) 抓取数据（写入 src/data/*.json）
