@@ -1,0 +1,131 @@
+{
+  "updatedAt": "2026-09-22T01:07:22+08:00",
+  "batch": "A股收盘",
+  "source": "akshare",
+  "stale": false,
+  "note": "延迟数据，龙虎榜为收盘后披露口径。",
+  "items": [
+    {
+      "code": "002080",
+      "name": "中材科技",
+      "close": 66.24,
+      "changePct": 10.0,
+      "netBuy": 55526.83,
+      "buyAmount": 127941.26,
+      "sellAmount": 72414.44,
+      "reason": "日涨幅偏离值达到7%的前5只证券"
+    },
+    {
+      "code": "600721",
+      "name": "百花医药",
+      "close": 13.15,
+      "changePct": 10.04,
+      "netBuy": 22750.57,
+      "buyAmount": 66967.74,
+      "sellAmount": 44217.17,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "000560",
+      "name": "我爱我家",
+      "close": 3.19,
+      "changePct": 10.0,
+      "netBuy": 21700.55,
+      "buyAmount": 31893.44,
+      "sellAmount": 10192.89,
+      "reason": "日振幅值达到15%的前5只证券"
+    },
+    {
+      "code": "600721",
+      "name": "百花医药",
+      "close": 13.15,
+      "changePct": 10.04,
+      "netBuy": 16626.03,
+      "buyAmount": 30590.8,
+      "sellAmount": 13964.77,
+      "reason": "有价格涨跌幅限制的日换手率达到20%的前五只证券"
+    },
+    {
+      "code": "600721",
+      "name": "百花医药",
+      "close": 13.15,
+      "changePct": 10.04,
+      "netBuy": 16626.03,
+      "buyAmount": 30590.8,
+      "sellAmount": 13964.77,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
+    },
+    {
+      "code": "001389",
+      "name": "广合科技",
+      "close": 185.93,
+      "changePct": 10.0,
+      "netBuy": 15485.42,
+      "buyAmount": 64204.84,
+      "sellAmount": 48719.42,
+      "reason": "日涨幅偏离值达到7%的前5只证券"
+    },
+    {
+      "code": "300642",
+      "name": "透景生命",
+      "close": 20.35,
+      "changePct": 19.99,
+      "netBuy": 14750.96,
+      "buyAmount": 21036.76,
+      "sellAmount": 6285.8,
+      "reason": "日涨幅达到15%的前5只证券"
+    },
+    {
+      "code": "002631",
+      "name": "德尔未来",
+      "close": 14.14,
+      "changePct": 6.88,
+      "netBuy": 14018.24,
+      "buyAmount": 52456.74,
+      "sellAmount": 38438.5,
+      "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "600593",
+      "name": "大连圣亚",
+      "close": 48.57,
+      "changePct": 10.01,
+      "netBuy": 13823.4,
+      "buyAmount": 36675.72,
+      "sellAmount": 22852.32,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "002792",
+      "name": "通宇通讯",
+      "close": 34.54,
+      "changePct": 10.0,
+      "netBuy": 11694.35,
+      "buyAmount": 38514.14,
+      "sellAmount": 26819.79,
+      "reason": "日涨幅偏离值达到7%的前5只证券"
+    },
+    {
+      "code": "600606",
+      "name": "绿地控股",
+      "close": 1.6,
+      "changePct": 10.34,
+      "netBuy": 10906.57,
+      "buyAmount": 31381.72,
+      "sellAmount": 20475.15,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "002585",
+      "name": "双星新材",
+      "close": 12.71,
+      "changePct": 10.04,
+      "netBuy": 8770.4,
+      "buyAmount": 39415.04,
+      "sellAmount": 30644.64,
+      "reason": "日涨幅偏离值达到7%的前5只证券"
+    }
+  ],
+  "topInflow": [],
+  "topOutflow": []
+}

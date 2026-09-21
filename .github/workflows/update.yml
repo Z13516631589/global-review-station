@@ -1,0 +1,116 @@
+name: update
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # A股收盘：北京时间 15:30（周一~周五）——盘面 / 指数 / 板块
+    - cron: '30 7 * * 1-5'
+    # A股盘后披露：北京时间 18:30（周一~周五）——龙虎榜 / 融资余额 / 主力资金
+    - cron: '30 10 * * 1-5'
+    # 美股收盘：20:30 UTC ≈ 北京时间 04:30/05:30（周二~周六）
+    - cron: '30 20 * * 2-6'
+    # 盘前消息（可选）：北京时间 09:00（周一~周五）
+    - cron: '0 1 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      batch:
+        description: '更新批次'
+        required: false
+        default: 'A股收盘'
+        type: choice
+        options:
+          - A股收盘
+          - A股盘后
+          - 美股收盘
+          - 盘前消息
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: 解析更新批次与站点地址
+        run: |
+          REPO_NAME="${GITHUB_REPOSITORY#*/}"
+          {
+            echo "BASE_PATH=/${REPO_NAME}/"
+            echo "SITE_URL=https://${{ github.repository_owner }}.github.io/${REPO_NAME}"
+          } >> "$GITHUB_ENV"
+          if [ -n "${{ github.event.inputs.batch }}" ]; then
+            BATCH="${{ github.event.inputs.batch }}"
+          else
+            case "${{ github.event.schedule }}" in
+              "30 7 * * 1-5")  BATCH="A股收盘" ;;
+              "30 10 * * 1-5") BATCH="A股盘后" ;;
+              "30 20 * * 2-6") BATCH="美股收盘" ;;
+              "0 1 * * 1-5")   BATCH="盘前消息" ;;
+              *)               BATCH="A股收盘" ;;
+            esac
+          fi
+          echo "FETCH_BATCH=$BATCH" >> "$GITHUB_ENV"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 安装数据依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+
+      - name: 抓取数据（${{ env.FETCH_BATCH }}）
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_API_BASE: ${{ secrets.LLM_API_BASE }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          NEWS_RSS: ${{ vars.NEWS_RSS }}
+        run: |
+          python scripts/fetch_all.py --batch "${{ env.FETCH_BATCH }}" || true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 安装前端依赖
+        run: npm ci
+
+      - name: 配置 GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: 构建静态站
+        run: npm run build
+
+      - name: 上传构建产物
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 发布到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import GlobalSnapshot from '../components/GlobalSnapshot.astro';
+import MarketTable from '../components/MarketTable.astro';
+import { globalSnapshot, ashare } from '../lib/data';
+---
+
+<Base title="全球市场 · 环球复盘站">
+  <div class="mx-auto max-w-6xl px-4 py-8">
+    <PageHeader
+      title="全球市场快照"
+      subtitle="美股 / 中概 / 港股·亚太 / 商品·汇率 四组标的，以及 A股主要指数。数据为上一交易日收盘的延迟数据，定时由脚本刷新。"
+      right={`更新批次：${globalSnapshot.batch}`}
+    />
+
+    <GlobalSnapshot />
+    <div class="mt-6"><MarketTable /></div>
+
+    <section class="panel-pad mt-6">
+      <h2 class="h-sec">口径与说明</h2>
+      <ul class="mt-3 space-y-2 text-[13px] leading-6 text-slate-300">
+        <li>· 美股 / 中概：yfinance 日线，取上一交易日收盘价与涨跌幅。</li>
+        <li>· 港股 / 亚太：yfinance（^HSI / ^N225 / ^KS11 / ^TWII），失败时回退 Stooq。</li>
+        <li>· 商品 / 汇率：黄金、WTI、美元兑人民币、比特币，用于观察风险偏好与流动性环境。</li>
+        <li>· A股：akshare 指数快照与成交额，批次为「A股收盘」。</li>
+        <li>
+          · 当前 A股数据批次：<span class="chip">{ashare.batch}</span>
+          <span class="label ml-2">{ashare.updatedAt}</span>
+        </li>
+        <li>· 所有数据均为延迟数据，仅用于复盘记录，不构成投资建议。</li>
+      </ul>
+    </section>
+  </div>
+</Base>

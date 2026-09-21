@@ -1,0 +1,57 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = '环球复盘站 · 客观股市复盘',
+  description = '客观记录全球市场表现、主线板块、资金面与消息面影响分析。数据为延迟数据，不构成投资建议。',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0b0e14" />
+    <title>{title}</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0e14'/%3E%3Cpath d='M6 22l6-7 5 4 9-11' stroke='%23f2385a' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Nav />
+    <main class="flex-1 w-full">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      // 数据年龄：静态页没有后端，页面上显示的是「抓取时刻」而非当前行情，
+      // 这里在浏览器端实时计算距抓取时间过去了多久，避免把旧数据当新数据看。
+      (() => {
+        const pad = (n: number) => String(n).padStart(2, '0');
+        const ago = (m: number) =>
+          m < 60 ? `${m} 分钟前` : m < 1440 ? `${Math.floor(m / 60)} 小时前` : `${Math.floor(m / 1440)} 天前`;
+        const paint = () => {
+          document.querySelectorAll('[data-freshness]').forEach((el) => {
+            const iso = el.getAttribute('data-freshness');
+            if (!iso) return;
+            const t = new Date(iso).getTime();
+            if (!t) return;
+            const d = new Date(iso);
+            const mins = Math.max(0, Math.round((Date.now() - t) / 60000));
+            const stamp = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+            el.textContent = `${stamp}（${mins < 1 ? '刚刚' : ago(mins)}）`;
+          });
+        };
+        paint();
+        setInterval(paint, 60000);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+---
+import Freshness from './Freshness.astro';
+import { news } from '../lib/data';
+
+interface Props {
+  limit?: number;
+  filterable?: boolean;
+  title?: string;
+}
+const { limit, filterable = false, title = '消息面摘要' } = Astro.props;
+
+const items = limit ? news.items.slice(0, limit) : news.items;
+const sectors = Array.from(new Set(items.map((i) => i.sector).filter(Boolean)));
+const sentiments = ['利好', '利空', '中性'];
+
+const sentimentChip = (s: string) =>
+  s === '利好' ? 'chip-up' : s === '利空' ? 'chip-down' : 'chip-flat';
+
+const uid = 'news-' + Math.random().toString(36).slice(2, 8);
+---
+
+<section class="panel-pad">
+  <div class="flex flex-wrap items-baseline justify-between gap-2">
+    <h2 class="h-sec">{title}</h2>
+    <div class="flex items-center gap-2">
+      <span class="chip">分析引擎：{news.analyzer || '—'}</span>
+      <span class="label">抓取于 <Freshness iso={news.updatedAt} /></span>
+    </div>
+  </div>
+
+  {
+    filterable && (
+      <div class="mt-4 flex flex-wrap items-center gap-2" id={`${uid}-bar`}>
+        <span class="label">板块</span>
+        <button class="chip chip-flat" data-filter="sector" data-value="">全部</button>
+        {sectors.map((s) => (
+          <button class="chip" data-filter="sector" data-value={s}>
+            {s}
+          </button>
+        ))}
+        <span class="ml-3 label">情绪</span>
+        <button class="chip chip-flat" data-filter="sentiment" data-value="">全部</button>
+        {sentiments.map((s) => (
+          <button class:list={['chip', sentimentChip(s)]} data-filter="sentiment" data-value={s}>
+            {s}
+          </button>
+        ))}
+      </div>
+    )
+  }
+
+  <ul class="mt-4 space-y-3" id={`${uid}-list`}>
+    {
+      items.map((n) => (
+        <li
+          class="news-item rounded-xl2 border border-ink-400/60 bg-ink-600/40 p-3"
+          data-sector={n.sector}
+          data-sentiment={n.sentiment}
+        >
+          <div class="flex flex-wrap items-center gap-2">
+            <span class:list={[sentimentChip(n.sentiment)]}>{n.sentiment}</span>
+            <span class="chip">{n.sector}</span>
+            <span class="label">{n.time}</span>
+            <span class="label">· {n.source}</span>
+          </div>
+          <div class="mt-2 text-[15px] font-medium leading-6 text-slate-100">
+            {n.url ? (
+              <a href={n.url} target="_blank" rel="noopener noreferrer" class="hover:text-accent">
+                {n.title}
+              </a>
+            ) : (
+              n.title
+            )}
+          </div>
+          <p class="mt-1.5 text-[13px] leading-6 text-slate-300">
+            <span class="text-muted">影响分析：</span>
+            {n.analysis}
+          </p>
+        </li>
+      ))
+    }
+    {items.length === 0 && <li class="py-6 text-center text-[13px] text-muted">暂无消息数据</li>}
+  </ul>
+
+  <p class="mt-4 text-[12px] leading-5 text-muted">
+    影响分析由规则词典或大模型自动生成，仅做「事件 → 影响板块 / 方向」的事实性归纳，不含买卖点位与涨跌结论。
+  </p>
+</section>
+
+{
+  filterable && (
+    <script define:vars={{ uid }}>
+      (() => {
+        const root = document.getElementById(uid + '-bar');
+        const list = document.getElementById(uid + '-list');
+        if (!root || !list) return;
+        const state = { sector: '', sentiment: '' };
+        const buttons = root.querySelectorAll('button[data-filter]');
+
+        const paint = () => {
+          buttons.forEach((b) => {
+            const k = b.getAttribute('data-filter');
+            const on = state[k] === b.getAttribute('data-value');
+            b.classList.toggle('ring-1', on);
+            b.classList.toggle('ring-accent', on);
+          });
+          list.querySelectorAll('.news-item').forEach((li) => {
+            const okS = !state.sector || li.getAttribute('data-sector') === state.sector;
+            const okT = !state.sentiment || li.getAttribute('data-sentiment') === state.sentiment;
+            li.style.display = okS && okT ? '' : 'none';
+          });
+        };
+
+        buttons.forEach((b) => {
+          b.addEventListener('click', () => {
+            const k = b.getAttribute('data-filter');
+            const v = b.getAttribute('data-value') || '';
+            state[k] = state[k] === v ? '' : v;
+            paint();
+          });
+        });
+
+        paint();
+      })();
+    </script>
+  )
+}

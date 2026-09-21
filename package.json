@@ -1,0 +1,35 @@
+{
+  "name": "global-review-station",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "环球复盘站 — 客观股市复盘静态站（Astro + MDX + Tailwind + Python 数据流水线）",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "fetch": "node scripts/run-fetch.mjs",
+    "dev:fresh": "node scripts/run-fetch.mjs && astro dev",
+    "build:fresh": "node scripts/run-fetch.mjs && astro build",
+    "preview:fresh": "node scripts/run-fetch.mjs && astro build && astro preview",
+    "fetch:global": "node scripts/run-fetch.mjs fetch_global.py",
+    "fetch:ashare": "node scripts/run-fetch.mjs fetch_ashare.py",
+    "fetch:news": "node scripts/run-fetch.mjs fetch_news.py",
+    "bootstrap:py": "node scripts/run-fetch.mjs --ensure-deps",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^5.13.5",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=18.17.1"
+  }
+}

@@ -1,0 +1,75 @@
+---
+import Freshness from './Freshness.astro';
+import { globalSnapshot } from '../lib/data';
+import { fmtNum, fmtPct, fmtSigned, dirClass, dirChip } from '../lib/format';
+
+interface Props {
+  /** 首页只展示美股/中概两组，全球页展示全部 */
+  limitGroups?: number;
+  title?: string;
+}
+const { limitGroups, title = '全球市场快照' } = Astro.props;
+
+const data = globalSnapshot;
+const groups = limitGroups ? data.groups.slice(0, limitGroups) : data.groups;
+---
+
+<section class="panel-pad">
+  <div class="flex flex-wrap items-baseline justify-between gap-2">
+    <h2 class="h-sec">{title}</h2>
+    <div class="flex items-center gap-2">
+      <span class="chip">{data.batch}</span>
+      <span class="label">抓取于 <Freshness iso={data.updatedAt} /></span>
+    </div>
+  </div>
+
+  {
+    (data.stale || groups.length === 0) && (
+      <p class="mt-3 rounded-lg border border-gold/30 bg-gold/10 px-3 py-2 text-[12px] leading-5 text-gold/90">
+        {data.stale && groups.length > 0
+          ? '以下为上一版缓存数据，可能已过期。'
+          : '暂无真实数据。运行 npm run fetch 抓取最新延迟数据（或等待 GitHub Actions 定时更新）。本站不展示任何虚构行情。'}
+      </p>
+    )
+  }
+
+  {
+    groups.length === 0 ? (
+      <p class="py-6 text-center text-[13px] text-muted">暂无全球市场数据</p>
+    ) : (
+      <div class="mt-4 grid gap-4 sm:grid-cols-2">
+        {groups.map((g) => (
+          <div class="rounded-xl2 border border-ink-400/60 bg-ink-600/40 p-3">
+            <div class="mb-2 flex items-center justify-between">
+              <span class="text-[13px] font-semibold text-slate-200">{g.market}</span>
+              {g.currency && <span class="label">{g.currency}</span>}
+            </div>
+            <table class="w-full text-sm">
+              <tbody>
+                {g.items.map((q) => (
+                  <tr class="border-b border-ink-500/60 last:border-0">
+                    <td class="py-2 pr-2">
+                      <div class="text-slate-200">{q.name}</div>
+                      <div class="num text-[11px] text-muted">{q.symbol}</div>
+                    </td>
+                    <td class="num py-2 text-right text-slate-100">{fmtNum(q.price)}</td>
+                    <td class="num py-2 text-right">
+                      <span class:list={['font-medium', dirClass(q.changePct)]}>{fmtSigned(q.change)}</span>
+                    </td>
+                    <td class="py-2 pl-2 text-right">
+                      <span class:list={[dirChip(q.changePct), 'num']}>{fmtPct(q.changePct)}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))}
+      </div>
+    )
+  }
+
+  <p class="mt-4 text-[12px] leading-5 text-muted">
+    口径说明：全球指数为上一交易日收盘（延迟数据）；美股交易日对应北京时间次日凌晨。数据仅用于复盘记录。
+  </p>
+</section>

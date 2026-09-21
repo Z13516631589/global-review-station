@@ -1,0 +1,48 @@
+---
+import Freshness from './Freshness.astro';
+import { u } from '../lib/base';
+import { ashare, news } from '../lib/data';
+---
+
+<footer class="mt-16 border-t border-ink-400/60 bg-ink-900/60">
+  <div class="mx-auto max-w-6xl px-4 py-8 text-[13px] text-muted">
+    <div class="grid gap-6 sm:grid-cols-3">
+      <div>
+        <div class="mb-2 text-sm font-semibold text-slate-200">环球复盘站</div>
+        <p class="leading-6">
+          客观记录市场表现、主线、资金面与消息面影响分析。<br />
+          半自动生产：Python 抓数据填 JSON，复盘观点人工撰写。
+        </p>
+      </div>
+      <div>
+        <div class="mb-2 text-sm font-semibold text-slate-200">数据更新</div>
+        <ul class="space-y-1">
+          <li>A股盘面：{ashare.batch} · <Freshness iso={ashare.updatedAt} /></li>
+          <li>消息面：{news.batch} · <Freshness iso={news.updatedAt} /></li>
+        </ul>
+        <p class="mt-2 text-[12px] leading-5">
+          数据是抓取时刻的快照，不会自动变化：重新打开项目不会刷新，需要跑
+          <code class="text-gold">npm run fetch</code> 或等云端定时任务。
+        </p>
+      </div>
+      <div>
+        <div class="mb-2 text-sm font-semibold text-slate-200">快速链接</div>
+        <ul class="space-y-1">
+          <li><a class="link" href={u('/reviews')}>复盘归档</a></li>
+          <li><a class="link" href={u('/global')}>全球市场快照</a></li>
+          <li><a class="link" href={u('/news')}>消息面聚合</a></li>
+          <li><a class="link" href={u('/about')}>方法论与数据源</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="divider my-6"></div>
+
+    <p class="leading-6">
+      <strong class="text-slate-300">免责声明：</strong>
+      本站点所有行情与新闻均为<strong class="text-slate-300">延迟数据</strong>，来自公开免费数据源，可能存在延迟、缺失或口径差异；
+      消息面影响分析由规则或模型自动生成，仅作事件到板块/方向的<strong class="text-slate-300">事实性归纳</strong>。
+      本站内容<strong class="text-slate-300">不构成任何投资建议</strong>，据此操作风险自负。
+    </p>
+  </div>
+</footer>

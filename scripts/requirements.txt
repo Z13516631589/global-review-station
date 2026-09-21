@@ -1,0 +1,8 @@
+# Python 数据抓取依赖（全部免费、无需付费 key）
+# 安装：pip install -r scripts/requirements.txt
+# 或：npm run bootstrap:py
+
+akshare>=1.12.0
+pandas>=2.0.0
+yfinance>=0.2.40
+requests>=2.31.0

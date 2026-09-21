@@ -1,0 +1,137 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { globalSnapshot, ashare, dragons, news } from '../lib/data';
+import { fmtDateTime } from '../lib/format';
+
+const updates = [
+  { batch: 'A股收盘', time: '北京时间 15:30（周一~周五）', cron: '30 7 * * 1-5', focus: '盘面 / 指数 / 板块 / 消息面' },
+  { batch: 'A股盘后', time: '北京时间 18:30（周一~周五）', cron: '30 10 * * 1-5', focus: '龙虎榜 / 融资余额 / 主力资金（盘后披露）' },
+  { batch: '美股收盘', time: '北京时间 约 04:30 / 05:30（周二~周六）', cron: '30 20 * * 2-6', focus: '全球快照（美股 / 中概 / 港股）' },
+  { batch: '盘前消息（可选）', time: '北京时间 09:00（周一~周五）', cron: '0 1 * * 1-5', focus: '隔夜外盘 + 晨间要闻' },
+];
+---
+
+<Base title="关于 · 环球复盘站">
+  <div class="mx-auto max-w-5xl px-4 py-8">
+    <PageHeader
+      title="关于本站"
+      subtitle="一个零预算、半自动的客观股市复盘站：Python 抓数据填 JSON，复盘观点人工撰写，GitHub Actions 定时重建。"
+    />
+
+    <section class="panel-pad">
+      <h2 class="h-sec">定位与原则</h2>
+      <ul class="mt-3 space-y-2 text-[13px] leading-7 text-slate-300">
+        <li>· <strong class="text-slate-200">客观优先</strong>：只记录可观测事实（涨跌幅、家数、量能、资金流），不做情绪化渲染。</li>
+        <li>· <strong class="text-slate-200">无彩蛋</strong>：不含玄学、投票、暗号等娱乐化内容。</li>
+        <li>· <strong class="text-slate-200">不构成建议</strong>：全站不输出买卖点位与涨跌结论，仅做事后复盘与条件分支记录。</li>
+        <li>· <strong class="text-slate-200">半自动</strong>：数据与消息面自动更新；观点与预案由人工撰写。</li>
+      </ul>
+    </section>
+
+    <section class="panel-pad mt-6">
+      <h2 class="h-sec">技术栈</h2>
+      <div class="mt-3 grid gap-3 sm:grid-cols-2">
+        <div class="rounded-xl2 border border-ink-400/60 bg-ink-600/40 p-3 text-[13px] leading-6 text-slate-300">
+          <strong class="text-slate-200">前端</strong>：Astro（静态站） + MDX（复盘正文） + Tailwind（暗色金融风）
+        </div>
+        <div class="rounded-xl2 border border-ink-400/60 bg-ink-600/40 p-3 text-[13px] leading-6 text-slate-300">
+          <strong class="text-slate-200">数据</strong>：Python + akshare（A股/龙虎榜/资金/新闻） + yfinance / Stooq（全球）
+        </div>
+        <div class="rounded-xl2 border border-ink-400/60 bg-ink-600/40 p-3 text-[13px] leading-6 text-slate-300">
+          <strong class="text-slate-200">部署</strong>：Vercel（默认）或 Cloudflare Pages，静态托管免费
+        </div>
+        <div class="rounded-xl2 border border-ink-400/60 bg-ink-600/40 p-3 text-[13px] leading-6 text-slate-300">
+          <strong class="text-slate-200">自动更新</strong>：GitHub Actions 多时段定时 fetch → build → deploy
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-pad mt-6">
+      <h2 class="h-sec">数据源映射</h2>
+      <div class="mt-3 overflow-x-auto">
+        <table class="w-full min-w-[560px] text-sm">
+          <thead>
+            <tr class="border-b border-ink-400 text-left text-[12px] text-muted">
+              <th class="pb-2 font-medium">需求</th>
+              <th class="pb-2 font-medium">源</th>
+              <th class="pb-2 font-medium">关键接口 / 标的</th>
+            </tr>
+          </thead>
+          <tbody class="text-[13px]">
+            <tr class="border-b border-ink-500/60">
+              <td class="py-2 text-slate-200">美股 / 中概</td><td class="py-2 text-slate-300">yfinance</td>
+              <td class="num py-2 text-muted">^GSPC ^IXIC ^DJI KWEB BABA</td>
+            </tr>
+            <tr class="border-b border-ink-500/60">
+              <td class="py-2 text-slate-200">港股 / 亚太</td><td class="py-2 text-slate-300">yfinance / Stooq</td>
+              <td class="num py-2 text-muted">^HSI ^N225 ^KS11 TWII</td>
+            </tr>
+            <tr class="border-b border-ink-500/60">
+              <td class="py-2 text-slate-200">A股盘面 / 涨跌家数</td><td class="py-2 text-slate-300">akshare</td>
+              <td class="num py-2 text-muted">stock_zh_index_spot 等</td>
+            </tr>
+            <tr class="border-b border-ink-500/60">
+              <td class="py-2 text-slate-200">龙虎榜</td><td class="py-2 text-slate-300">akshare</td>
+              <td class="num py-2 text-muted">stock_lhb_detail_em</td>
+            </tr>
+            <tr class="border-b border-ink-500/60">
+              <td class="py-2 text-slate-200">资金流</td><td class="py-2 text-slate-300">akshare</td>
+              <td class="num py-2 text-muted">stock_individual_fund_flow</td>
+            </tr>
+            <tr>
+              <td class="py-2 text-slate-200">消息面</td><td class="py-2 text-slate-300">akshare 新闻 / 舆情 + RSS</td>
+              <td class="py-2 text-muted">自动打标签 + 影响分析</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel-pad mt-6">
+      <h2 class="h-sec">自动更新时间表（cron 为 UTC）</h2>
+      <div class="mt-3 overflow-x-auto">
+        <table class="w-full min-w-[620px] text-sm">
+          <thead>
+            <tr class="border-b border-ink-400 text-left text-[12px] text-muted">
+              <th class="pb-2 font-medium">批次</th>
+              <th class="pb-2 font-medium">北京时间</th>
+              <th class="pb-2 font-medium">UTC cron</th>
+              <th class="pb-2 font-medium">抓取重点</th>
+            </tr>
+          </thead>
+          <tbody class="text-[13px]">
+            {
+              updates.map((u) => (
+                <tr class="border-b border-ink-500/60 last:border-0">
+                  <td class="py-2 text-slate-200">{u.batch}</td>
+                  <td class="py-2 text-slate-300">{u.time}</td>
+                  <td class="num py-2 text-gold">{u.cron}</td>
+                  <td class="py-2 text-muted">{u.focus}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-3 text-[12px] leading-5 text-muted">
+        美股交易日（ET 周一~周五）对应北京时间周二~周六凌晨，故星期字段为 2-6；20:30 UTC 为夏/冬令时的折中取值。
+        拆成「收盘 + 盘后」两批是因为龙虎榜、融资余额、主力资金流都要收盘后才披露。
+      </p>
+      <p class="mt-2 text-[12px] leading-5 text-muted">
+        注意：cron 只是触发请求，GitHub Actions 实际排队通常有 5~30 分钟延迟，高峰期可能更久；
+        仓库连续 60 天无活动后定时调度会被自动停用。
+      </p>
+    </section>
+
+    <section class="panel-pad mt-6">
+      <h2 class="h-sec">当前数据状态</h2>
+      <ul class="mt-3 space-y-2 text-[13px] text-slate-300">
+        <li>全球快照：{fmtDateTime(globalSnapshot.updatedAt)}（{globalSnapshot.batch}）</li>
+        <li>A股盘面：{fmtDateTime(ashare.updatedAt)}（{ashare.batch}）</li>
+        <li>龙虎榜：{fmtDateTime(dragons.updatedAt)}（{dragons.batch}）</li>
+        <li>消息面：{fmtDateTime(news.updatedAt)}（{news.batch}）· 引擎 {news.analyzer || '—'}</li>
+      </ul>
+    </section>
+  </div>
+</Base>

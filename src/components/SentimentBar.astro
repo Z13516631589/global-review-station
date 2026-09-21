@@ -1,0 +1,59 @@
+---
+import { ashare } from '../lib/data';
+import { sentimentColor } from '../lib/format';
+
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+
+const s = ashare.sentiment;
+const score = Math.max(0, Math.min(100, s.score ?? 50));
+const color = sentimentColor(score);
+const empty = !s.score && (s.label === '无数据' || !ashare.indices.length);
+---
+
+<section class="panel-pad">
+  <div class="flex items-baseline justify-between gap-3">
+    <h2 class="h-sec">情绪分</h2>
+    <span class="label">0 冰点 · 100 过热</span>
+  </div>
+
+  {
+    empty ? (
+      <p class="mt-4 rounded-lg border border-ink-400 bg-ink-600/50 px-3 py-2 text-[12px] leading-5 text-muted">
+        尚无数据。情绪分由脚本根据真实盘面（涨跌家数 / 涨停跌停 / 量能）按可解释规则计算，运行 npm run fetch 后生成。
+      </p>
+    ) : (
+      <>
+        <div class="mt-4 flex items-end gap-4">
+          <div class="num text-4xl font-semibold leading-none" style={`color:${color}`}>
+            {score}
+          </div>
+          <div class="pb-1">
+            <div class="text-sm font-medium text-slate-200">{s.label}</div>
+            {s.desc && <div class="mt-0.5 text-[13px] leading-6 text-muted">{s.desc}</div>}
+          </div>
+        </div>
+
+        <div class="mt-4 h-2 w-full overflow-hidden rounded-full bg-ink-500">
+          <div
+            class="h-full rounded-full transition-all"
+            style={`width:${score}%;background:linear-gradient(90deg,#12b981,#f5c451,#f2385a);background-size:${(100 / Math.max(score, 1)) * 100}% 100%;`}
+          />
+        </div>
+
+        {!compact && s.drivers && s.drivers.length > 0 && (
+          <ul class="mt-4 space-y-1.5">
+            {s.drivers.map((d) => (
+              <li class="flex gap-2 text-[13px] leading-6 text-slate-300">
+                <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                <span>{d}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </>
+    )
+  }
+</section>

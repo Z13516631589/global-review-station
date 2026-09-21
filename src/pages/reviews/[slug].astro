@@ -1,0 +1,117 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import MarketTable from '../../components/MarketTable.astro';
+import SectorBoard from '../../components/SectorBoard.astro';
+import DragonList from '../../components/DragonList.astro';
+import NewsList from '../../components/NewsList.astro';
+import KeyWatch from '../../components/KeyWatch.astro';
+import Scorecard from '../../components/Scorecard.astro';
+import SentimentBar from '../../components/SentimentBar.astro';
+import { u } from '../../lib/base';
+import { fmtDate, weekdayCN } from '../../lib/format';
+
+export async function getStaticPaths() {
+  const reviews = await getCollection('reviews');
+  return reviews.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'reviews'>;
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+---
+
+<Base title={`${d.title} · 环球复盘站`} description={d.summary}>
+  <article class="mx-auto max-w-5xl px-4 py-8">
+    <!-- 1 标题 -->
+    <h1 class="text-2xl font-semibold leading-10 tracking-tight text-slate-100 sm:text-3xl">
+      {d.title}
+    </h1>
+
+    <!-- 2 元信息 -->
+    <div class="mt-3 flex flex-wrap items-center gap-2">
+      <span class="chip">{fmtDate(d.date)} {weekdayCN(d.date)}</span>
+      <span class="chip">{d.batch}</span>
+      <span class="chip">作者：{d.author}</span>
+      {d.dataUpdatedAt && <span class="chip">数据更新：{d.dataUpdatedAt}</span>}
+      {d.sample && <span class="chip border-gold/40 bg-gold/10 text-gold">示例复盘</span>}
+      {d.tags.map((t) => <span class="chip">#{t}</span>)}
+    </div>
+
+    <!-- 3 摘要 -->
+    <section class="panel mt-6 p-5">
+      <div class="label">摘要</div>
+      <p class="mt-2 text-[15px] leading-8 text-slate-200">{d.summary}</p>
+    </section>
+
+    <!-- 复盘正文（人工撰写的客观观点） -->
+    <section class="panel mt-6 p-5 sm:p-7">
+      <div class="prose-review">
+        <Content />
+      </div>
+    </section>
+
+    <!-- 4 市场表现 -->
+    <div class="mt-6"><MarketTable /></div>
+
+    <div class="mt-6 grid gap-6 lg:grid-cols-2">
+      <!-- 5 主线板块 -->
+      <SectorBoard />
+      <!-- 情绪分 -->
+      <SentimentBar />
+    </div>
+
+    <!-- 6 资金面 -->
+    <div class="mt-6"><DragonList /></div>
+
+    <!-- 7 消息面摘要 -->
+    <div class="mt-6"><NewsList limit={6} title="消息面摘要 · 最新 6 条" /></div>
+
+    <!-- 8 明日预案 -->
+    {
+      d.plan.length > 0 && (
+        <section class="panel-pad mt-6">
+          <h2 class="h-sec">明日预案 · 条件分支</h2>
+          <ul class="mt-4 space-y-3">
+            {d.plan.map((p) => (
+              <li class="rounded-xl2 border border-ink-400/60 bg-ink-600/40 p-3">
+                <div class="text-[13px] font-medium text-slate-200">若 {p.condition}</div>
+                <div class="mt-1 text-[13px] leading-6 text-slate-300">则 {p.action}</div>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-4 text-[12px] leading-5 text-muted">
+            预案为客观条件分支记录，用于约束执行、避免临盘随意决策，不构成投资建议。
+          </p>
+        </section>
+      )
+    }
+
+    <!-- 9 标的观察 -->
+    {d.picks.length > 0 && <div class="mt-6"><KeyWatch picks={d.picks} /></div>}
+
+    <!-- 10 历史战绩 -->
+    {d.record && <div class="mt-6"><Scorecard record={d.record} /></div>}
+
+    <!-- 11 免责声明 -->
+    <section class="mt-6 rounded-xl2 border border-ink-400 bg-ink-700/50 p-4">
+      <p class="text-[12px] leading-6 text-muted">
+        <strong class="text-slate-300">免责声明：</strong>
+        本页行情与消息为延迟数据，来自公开免费数据源，可能存在延迟或口径差异；消息面影响分析由规则或模型自动生成。
+        全文仅作复盘记录，<strong class="text-slate-300">不构成投资建议</strong>，据此操作风险自负。
+      </p>
+    </section>
+
+    <div class="mt-8 flex items-center justify-between">
+      <a href={u("/reviews")} class="link text-sm">← 返回复盘归档</a>
+      <a href={u("/")} class="link text-sm">回到首页 →</a>
+    </div>
+  </article>
+</Base>

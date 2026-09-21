@@ -1,0 +1,66 @@
+---
+import { u, isActive } from '../lib/base';
+
+const links = [
+  { href: '/', label: '首页' },
+  { href: '/reviews', label: '复盘归档' },
+  { href: '/global', label: '全球市场' },
+  { href: '/news', label: '消息面' },
+  { href: '/picks', label: '标的·战绩' },
+  { href: '/about', label: '关于' },
+];
+
+const current = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-40 border-b border-ink-400/60 bg-ink-800/85 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3">
+    <a href={u('/')} class="flex items-center gap-2 shrink-0">
+      <span class="grid h-8 w-8 place-items-center rounded-lg bg-upSoft">
+        <svg viewBox="0 0 32 32" class="h-5 w-5" aria-hidden="true">
+          <path
+            d="M6 22l6-7 5 4 9-11"
+            stroke="#f2385a"
+            stroke-width="3"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <span class="text-[15px] font-semibold tracking-tight text-slate-100">环球复盘站</span>
+    </a>
+
+    <nav class="ml-auto hidden items-center gap-1 md:flex">
+      {
+        links.map((l) => (
+          <a
+            href={u(l.href)}
+            class:list={[
+              'rounded-lg px-3 py-1.5 text-sm transition-colors',
+              isActive(current, l.href)
+                ? 'bg-ink-600 text-slate-100'
+                : 'text-muted hover:bg-ink-600/60 hover:text-slate-200',
+            ]}
+          >
+            {l.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <details class="ml-auto md:hidden">
+      <summary class="list-none rounded-lg border border-ink-400 px-3 py-1.5 text-sm text-slate-300">
+        菜单
+      </summary>
+      <div class="absolute right-4 mt-2 w-40 rounded-xl2 border border-ink-400 bg-ink-700 p-2 shadow-panel">
+        {
+          links.map((l) => (
+            <a href={u(l.href)} class="block rounded-lg px-3 py-2 text-sm text-slate-300 hover:bg-ink-600">
+              {l.label}
+            </a>
+          ))
+        }
+      </div>
+    </details>
+  </div>
+</header>

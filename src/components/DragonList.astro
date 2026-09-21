@@ -1,0 +1,99 @@
+---
+import Freshness from './Freshness.astro';
+import { dragons } from '../lib/data';
+import { fmtPct, fmtNum, dirChip, dirClass, wanToYi } from '../lib/format';
+
+interface Props {
+  limit?: number;
+  title?: string;
+}
+const { limit = 10, title = '资金面 · 龙虎榜' } = Astro.props;
+
+const d = dragons;
+const items = d.items.slice(0, limit);
+---
+
+<section class="panel-pad">
+  <div class="flex flex-wrap items-baseline justify-between gap-2">
+    <h2 class="h-sec">{title}</h2>
+    <span class="label">抓取于 <Freshness iso={d.updatedAt} /> · 净买额单位：万元</span>
+  </div>
+
+  <div class="mt-4 overflow-x-auto">
+    <table class="w-full min-w-[620px] text-sm">
+      <thead>
+        <tr class="border-b border-ink-400 text-left text-[12px] text-muted">
+          <th class="pb-2 font-medium">标的</th>
+          <th class="pb-2 text-right font-medium">收盘</th>
+          <th class="pb-2 text-right font-medium">涨跌幅</th>
+          <th class="pb-2 text-right font-medium">净买额(万)</th>
+          <th class="pb-2 text-right font-medium">≈亿元</th>
+          <th class="pb-2 font-medium">上榜原因</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          items.map((r) => (
+            <tr class="border-b border-ink-500/60 last:border-0 hover:bg-ink-600/40">
+              <td class="py-2.5">
+                <div class="text-slate-200">{r.name}</div>
+                <div class="num text-[11px] text-muted">{r.code}</div>
+              </td>
+              <td class:list={['num py-2.5 text-right', dirClass(r.changePct)]}>{fmtNum(r.close)}</td>
+              <td class="py-2.5 text-right">
+                <span class:list={[dirChip(r.changePct), 'num']}>{fmtPct(r.changePct)}</span>
+              </td>
+              <td class:list={['num py-2.5 text-right', dirClass(r.netBuy)]}>{fmtNum(r.netBuy, 0)}</td>
+              <td class:list={['num py-2.5 text-right text-slate-300', dirClass(r.netBuy)]}>
+                {wanToYi(r.netBuy)}
+              </td>
+              <td class="py-2.5 pl-2 text-[12px] leading-5 text-muted">{r.reason || '—'}</td>
+            </tr>
+          ))
+        }
+        {items.length === 0 && (
+          <tr>
+            <td colspan="6" class="py-6 text-center text-[13px] text-muted">
+              暂无龙虎榜数据（非交易日或数据源不可用）
+            </td>
+          </tr>
+        )}
+      </tbody>
+    </table>
+  </div>
+
+  {
+    (d.topInflow?.length || d.topOutflow?.length) && (
+      <div class="mt-5 grid gap-3 sm:grid-cols-2">
+        <div class="rounded-xl2 border border-ink-400/60 bg-ink-600/40 p-3">
+          <div class="mb-2 text-[13px] font-semibold text-up">主力净流入 TOP</div>
+          <ul class="space-y-1.5">
+            {d.topInflow?.map((r) => (
+              <li class="flex items-center justify-between gap-2 text-sm">
+                <span class="text-slate-300">
+                  {r.name}
+                  <span class="num ml-1 text-[11px] text-muted">{r.code}</span>
+                </span>
+                <span class="num text-up">+{fmtNum(r.mainNet)} 亿</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="rounded-xl2 border border-ink-400/60 bg-ink-600/40 p-3">
+          <div class="mb-2 text-[13px] font-semibold text-down">主力净流出 TOP</div>
+          <ul class="space-y-1.5">
+            {d.topOutflow?.map((r) => (
+              <li class="flex items-center justify-between gap-2 text-sm">
+                <span class="text-slate-300">
+                  {r.name}
+                  <span class="num ml-1 text-[11px] text-muted">{r.code}</span>
+                </span>
+                <span class="num text-down">{fmtNum(r.mainNet)} 亿</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    )
+  }
+</section>

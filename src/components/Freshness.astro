@@ -1,0 +1,14 @@
+---
+interface Props {
+  iso: string;
+}
+const { iso } = Astro.props;
+---
+
+{
+  iso ? (
+    <span class="num" data-freshness={iso} title={`数据抓取时间：${iso}`}>{iso.slice(0, 16).replace('T', ' ')}</span>
+  ) : (
+    <span class="text-gold/90">未抓取</span>
+  )
+}

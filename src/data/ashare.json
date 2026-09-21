@@ -1,0 +1,176 @@
+{
+  "updatedAt": "2026-09-22T01:07:15+08:00",
+  "batch": "A股收盘",
+  "source": "akshare",
+  "stale": false,
+  "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
+  "indices": [
+    {
+      "code": "000001",
+      "name": "上证指数",
+      "close": 3949.91,
+      "change": 38.03,
+      "changePct": 0.97,
+      "amount": 9468.19,
+      "amplitude": 0.84
+    },
+    {
+      "code": "399001",
+      "name": "深证成指",
+      "close": 13730.02,
+      "change": 89.15,
+      "changePct": 0.65,
+      "amount": 10846.94,
+      "amplitude": 0.99
+    },
+    {
+      "code": "399006",
+      "name": "创业板指",
+      "close": 3399.59,
+      "change": 26.91,
+      "changePct": 0.8,
+      "amount": 5222.22,
+      "amplitude": 1.64
+    },
+    {
+      "code": "000300",
+      "name": "沪深300",
+      "close": 4539.57,
+      "change": 32.17,
+      "changePct": 0.71,
+      "amount": 4954.36,
+      "amplitude": 0.63
+    },
+    {
+      "code": "000688",
+      "name": "科创50",
+      "close": 1657.48,
+      "change": 4.85,
+      "changePct": 0.29,
+      "amount": 892.51,
+      "amplitude": 2.14
+    }
+  ],
+  "breadth": {
+    "up": 4216,
+    "down": 914,
+    "flat": 79,
+    "limitUp": 104,
+    "limitDown": 3,
+    "total": 5209
+  },
+  "volume": {
+    "amount": 20315.13,
+    "prevAmount": 20315.13,
+    "changePct": 0.0
+  },
+  "margin": {
+    "balance": 13450.09,
+    "change": 22.45
+  },
+  "sentiment": {
+    "score": 83,
+    "label": "过热",
+    "desc": "",
+    "drivers": [
+      "涨跌家数 4216 / 914，上涨占比 82.2%",
+      "涨停 104 家、跌停 3 家",
+      "两市成交 20315 亿，环比 +0.00%"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "陶瓷行业",
+      "changePct": 5.78,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sh603268"
+      ]
+    },
+    {
+      "name": "化纤行业",
+      "changePct": 3.96,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sz002172"
+      ]
+    },
+    {
+      "name": "医疗器械",
+      "changePct": 3.51,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sz002614"
+      ]
+    },
+    {
+      "name": "船舶制造",
+      "changePct": 3.43,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sh600685"
+      ]
+    },
+    {
+      "name": "酒店旅游",
+      "changePct": 3.2,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sh600593"
+      ]
+    },
+    {
+      "name": "生物制药",
+      "changePct": 3.13,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sz300110"
+      ]
+    },
+    {
+      "name": "次新股",
+      "changePct": -1.12,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh688806"
+      ]
+    },
+    {
+      "name": "家电行业",
+      "changePct": -0.6,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sz002290"
+      ]
+    },
+    {
+      "name": "公路桥梁",
+      "changePct": -0.51,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sz000548"
+      ]
+    }
+  ],
+  "fundFlow": {
+    "main": {
+      "net": 0,
+      "unit": "亿元",
+      "note": "东财主力资金接口当日不可用时留空"
+    },
+    "north": {
+      "net": 0,
+      "unit": "亿元",
+      "note": "北向实时数据已停止披露，改由沪深港通月度/季度口径替代"
+    }
+  }
+}

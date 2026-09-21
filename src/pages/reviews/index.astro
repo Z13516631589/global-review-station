@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { u } from '../../lib/base';
+import { fmtDate, weekdayCN } from '../../lib/format';
+
+const reviews = (await getCollection('reviews')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const byMonth = reviews.reduce<Record<string, typeof reviews>>((acc, r) => {
+  const key = `${r.data.date.getFullYear()}-${String(r.data.date.getMonth() + 1).padStart(2, '0')}`;
+  (acc[key] ||= []).push(r);
+  return acc;
+}, {});
+const months = Object.keys(byMonth).sort((a, b) => (a < b ? 1 : -1));
+---
+
+<Base title="复盘归档 · 环球复盘站">
+  <div class="mx-auto max-w-5xl px-4 py-8">
+    <PageHeader
+      title="复盘归档"
+      subtitle="每个交易日一篇，按 11 个模块结构化记录：市场表现 / 主线 / 资金面 / 消息面 / 预案 / 标的 / 战绩。"
+      right={`共 ${reviews.length} 篇`}
+    />
+
+    {
+      reviews.length === 0 && (
+        <section class="panel-pad">
+          <p class="text-[14px] leading-7 text-slate-300">
+            暂无复盘。新建 <code class="text-gold">src/content/reviews/YYYY-MM-DD.mdx</code> 即可。
+          </p>
+        </section>
+      )
+    }
+
+    {
+      months.map((m) => (
+        <section class="mb-8">
+          <h2 class="mb-3 text-sm font-semibold text-slate-300">
+            {m.replace('-', ' 年 ')} 月
+          </h2>
+          <ul class="space-y-3">
+            {byMonth[m].map((r) => (
+              <li>
+                <a href={u(`/reviews/${r.id}`)} class="panel block p-4 hover:border-accent/60">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="label">
+                      {fmtDate(r.data.date)} {weekdayCN(r.data.date)}
+                    </span>
+                    <span class="chip">{r.data.batch}</span>
+                    {r.data.sample && <span class="chip border-gold/40 bg-gold/10 text-gold">示例</span>}
+                  </div>
+                  <div class="mt-2 text-[15px] font-medium leading-7 text-slate-100">{r.data.title}</div>
+                  <p class="mt-1.5 text-[13px] leading-6 text-muted">{r.data.summary}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</Base>

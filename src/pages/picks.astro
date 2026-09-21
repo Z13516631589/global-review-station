@@ -1,0 +1,95 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import KeyWatch from '../components/KeyWatch.astro';
+import Scorecard from '../components/Scorecard.astro';
+import { u } from '../lib/base';
+import { fmtDate } from '../lib/format';
+
+const reviews = (await getCollection('reviews')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+type Row = {
+  code: string;
+  name: string;
+  buy: string;
+  stop: string;
+  position: string;
+  logic: string;
+  status: string;
+  date: string;
+  slug: string;
+};
+
+const rows: Row[] = reviews.flatMap((r) =>
+  (r.data.picks ?? []).map((p) => ({
+    code: p.code,
+    name: p.name,
+    buy: p.buy ?? '—',
+    stop: p.stop ?? '—',
+    position: p.position ?? '—',
+    logic: p.logic ?? '',
+    status: p.status ?? '观察中',
+    date: fmtDate(r.data.date),
+    slug: r.id,
+  })),
+);
+
+// 汇总战绩：取所有复盘里声明的 record 之和（按样本数加权平均收益）
+let total = 0;
+let win = 0;
+let loss = 0;
+let weighted = 0;
+for (const r of reviews) {
+  const rec = r.data.record;
+  if (!rec || !rec.total) continue;
+  total += rec.total;
+  win += rec.win;
+  loss += rec.loss;
+  weighted += rec.avgReturn * rec.total;
+}
+const avgReturn = total > 0 ? weighted / total : 0;
+---
+
+<Base title="标的观察 · 战绩 · 环球复盘站">
+  <div class="mx-auto max-w-6xl px-4 py-8">
+    <PageHeader
+      title="标的观察 · 历史战绩"
+      subtitle="汇总各期复盘中记录的客观挂单条件与跟踪状态，用于事后检验执行一致性。所有内容均为复盘记录，不含任何买卖建议。"
+      right={`${rows.length} 条观察记录`}
+    />
+
+    <Scorecard
+      record={{ total, win, loss, avgReturn, note: '汇总口径：各期复盘声明的战绩按样本数加权平均。' }}
+      title="历史战绩 · 全站汇总"
+    />
+
+    <div class="mt-6 space-y-6">
+      {
+        reviews
+          .filter((r) => (r.data.picks ?? []).length > 0)
+          .map((r) => (
+            <div>
+              <div class="mb-2 flex items-center gap-2">
+                <a href={u(`/reviews/${r.id}`)} class="link text-sm font-medium">
+                  {fmtDate(r.data.date)} · {r.data.title}
+                </a>
+              </div>
+              <KeyWatch picks={r.data.picks} title={`标的观察 · ${fmtDate(r.data.date)}`} />
+            </div>
+          ))
+      }
+      {
+        rows.length === 0 && (
+          <section class="panel-pad">
+            <p class="text-[14px] leading-7 text-slate-300">
+              暂无观察记录。在复盘的 frontmatter 中填写 <code class="text-gold">picks</code> 即可出现在这里。
+            </p>
+          </section>
+        )
+      }
+    </div>
+  </div>
+</Base>

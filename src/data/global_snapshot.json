@@ -1,0 +1,53 @@
+{
+  "updatedAt": "2026-09-22T01:01:11+08:00",
+  "batch": "A股收盘",
+  "source": "sina",
+  "stale": false,
+  "note": "上一交易日收盘的延迟数据，用于复盘记录。",
+  "groups": [
+    {
+      "market": "美股",
+      "currency": "USD",
+      "items": [
+        {
+          "symbol": "^GSPC",
+          "name": "标普500",
+          "price": 7650.5,
+          "change": 12.7402,
+          "changePct": 0.17,
+          "asOf": "2026-09-18"
+        },
+        {
+          "symbol": "^IXIC",
+          "name": "纳斯达克",
+          "price": 26522.5449,
+          "change": 104.2461,
+          "changePct": 0.39,
+          "asOf": "2026-09-18"
+        },
+        {
+          "symbol": "^DJI",
+          "name": "道琼斯",
+          "price": 51682.6406,
+          "change": -95.3985,
+          "changePct": -0.18,
+          "asOf": "2026-09-18"
+        }
+      ]
+    },
+    {
+      "market": "港股 / 亚太",
+      "currency": "HKD / 本币",
+      "items": [
+        {
+          "symbol": "^HSI",
+          "name": "恒生指数",
+          "price": 25042.711,
+          "change": 291.93,
+          "changePct": 1.18,
+          "asOf": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import NewsList from '../components/NewsList.astro';
+import { news } from '../lib/data';
+---
+
+<Base title="消息面 · 环球复盘站">
+  <div class="mx-auto max-w-5xl px-4 py-8">
+    <PageHeader
+      title="消息面聚合"
+      subtitle="抓取公开财经新闻与 RSS，自动打标签（影响板块 / 情绪）并生成一句话影响分析。支持按板块与情绪筛选。"
+      right={`共 ${news.items.length} 条`}
+    />
+
+    <NewsList filterable={true} title="全部消息（可筛选）" />
+
+    <section class="panel-pad mt-6">
+      <h2 class="h-sec">自动分析是怎么做的</h2>
+      <ol class="mt-3 space-y-2 text-[13px] leading-6 text-slate-300">
+        <li>1. 抓取：akshare 新闻/舆情接口 + 可选财经 RSS，得到标题、来源、时间、链接。</li>
+        <li>2. 去重：按标题指纹去重，避免同一事件刷屏。</li>
+        <li>
+          3. 分析：<strong class="text-slate-200">优先调用大模型</strong>（兼容 OpenAI 的免费额度接口，如 Gemini /
+          DeepSeek / 通义），输出 <code class="text-gold">sentiment</code> /
+          <code class="text-gold">sector</code> / <code class="text-gold">analysis</code>。
+        </li>
+        <li>4. 兜底：模型不可用时自动回退规则词典（关键词加权 → 板块映射 → 模板句），保证永不缺分析。</li>
+        <li>
+          5. 约束：prompt 限定为「事件 → 影响板块 / 方向」的事实性归纳，<strong class="text-slate-200">不输出买卖点位、不臆测涨跌结论</strong>。
+        </li>
+      </ol>
+      <p class="mt-3 text-[12px] leading-5 text-muted">
+        当前分析引擎：<span class="chip">{news.analyzer || '—'}</span>
+      </p>
+    </section>
+  </div>
+</Base>
