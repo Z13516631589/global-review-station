@@ -20,7 +20,7 @@ HERE = Path(__file__).resolve().parent
 SCRIPTS: list[tuple[str, int]] = [
     ("fetch_news.py", 120),
     ("fetch_ashare.py", 300),
-    ("fetch_global.py", 420),
+    ("fetch_global.py", 300),
 ]
 
 

@@ -14,10 +14,12 @@
 
 from __future__ import annotations
 
+import os
 import sys
 
 from common import (
     batch_from_args,
+    call_with_deadline,
     merge_with_previous,
     now_iso,
     optional_import,
@@ -162,7 +164,7 @@ def fetch_sina_us(ak, symbol: str):
     def _call():
         return ak.index_us_stock_sina(symbol=code)
 
-    df = retry_call(_call, times=3, delay=1.0, label=f"sina_us {code}")
+    df = retry_call(_call, times=2, delay=1.0, label=f"sina_us {code}")
     if df is None or len(df) < 2:
         GUARD.fail("sina_us", f"{code} 无数据")
         return None
@@ -185,7 +187,7 @@ def fetch_sina_hk(ak, symbol: str, name: str):
     def _call():
         return ak.stock_hk_index_spot_sina()
 
-    df = retry_call(_call, times=3, delay=1.0, label="sina_hk")
+    df = retry_call(_call, times=2, delay=1.0, label="sina_hk")
     if df is None or len(df) == 0:
         GUARD.fail("sina_hk", "无数据")
         return None
@@ -219,7 +221,15 @@ class EastmoneyCache:
     def _load(self, key: str, fn):
         if key in self._loaded or self.ak is None:
             return self._caches.get(key)
-        self._caches[key] = retry_call(fn, times=2, delay=1.0, label=f"em {key}")
+        # index_global_spot_em 这类接口内部会串行请求上百个标的，单次调用可能要七八分钟，
+        # socket 超时拦不住（每一小步都在超时内，只是步数多）。这里给它一个总预算，
+        # 超了就放弃、换下一条数据源。
+        deadline = float(os.getenv("EM_DEADLINE", "45"))
+        self._caches[key] = call_with_deadline(
+            lambda: retry_call(fn, times=2, delay=1.0, label=f"em {key}"),
+            deadline,
+            label=f"em {key}",
+        )
         self._loaded.add(key)
         return self._caches.get(key)
 

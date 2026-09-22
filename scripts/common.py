@@ -147,6 +147,38 @@ def retry_call(fn, *args, times: int = 4, delay: float = 1.0, label: str = "", *
     return None
 
 
+def call_with_deadline(fn, seconds: float, label: str = ""):
+    """
+    给「单个阻塞调用」加截止时间。
+
+    有些 akshare 接口（典型是 index_global_spot_em）内部会串行请求上百个标的，
+    一次调用就要七八分钟，而且中途无法打断 —— 即使 socket 层设了超时也没用，
+    因为每一小步都在超时之内，只是步数太多。
+
+    这里把它丢进守护线程：等 seconds 秒，回来了就用结果；没回来就放弃，
+    由调用方换下一条数据源。守护线程不会阻塞进程退出。
+    """
+    import threading
+
+    box: dict = {}
+
+    def target() -> None:
+        try:
+            box["value"] = fn()
+        except Exception as exc:  # noqa: BLE001
+            box["error"] = str(exc)[:120]
+
+    t = threading.Thread(target=target, daemon=True)
+    t.start()
+    t.join(seconds)
+    if t.is_alive():
+        log.warning("%s 超过 %ss 未返回，放弃该数据源", label or "调用", seconds)
+        return None
+    if "error" in box:
+        log.debug("%s 失败：%s", label, box["error"])
+    return box.get("value")
+
+
 def to_float(v, default=None):
     try:
         if v is None or v == "" or v == "-":
