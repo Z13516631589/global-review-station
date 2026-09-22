@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-22T23:29:55+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-09-23T07:02:05+08:00",
+  "batch": "美股收盘",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
@@ -61,21 +61,21 @@
   },
   "volume": {
     "amount": 21355.51,
-    "prevAmount": 20315.13,
-    "changePct": 5.12
+    "prevAmount": 21355.51,
+    "changePct": 0.0
   },
   "margin": {
-    "balance": 13450.09,
-    "change": 22.45
+    "balance": 13427.64,
+    "change": 111.21
   },
   "sentiment": {
-    "score": 52,
+    "score": 49,
     "label": "中性",
     "desc": "",
     "drivers": [
       "涨跌家数 2283 / 2783，上涨占比 45.1%",
       "涨停 64 家、跌停 5 家",
-      "两市成交 21356 亿，环比 +5.12%"
+      "两市成交 21356 亿，环比 +0.00%"
     ]
   },
   "sectors": [
