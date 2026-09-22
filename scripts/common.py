@@ -22,6 +22,42 @@ CN_TZ = timezone(timedelta(hours=8))
 log = logging.getLogger("fetch.common")
 
 
+def _install_http_timeout(seconds: float) -> None:
+    """
+    给所有 HTTP 请求加兜底超时。
+
+    akshare 的很多接口调用 requests 时并不传 timeout，一旦数据源握手之后不响应，
+    进程就会一直挂着 —— CI 里表现为「抓取数据」步骤卡十几分钟，整条流水线停摆，
+    站点内容自然一整天不变。
+
+    这里同时兜两条路：
+      1. socket.setdefaulttimeout：pandas.read_csv / urllib 这类直连调用
+      2. 给 requests.Session.request 注入默认 timeout：requests 系调用
+    """
+    import socket
+
+    socket.setdefaulttimeout(seconds)
+    try:
+        import requests
+
+        original = requests.Session.request
+        if getattr(original, "_grs_timeout_patched", False):
+            return
+
+        def patched(self, *args, **kwargs):  # noqa: ANN001, ANN002
+            kwargs.setdefault("timeout", seconds)
+            return original(self, *args, **kwargs)
+
+        patched._grs_timeout_patched = True  # type: ignore[attr-defined]
+        requests.Session.request = patched
+    except Exception:  # noqa: BLE001
+        # requests 没装就无所谓，socket 层已经兜住了
+        pass
+
+
+_install_http_timeout(float(os.getenv("HTTP_TIMEOUT", "25")))
+
+
 def setup_logging(name: str) -> logging.Logger:
     logging.basicConfig(
         level=os.getenv("LOG_LEVEL", "INFO"),
