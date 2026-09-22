@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-22T01:01:11+08:00",
+  "updatedAt": "2026-09-22T23:30:42+08:00",
   "batch": "A股收盘",
-  "source": "sina",
+  "source": "eastmoney+sina",
   "stale": false,
   "note": "上一交易日收盘的延迟数据，用于复盘记录。",
   "groups": [
@@ -12,26 +12,26 @@
         {
           "symbol": "^GSPC",
           "name": "标普500",
-          "price": 7650.5,
-          "change": 12.7402,
-          "changePct": 0.17,
-          "asOf": "2026-09-18"
+          "price": 7764.7002,
+          "change": 114.2002,
+          "changePct": 1.49,
+          "asOf": "2026-09-21"
         },
         {
           "symbol": "^IXIC",
           "name": "纳斯达克",
-          "price": 26522.5449,
-          "change": 104.2461,
-          "changePct": 0.39,
-          "asOf": "2026-09-18"
+          "price": 27122.0938,
+          "change": 599.5489,
+          "changePct": 2.26,
+          "asOf": "2026-09-21"
         },
         {
           "symbol": "^DJI",
           "name": "道琼斯",
-          "price": 51682.6406,
-          "change": -95.3985,
-          "changePct": -0.18,
-          "asOf": "2026-09-18"
+          "price": 52048.8281,
+          "change": 366.1875,
+          "changePct": 0.71,
+          "asOf": "2026-09-21"
         }
       ]
     },
@@ -42,9 +42,25 @@
         {
           "symbol": "^HSI",
           "name": "恒生指数",
-          "price": 25042.711,
-          "change": 291.93,
-          "changePct": 1.18,
+          "price": 25087.75,
+          "change": 45.039,
+          "changePct": 0.18,
+          "asOf": ""
+        },
+        {
+          "symbol": "^N225",
+          "name": "日经225",
+          "price": 65018.95,
+          "change": 882.7,
+          "changePct": 1.38,
+          "asOf": ""
+        },
+        {
+          "symbol": "^TWII",
+          "name": "台湾加权",
+          "price": 47800.17,
+          "change": 81.33,
+          "changePct": 0.17,
           "asOf": ""
         }
       ]
