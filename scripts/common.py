@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import logging
+import math
 import os
 import sys
 import tempfile
@@ -87,13 +88,29 @@ def read_json(filename: str) -> dict:
         return {}
 
 
+def _sanitize(obj):
+    """递归把 NaN / Infinity / -Infinity 等非标准 JSON 值转成 null。
+
+    Python 的 json 默认 allow_nan=True，会把 float('nan') 写成 NaN，
+    而 Vite/esbuild 的 JSON 解析器拒绝 NaN，会导致静态构建直接失败、
+    整个站点无法更新。统一降为 null 最安全（前端本来就对缺失值做了兜底）。
+    """
+    if isinstance(obj, dict):
+        return {k: _sanitize(v) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [_sanitize(v) for v in obj]
+    if isinstance(obj, float) and not math.isfinite(obj):
+        return None
+    return obj
+
+
 def write_json(filename: str, payload: dict) -> Path:
-    """原子写入：先写临时文件再替换，避免构建过程中读到半截 JSON。"""
+    """原子写入：先写临时文件再替换，并清洗 NaN/Infinity，避免构建读到非标准 JSON。"""
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     path = DATA_DIR / filename
     tmp_fd, tmp_name = tempfile.mkstemp(dir=str(DATA_DIR), suffix=".tmp")
     with os.fdopen(tmp_fd, "w", encoding="utf-8") as f:
-        json.dump(payload, f, ensure_ascii=False, indent=2)
+        json.dump(_sanitize(payload), f, ensure_ascii=False, indent=2, allow_nan=False)
         f.write("\n")
     os.replace(tmp_name, path)
     return path
@@ -183,7 +200,12 @@ def to_float(v, default=None):
     try:
         if v is None or v == "" or v == "-":
             return default
-        return float(v)
+        f = float(v)
+        # numpy.nan / inf 经 float() 不会抛异常，但写进 JSON 会变成非标准的 NaN/Infinity，
+        # Vite/esbuild 解析时会直接让构建崩溃。这里一并拦掉。
+        if not math.isfinite(f):
+            return default
+        return f
     except Exception:
         return default
 
