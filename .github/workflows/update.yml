@@ -35,7 +35,7 @@ on:
           - 美股收盘
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -98,17 +98,31 @@ jobs:
           echo "批次：$FETCH_BATCH"
           timeout 900 python scripts/fetch_all.py --batch "$FETCH_BATCH" || echo "抓取超时或失败，沿用上一版数据"
 
-      - name: 打印数据时间戳（便于排查"内容没变"）
+      - name: 打印数据时间戳 + 新鲜度自检（便于排查"内容没变"）
         run: |
           python - <<'PY'
-          import json, pathlib
+          import json, pathlib, datetime
+          now = datetime.datetime.now(datetime.timezone.utc)
           for p in sorted(pathlib.Path('src/data').glob('*.json')):
               try:
                   d = json.loads(p.read_text(encoding='utf-8'))
               except Exception as e:
                   print(p.name, 'parse failed', e)
                   continue
-              print(f"{p.name}: updatedAt={d.get('updatedAt')} batch={d.get('batch')} stale={d.get('stale')}")
+              ua = d.get('updatedAt')
+              age = ''
+              if ua:
+                  try:
+                      ts = datetime.datetime.fromisoformat(ua)
+                      if ts.tzinfo is None:
+                          ts = ts.replace(tzinfo=datetime.timezone.utc)
+                      hours = (now - ts).total_seconds() / 3600
+                      age = f" (约 {hours:.1f} 小时前)"
+                      if hours > 6:
+                          print(f"  ⚠️ {p.name} 距上次更新已超过 6 小时，抓取可能长期失败")
+                  except Exception:
+                      pass
+              print(f"{p.name}: updatedAt={ua} batch={d.get('batch')} stale={d.get('stale')}{age}")
           PY
 
       - name: Setup Node
@@ -130,6 +144,27 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+
+      - name: 抓取结果回写仓库（兜底，避免失败时退回旧数据）
+        # 仅在定时 / 手动触发时回写；push 触发的不回写（否则每次改代码都多一次提交）。
+        # 提交信息带 [skip ci]，避免回写本身又触发一次 workflow 造成死循环。
+        if: github.event_name != 'push'
+        env:
+          # 用 GitHub 机器人身份提交，并明确标注「自动生成」
+          GIT_AUTHOR_NAME: '数据脚本（自动生成）'
+          GIT_AUTHOR_EMAIL: '41898282+github-actions[bot]@users.noreply.github.com'
+          GIT_COMMITTER_NAME: '数据脚本（自动生成）'
+          GIT_COMMITTER_EMAIL: '41898282+github-actions[bot]@users.noreply.github.com'
+        run: |
+          git config user.name "数据脚本（自动生成）"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data
+          if git diff --cached --quiet; then
+            echo "数据无变化，跳过回写"
+          else
+            git commit -m "data: 自动更新数据快照 [$FETCH_BATCH] [skip ci]"
+            git push origin "HEAD:${GITHUB_REF_NAME}" || echo "回写失败（不影响本次部署）"
+          fi
 
   deploy:
     needs: build
