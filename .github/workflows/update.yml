@@ -4,26 +4,35 @@ on:
   push:
     branches: [main]
   schedule:
-    # A股收盘：北京时间 15:30（周一~周五）——盘面 / 指数 / 板块
-    - cron: '30 7 * * 1-5'
-    # A股盘后披露：北京时间 18:30（周一~周五）——龙虎榜 / 融资余额 / 主力资金
-    - cron: '30 10 * * 1-5'
-    # 美股收盘：20:30 UTC ≈ 北京时间 04:30/05:30（周二~周六）
-    - cron: '30 20 * * 2-6'
-    # 盘前消息（可选）：北京时间 09:00（周一~周五）
-    - cron: '0 1 * * 1-5'
+    # 说明：GitHub 在整点/半点负载最高，排队任务可能被丢弃，
+    # 所以刻意避开 :00 和 :30，统一用 :13 / :43 / :33 / :23 这类冷门分钟。
+    # ---- 周一~周五：A股交易日 ----
+    # 盘前消息：北京 09:13
+    - cron: '13 1 * * 1-5'
+    # 盘中刷新：北京 09:43 ~ 15:13，每 30 分钟一次
+    - cron: '43 1-6 * * 1-5'
+    - cron: '13 2-7 * * 1-5'
+    # A股收盘：北京 15:33
+    - cron: '33 7 * * 1-5'
+    # A股盘后（龙虎榜 / 融资余额）：北京 18:33
+    - cron: '33 10 * * 1-5'
+    # 美股收盘：北京 04:23（周二~周六凌晨）
+    - cron: '23 20 * * 2-6'
+    # ---- 周末：轻量刷新全球快照与消息面 ----
+    - cron: '13 5 * * 0,6'
   workflow_dispatch:
     inputs:
       batch:
         description: '更新批次'
         required: false
-        default: 'A股收盘'
+        default: '盘中刷新'
         type: choice
         options:
+          - 盘中刷新
+          - 盘前消息
           - A股收盘
           - A股盘后
           - 美股收盘
-          - 盘前消息
 
 permissions:
   contents: read
@@ -52,11 +61,12 @@ jobs:
             BATCH="${{ github.event.inputs.batch }}"
           else
             case "${{ github.event.schedule }}" in
-              "30 7 * * 1-5")  BATCH="A股收盘" ;;
-              "30 10 * * 1-5") BATCH="A股盘后" ;;
-              "30 20 * * 2-6") BATCH="美股收盘" ;;
-              "0 1 * * 1-5")   BATCH="盘前消息" ;;
-              *)               BATCH="A股收盘" ;;
+              "13 1 * * 1-5")    BATCH="盘前消息" ;;
+              "33 7 * * 1-5")    BATCH="A股收盘" ;;
+              "33 10 * * 1-5")   BATCH="A股盘后" ;;
+              "23 20 * * 2-6")   BATCH="美股收盘" ;;
+              "13 5 * * 0,6")    BATCH="周末刷新" ;;
+              *)                 BATCH="盘中刷新" ;;
             esac
           fi
           echo "FETCH_BATCH=$BATCH" >> "$GITHUB_ENV"
@@ -72,14 +82,28 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r scripts/requirements.txt
 
-      - name: 抓取数据（${{ env.FETCH_BATCH }}）
+      - name: 抓取数据
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_API_BASE: ${{ secrets.LLM_API_BASE }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
           NEWS_RSS: ${{ vars.NEWS_RSS }}
         run: |
-          python scripts/fetch_all.py --batch "${{ env.FETCH_BATCH }}" || true
+          echo "批次：$FETCH_BATCH"
+          python scripts/fetch_all.py --batch "$FETCH_BATCH" || true
+
+      - name: 打印数据时间戳（便于排查"内容没变"）
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          for p in sorted(pathlib.Path('src/data').glob('*.json')):
+              try:
+                  d = json.loads(p.read_text(encoding='utf-8'))
+              except Exception as e:
+                  print(p.name, 'parse failed', e)
+                  continue
+              print(f"{p.name}: updatedAt={d.get('updatedAt')} batch={d.get('batch')} stale={d.get('stale')}")
+          PY
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -92,8 +116,6 @@ jobs:
 
       - name: 配置 GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: 构建静态站
         run: npm run build
