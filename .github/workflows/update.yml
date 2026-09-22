@@ -83,8 +83,10 @@ jobs:
           pip install -r scripts/requirements.txt
 
       - name: 抓取数据
-        # 硬超时 8 分钟：宁可带着上一版数据继续发布，也不能让流水线无限挂着
-        timeout-minutes: 9
+        # 硬超时 16 分钟：宁可带着上一版数据继续发布，也不能让流水线无限挂着。
+        # 每个子脚本还有各自的软限时（新闻 120s / A股 300s / 全球 420s），
+        # 保证慢的那只不会把其它几只的时间全吃掉。
+        timeout-minutes: 16
         continue-on-error: true
         env:
           HTTP_TIMEOUT: '25'
@@ -94,7 +96,7 @@ jobs:
           NEWS_RSS: ${{ vars.NEWS_RSS }}
         run: |
           echo "批次：$FETCH_BATCH"
-          timeout 480 python scripts/fetch_all.py --batch "$FETCH_BATCH" || echo "抓取超时或失败，沿用上一版数据"
+          timeout 900 python scripts/fetch_all.py --batch "$FETCH_BATCH" || echo "抓取超时或失败，沿用上一版数据"
 
       - name: 打印数据时间戳（便于排查"内容没变"）
         run: |
