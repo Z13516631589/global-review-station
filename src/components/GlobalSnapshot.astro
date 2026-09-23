@@ -4,7 +4,7 @@ import { globalSnapshot } from '../lib/data';
 import { fmtNum, fmtPct, fmtSigned, dirClass, dirChip } from '../lib/format';
 
 interface Props {
-  /** 首页只展示美股/中概两组，全球页展示全部 */
+  /** 首页只展示前几组，全球页展示全部 */
   limitGroups?: number;
   title?: string;
 }
@@ -37,34 +37,43 @@ const groups = limitGroups ? data.groups.slice(0, limitGroups) : data.groups;
     groups.length === 0 ? (
       <p class="py-6 text-center text-[13px] text-muted">暂无全球市场数据</p>
     ) : (
-      <div class={`mt-4 grid gap-4 ${limitGroups === 3 ? 'sm:grid-cols-2 md:grid-cols-3' : 'sm:grid-cols-2'}`}>
+      <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {groups.map((g) => (
-          <div class="rounded-xl2 border border-ink-400/60 bg-ink-600/40 p-3">
-            <div class="mb-2 flex items-center justify-between">
+          <div class="panel flex flex-col">
+            <div class="mb-2 flex items-center justify-between border-b border-ink-400/40 pb-2">
               <span class="text-[13px] font-semibold text-slate-200">{g.market}</span>
               {g.currency && <span class="label">{g.currency}</span>}
             </div>
-            <table class="w-full text-sm">
-              <tbody>
-                {g.items.map((q) => (
-                  <tr class="border-b border-ink-500/60 last:border-0">
-                    <td class="py-2 pr-2">
-                      <div class="text-slate-200">{q.name}</div>
-                      <div class="num text-[11px] text-muted">
-                        {q.symbol}{q.asOf ? ` · 截至 ${q.asOf.slice(5)}` : ''}
-                      </div>
-                    </td>
-                    <td class="num py-2 text-right text-slate-100">{fmtNum(q.price)}</td>
-                    <td class="num py-2 text-right">
-                      <span class:list={['font-medium', dirClass(q.changePct)]}>{fmtSigned(q.change)}</span>
-                    </td>
-                    <td class="py-2 pl-2 text-right">
-                      <span class:list={[dirChip(q.changePct), 'num']}>{fmtPct(q.changePct)}</span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div class="flex flex-col">
+              {g.items.map((q) => (
+                <div class="flex items-center justify-between gap-3 border-b border-ink-500/30 py-2 last:border-0">
+                  <div class="min-w-0 flex-1">
+                    <div class="flex items-center gap-1.5">
+                      <span class="truncate text-[13px] font-medium text-slate-200" title={q.name}>
+                        {q.name}
+                      </span>
+                      <span class="shrink-0 text-[10px] text-muted">{q.symbol}</span>
+                      {q.asOf && (
+                        <span class="shrink-0 text-[10px] text-muted">· 截至 {q.asOf.slice(5)}</span>
+                      )}
+                    </div>
+                  </div>
+                  <div class="shrink-0 text-right">
+                    <div class="num text-[14px] font-semibold leading-tight text-slate-100">
+                      {fmtNum(q.price)}
+                    </div>
+                    <div class="mt-0.5 flex items-center justify-end gap-1.5">
+                      <span class:list={['num text-[11px]', dirClass(q.changePct)]}>
+                        {fmtSigned(q.change)}
+                      </span>
+                      <span class:list={[dirChip(q.changePct), 'num px-1.5 py-0 text-[10px]']}>
+                        {fmtPct(q.changePct)}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
