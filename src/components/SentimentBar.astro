@@ -14,20 +14,21 @@ const empty = !s.score && (s.label === '无数据' || !ashare.indices.length);
 ---
 
 <section class="panel-pad">
-  <div class="flex items-baseline justify-between gap-3">
-    <h2 class="h-sec">情绪分</h2>
-    <span class="label">0 冰点 · 100 过热</span>
+  <div class="sec-head">
+    <span class="bar"></span>
+    <span class="title">情绪分</span>
+    <span class="meta">0 冰点 · 100 过热</span>
   </div>
 
   {
     empty ? (
-      <p class="mt-4 rounded-lg border border-ink-400 bg-ink-600/50 px-3 py-2 text-[12px] leading-5 text-muted">
+      <p class="note-info mt-4">
         尚无数据。情绪分由脚本根据真实盘面（涨跌家数 / 涨停跌停 / 量能）按可解释规则计算，运行 npm run fetch 后生成。
       </p>
     ) : (
       <>
-        <div class="mt-4 flex items-end gap-4">
-          <div class="num text-4xl font-semibold leading-none" style={`color:${color}`}>
+        <div class:list={['flex items-end gap-4', compact ? 'mt-3' : 'mt-4']}>
+          <div class:list={['num font-semibold leading-none', compact ? 'text-num-lg' : 'text-num-xl']} style={`color:${color}`}>
             {score}
           </div>
           <div class="pb-1">
@@ -36,9 +37,9 @@ const empty = !s.score && (s.label === '无数据' || !ashare.indices.length);
           </div>
         </div>
 
-        <div class="mt-4 h-2 w-full overflow-hidden rounded-full bg-ink-500">
+        <div class:list={['bar-track', compact ? 'mt-3' : 'mt-4']}>
           <div
-            class="h-full rounded-full transition-all"
+            class="bar-fill"
             style={`width:${score}%;background:linear-gradient(90deg,#12b981,#f5c451,#f2385a);background-size:${(100 / Math.max(score, 1)) * 100}% 100%;`}
           />
         </div>

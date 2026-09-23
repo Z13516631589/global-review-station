@@ -8,50 +8,59 @@ interface Props {
 }
 const { limit, title = '主线板块' } = Astro.props;
 
-const list = limit ? ashare.sectors.slice(0, limit) : ashare.sectors;
-const ups = list.filter((s) => s.direction === 'up');
-const downs = list.filter((s) => s.direction === 'down');
+const all = ashare.sectors;
+const ups = all.filter((s) => s.direction === 'up').slice(0, limit);
+const downs = all.filter((s) => s.direction === 'down').slice(0, limit);
+const list = [...ups, ...downs];
+const maxAbs = Math.max(0.01, ...list.map((s) => Math.abs(s.changePct || 0)));
 ---
 
 <section class="panel-pad">
-  <div class="flex items-baseline justify-between gap-2">
-    <h2 class="h-sec">{title}</h2>
-    <span class="label">领涨 {ups.length} · 领跌 {downs.length}</span>
+  <div class="sec-head">
+    <span class="bar"></span>
+    <span class="title">{title}</span>
+    <span class="meta">领涨 {ups.length} · 领跌 {downs.length}</span>
   </div>
 
   {
     list.length === 0 ? (
-      <p class="mt-4 py-4 text-center text-[13px] text-muted">
+      <p class="note-info mt-4 text-center">
         暂无板块数据。运行 <code class="text-gold">npm run fetch</code> 抓取真实板块涨跌。
       </p>
     ) : (
       <div class="mt-4 grid gap-3 sm:grid-cols-2">
-        <div class="rounded-xl2 border border-up/25 bg-upSoft/40 p-3">
-          <div class="mb-2 text-[13px] font-semibold text-up">领涨</div>
-          <ul class="space-y-2">
+        <div class="inset p-3">
+          <div class="mb-2 text-[13px] font-semibold text-up">领涨 ▲</div>
+          <ul class="space-y-2.5">
             {ups.map((s) => (
               <li>
                 <div class="flex items-center justify-between gap-2">
                   <span class="text-sm text-slate-200">{s.name}</span>
                   <span class:list={[dirChip(s.changePct), 'num']}>{fmtPct(s.changePct)}</span>
                 </div>
-                {s.driver && <div class="mt-0.5 text-[12px] leading-5 text-muted">驱动：{s.driver}</div>}
+                <div class="mt-1 h-1 w-full overflow-hidden rounded-full bg-surface-1">
+                  <div class="h-full rounded-full bg-up" style={`width:${Math.min(100, Math.abs(s.changePct || 0) / maxAbs * 100)}%`} />
+                </div>
+                {s.driver && <div class="mt-1 text-[12px] leading-5 text-muted">驱动：{s.driver}</div>}
               </li>
             ))}
             {ups.length === 0 && <li class="text-[13px] text-muted">当日无上涨板块</li>}
           </ul>
         </div>
 
-        <div class="rounded-xl2 border border-down/25 bg-downSoft/40 p-3">
-          <div class="mb-2 text-[13px] font-semibold text-down">领跌</div>
-          <ul class="space-y-2">
+        <div class="inset p-3">
+          <div class="mb-2 text-[13px] font-semibold text-down">领跌 ▼</div>
+          <ul class="space-y-2.5">
             {downs.map((s) => (
               <li>
                 <div class="flex items-center justify-between gap-2">
                   <span class="text-sm text-slate-200">{s.name}</span>
                   <span class:list={[dirChip(s.changePct), 'num']}>{fmtPct(s.changePct)}</span>
                 </div>
-                {s.driver && <div class="mt-0.5 text-[12px] leading-5 text-muted">驱动：{s.driver}</div>}
+                <div class="mt-1 h-1 w-full overflow-hidden rounded-full bg-surface-1">
+                  <div class="h-full rounded-full bg-down" style={`width:${Math.min(100, Math.abs(s.changePct || 0) / maxAbs * 100)}%`} />
+                </div>
+                {s.driver && <div class="mt-1 text-[12px] leading-5 text-muted">驱动：{s.driver}</div>}
               </li>
             ))}
             {downs.length === 0 && <li class="text-[13px] text-muted">当日无下跌板块</li>}

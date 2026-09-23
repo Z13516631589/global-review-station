@@ -3,16 +3,26 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --up: #f2385a;
+    --down: #12b981;
+    --flat: #94a3b8;
+    --accent: #5b8cff;
+  }
+
   html {
     color-scheme: dark;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-ink-800 text-slate-100 font-sans antialiased;
+    @apply bg-ink-800 font-sans text-slate-100 antialiased;
     background-image:
-      radial-gradient(1200px 600px at 12% -10%, rgba(91, 140, 255, 0.10), transparent 60%),
-      radial-gradient(900px 500px at 100% 0%, rgba(242, 56, 90, 0.07), transparent 55%);
+      radial-gradient(1200px 600px at 12% -10%, rgba(91, 140, 255, 0.1), transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, rgba(242, 56, 90, 0.07), transparent 55%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+    background-size: auto, auto, 34px 34px, 34px 34px;
     background-attachment: fixed;
   }
 
@@ -24,6 +34,22 @@
     background: rgba(91, 140, 255, 0.35);
   }
 
+  /* 全局滚动条（终端质感） */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(91, 140, 255, 0.25);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(91, 140, 255, 0.45);
+    background-clip: content-box;
+  }
+
   /* 表格数字统一等宽，避免跳动 */
   .num {
     font-variant-numeric: tabular-nums;
@@ -32,56 +58,195 @@
 }
 
 @layer components {
+  /* ===== 面板 / 卡片：分层表面 + 顶部高光 + 蓝调描边 ===== */
   .panel {
-    @apply rounded-xl2 border border-ink-400/70 bg-ink-700/70 shadow-panel backdrop-blur-sm;
+    background-color: #121826;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0) 38%);
+    @apply rounded-card border border-line shadow-panel;
   }
 
   .panel-pad {
     @apply panel p-4 sm:p-5;
   }
 
+  /* 内嵌/凹陷区：比面板更深，用于 stat 卡片与表格容器 */
+  .inset {
+    @apply rounded-xl2 border border-line/70 bg-surface-2;
+  }
+
+  /* ===== 区块标题：左侧 accent 竖条 + 标题 + 右侧 meta ===== */
+  .sec-head {
+    @apply flex items-center gap-2.5;
+  }
+  .sec-head .bar {
+    @apply h-4 w-1 shrink-0 rounded-full bg-accent;
+    box-shadow: 0 0 12px rgba(91, 140, 255, 0.6);
+  }
+  .sec-head .title {
+    @apply text-section font-semibold tracking-tight text-slate-100;
+  }
+  .sec-head .meta {
+    @apply ml-auto text-caption text-muted;
+  }
+
+  /* 小标签（eyebrow）：uppercase accent，营造分层 */
+  .eyebrow {
+    @apply text-eyebrow font-semibold uppercase text-accent/80;
+  }
+
+  /* 旧 h-sec 兜底，视觉上向 sec-head 靠拢 */
   .h-sec {
-    @apply text-sm font-semibold tracking-wide text-slate-200;
+    @apply text-section font-semibold tracking-tight text-slate-100;
   }
 
   .label {
-    @apply text-xs text-muted;
+    @apply text-caption text-muted;
   }
 
+  /* ===== 芯片 / 信号药丸（带箭头，终端感） ===== */
   .chip {
-    @apply inline-flex items-center gap-1 rounded-md border border-ink-400 bg-ink-600 px-2 py-0.5 text-[11px] text-slate-300;
+    @apply inline-flex items-center gap-1 rounded-md border border-line bg-surface-1 px-2 py-0.5 text-[11px] text-slate-300;
   }
 
   .chip-up {
     @apply chip border-up/40 bg-upSoft text-up;
   }
+  .chip-up::before {
+    content: '▲';
+    font-size: 8px;
+    margin-right: 1px;
+  }
 
   .chip-down {
     @apply chip border-down/40 bg-downSoft text-down;
   }
+  .chip-down::before {
+    content: '▼';
+    font-size: 8px;
+    margin-right: 1px;
+  }
 
   .chip-flat {
-    @apply chip border-ink-400 bg-ink-600 text-flat;
+    @apply chip border-line bg-surface-1 text-flat;
   }
 
   .link {
-    @apply text-accent hover:text-blue-300 underline-offset-4 hover:underline;
+    @apply text-accent underline-offset-4 transition-colors hover:text-blue-300 hover:underline;
   }
 
   .divider {
-    @apply h-px w-full bg-gradient-to-r from-transparent via-ink-400 to-transparent;
+    @apply h-px w-full bg-gradient-to-r from-transparent via-line to-transparent;
+  }
+
+  /* ===== 涨跌方向 / 内联 delta（带箭头） ===== */
+  .dir-up {
+    @apply text-up;
+  }
+  .dir-down {
+    @apply text-down;
+  }
+  .dir-flat {
+    @apply text-flat;
+  }
+
+  .delta {
+    @apply inline-flex items-center gap-1 font-mono text-[13px] font-medium tabular-nums;
+  }
+  .delta.up {
+    @apply text-up;
+  }
+  .delta.up::before {
+    content: '▲';
+    font-size: 9px;
+  }
+  .delta.down {
+    @apply text-down;
+  }
+  .delta.down::before {
+    content: '▼';
+    font-size: 9px;
+  }
+  .delta.flat {
+    @apply text-flat;
+  }
+
+  /* ===== 数据卡片（stat）：大字号 + 标签 + 可选 delta ===== */
+  .stat {
+    @apply inset flex flex-col p-4 transition-colors hover:border-accent/40;
+  }
+  .stat .k {
+    @apply text-caption text-muted;
+  }
+  .stat .v {
+    @apply mt-1.5 font-mono text-num-lg font-semibold tabular-nums text-slate-100;
+  }
+  .stat .v-xl {
+    @apply mt-1 font-mono text-num-xl font-semibold tabular-nums text-slate-100;
+  }
+  .stat .sub {
+    @apply mt-1.5 text-caption;
+  }
+
+  /* 迷你进度条（涨跌家数 / 命中率） */
+  .bar-track {
+    @apply h-1.5 w-full overflow-hidden rounded-full bg-surface-1;
+  }
+  .bar-fill {
+    @apply h-full rounded-full;
+  }
+
+  /* ===== 金融表格 ===== */
+  .table-fin {
+    @apply w-full text-sm;
+  }
+  .table-fin thead th {
+    @apply border-b border-line bg-surface-2/70 px-3 py-2.5 text-left text-[12px] font-medium text-muted;
+  }
+  .table-fin tbody td {
+    @apply border-b border-line/50 px-3 py-2.5;
+  }
+  .table-fin tbody tr {
+    @apply transition-colors;
+  }
+  .table-fin tbody tr:hover {
+    @apply bg-surface-2/50;
+  }
+  .table-fin tbody tr:last-child td {
+    border-bottom: none;
+  }
+  .table-fin .num-col {
+    @apply text-right font-mono tabular-nums;
+  }
+
+  /* 卡片悬停抬升（global 快照等） */
+  .lift {
+    @apply transition-all duration-300;
+  }
+  .lift:hover {
+    @apply -translate-y-0.5 border-accent/40 shadow-glow;
+  }
+
+  /* 提示框（stale / 无数据） */
+  .note {
+    @apply rounded-xl2 border px-3 py-2 text-[12px] leading-5;
+  }
+  .note-warn {
+    @apply note border-gold/30 bg-gold/10 text-gold/90;
+  }
+  .note-info {
+    @apply note border-line bg-surface-1 text-muted;
   }
 }
 
 /* MDX 正文排版 */
 .prose-review {
-  @apply text-[15px] leading-7 text-slate-300;
+  @apply text-body leading-7 text-slate-300;
 }
 .prose-review h2 {
-  @apply mt-8 mb-3 text-lg font-semibold text-slate-100 border-l-2 border-accent pl-3;
+  @apply mb-3 mt-8 border-l-2 border-accent pl-3 text-[18px] font-semibold text-slate-100;
 }
 .prose-review h3 {
-  @apply mt-5 mb-2 text-base font-semibold text-slate-200;
+  @apply mb-2 mt-5 text-base font-semibold text-slate-200;
 }
 .prose-review p {
   @apply my-3;
@@ -93,29 +258,29 @@
   @apply my-3 list-decimal space-y-1.5 pl-5;
 }
 .prose-review blockquote {
-  @apply my-4 border-l-2 border-accent/60 bg-ink-600/60 px-4 py-3 text-slate-300 rounded-r-lg;
+  @apply my-4 rounded-r-lg border-l-2 border-accent/60 bg-surface-1 px-4 py-3 text-slate-300;
 }
 .prose-review strong {
-  @apply text-slate-100 font-semibold;
+  @apply font-semibold text-slate-100;
 }
 .prose-review a {
   @apply link;
 }
 .prose-review code {
-  @apply rounded bg-ink-500 px-1.5 py-0.5 text-[13px] text-gold;
+  @apply rounded bg-surface-1 px-1.5 py-0.5 text-[13px] text-gold;
 }
 .prose-review pre {
-  @apply my-4 overflow-x-auto rounded-lg border border-ink-400 bg-ink-900 p-4 text-[13px];
+  @apply my-4 overflow-x-auto rounded-card border border-line bg-ink-900 p-4 text-[13px];
 }
 .prose-review table {
-  @apply my-4 w-full border-collapse overflow-hidden rounded-lg text-sm;
+  @apply my-4 w-full overflow-hidden rounded-card border border-line text-sm;
 }
 .prose-review th {
-  @apply border-b border-ink-400 bg-ink-600 px-3 py-2 text-left font-semibold text-slate-200;
+  @apply border-b border-line bg-surface-2 px-3 py-2 text-left font-semibold text-slate-200;
 }
 .prose-review td {
-  @apply border-b border-ink-500 px-3 py-2 text-slate-300;
+  @apply border-b border-line/60 px-3 py-2 text-slate-300;
 }
 .prose-review hr {
-  @apply my-8 border-ink-400;
+  @apply my-8 border-line;
 }

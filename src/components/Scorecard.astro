@@ -16,12 +16,14 @@ const { record, title = '历史战绩' } = Astro.props;
 const r = record ?? { total: 0, win: 0, loss: 0, avgReturn: 0, note: '' };
 const rate = r.total > 0 ? (r.win / r.total) * 100 : 0;
 const pending = Math.max(r.total - r.win - r.loss, 0);
+const avgCls = r.avgReturn >= 0 ? 'text-up' : 'text-down';
 ---
 
 <section class="panel-pad">
-  <div class="flex items-baseline justify-between gap-2">
-    <h2 class="h-sec">{title}</h2>
-    <span class="label">客观命中率统计</span>
+  <div class="sec-head">
+    <span class="bar"></span>
+    <span class="title">{title}</span>
+    <span class="meta">客观命中率统计</span>
   </div>
 
   {
@@ -30,29 +32,29 @@ const pending = Math.max(r.total - r.win - r.loss, 0);
     ) : (
       <>
         <div class="mt-4 grid gap-3 sm:grid-cols-4">
-          <div class="rounded-xl2 border border-ink-400/60 bg-ink-600/40 p-3">
-            <div class="label">样本数</div>
-            <div class="num mt-1 text-xl font-semibold text-slate-100">{r.total}</div>
+          <div class="stat">
+            <div class="k">样本数</div>
+            <div class="v">{r.total}</div>
           </div>
-          <div class="rounded-xl2 border border-ink-400/60 bg-ink-600/40 p-3">
-            <div class="label">命中 / 未命中</div>
-            <div class="num mt-1 text-xl font-semibold">
+          <div class="stat">
+            <div class="k">命中 / 未命中</div>
+            <div class="v flex items-baseline gap-2">
               <span class="text-up">{r.win}</span>
-              <span class="text-muted"> / </span>
+              <span class="text-muted">/</span>
               <span class="text-down">{r.loss}</span>
             </div>
           </div>
-          <div class="rounded-xl2 border border-ink-400/60 bg-ink-600/40 p-3">
-            <div class="label">命中率</div>
-            <div class="num mt-1 text-xl font-semibold text-slate-100">{rate.toFixed(1)}%</div>
-            <div class="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-ink-500">
-              <div class="h-full rounded-full bg-up" style={`width:${rate}%`}></div>
+          <div class="stat">
+            <div class="k">命中率</div>
+            <div class="v">{rate.toFixed(1)}<span class="text-[16px] font-normal text-muted">%</span></div>
+            <div class="bar-track mt-2">
+              <div class="bar-fill bg-up" style={`width:${rate}%`}></div>
             </div>
           </div>
-          <div class="rounded-xl2 border border-ink-400/60 bg-ink-600/40 p-3">
-            <div class="label">平均收益</div>
-            <div class:list={['num mt-1 text-xl font-semibold', r.avgReturn >= 0 ? 'text-up' : 'text-down']}>
-              {r.avgReturn >= 0 ? '+' : ''}{r.avgReturn.toFixed(2)}%
+          <div class="stat">
+            <div class="k">平均收益</div>
+            <div class:list={['v', avgCls]}>
+              {r.avgReturn >= 0 ? '+' : ''}{r.avgReturn.toFixed(2)}<span class="text-[16px] font-normal text-muted">%</span>
             </div>
           </div>
         </div>

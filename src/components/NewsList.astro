@@ -20,9 +20,10 @@ const uid = 'news-' + Math.random().toString(36).slice(2, 8);
 ---
 
 <section class="panel-pad">
-  <div class="flex flex-wrap items-baseline justify-between gap-2">
-    <h2 class="h-sec">{title}</h2>
-    <div class="flex items-center gap-2">
+  <div class="sec-head">
+    <span class="bar"></span>
+    <span class="title">{title}</span>
+    <div class="meta flex items-center gap-2">
       <span class="chip">分析引擎：{news.analyzer || '—'}</span>
       <span class="label">抓取于 <Freshness iso={news.updatedAt} /></span>
     </div>
@@ -53,7 +54,7 @@ const uid = 'news-' + Math.random().toString(36).slice(2, 8);
     {
       items.map((n) => (
         <li
-          class="news-item rounded-xl2 border border-ink-400/60 bg-ink-600/40 p-3"
+          class="news-item inset p-3.5 transition-colors hover:border-accent/40"
           data-sector={n.sector}
           data-sentiment={n.sentiment}
         >
