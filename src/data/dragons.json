@@ -1,9 +1,10 @@
 {
-  "updatedAt": "2026-09-23T07:02:21+08:00",
-  "batch": "美股收盘",
+  "updatedAt": "2026-09-23T13:58:39+08:00",
+  "batch": "盘前消息",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，龙虎榜为收盘后披露口径。",
+  "tradeDay": "20260922",
   "items": [
     {
       "code": "600664",
