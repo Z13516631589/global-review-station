@@ -41,8 +41,37 @@ GROUPS = [
         "items": [
             ("^GSPC", "标普500"),
             ("^IXIC", "纳斯达克"),
+            ("^NDX", "纳斯达克100"),
             ("^DJI", "道琼斯"),
             ("^VIX", "恐慌指数"),
+        ],
+    },
+    {
+        "market": "美股科技",
+        "currency": "USD",
+        "items": [
+            ("NVDA", "英伟达"),
+            ("INTC", "英特尔"),
+            ("GOOGL", "谷歌"),
+            ("WDC", "西数/闪迪"),
+        ],
+    },
+    {
+        "market": "亚太",
+        "currency": "HKD / 本币",
+        "items": [
+            ("^HSI", "恒生指数"),
+            ("^N225", "日经225"),
+            ("^KS11", "韩国综合"),
+            ("^TWII", "台湾加权"),
+        ],
+    },
+    {
+        "market": "韩国芯片",
+        "currency": "KRW",
+        "items": [
+            ("005930.KS", "三星电子"),
+            ("000660.KS", "SK海力士"),
         ],
     },
     {
@@ -50,19 +79,6 @@ GROUPS = [
         "currency": "USD",
         "items": [
             ("KWEB", "中概互联网ETF"),
-            ("BABA", "阿里巴巴"),
-            ("PDD", "拼多多"),
-            ("JD", "京东"),
-        ],
-    },
-    {
-        "market": "港股 / 亚太",
-        "currency": "HKD / 本币",
-        "items": [
-            ("^HSI", "恒生指数"),
-            ("^N225", "日经225"),
-            ("^KS11", "韩国综合"),
-            ("^TWII", "台湾加权"),
         ],
     },
     {
@@ -78,7 +94,7 @@ GROUPS = [
 ]
 
 # 新浪美股指数代码
-SINA_US = {"^GSPC": ".INX", "^IXIC": ".IXIC", "^DJI": ".DJI"}
+SINA_US = {"^GSPC": ".INX", "^IXIC": ".IXIC", "^NDX": ".NDX", "^DJI": ".DJI"}
 # 新浪港股指数名称（子串匹配）
 SINA_HK = {"^HSI": "恒生指数"}
 
@@ -86,6 +102,7 @@ SINA_HK = {"^HSI": "恒生指数"}
 EM_GLOBAL_NAME_MAP = {
     "标普500": "标普500",
     "纳斯达克": "纳斯达克",
+    "纳斯达克100": "纳斯达克100",
     "道琼斯": "道琼斯",
     "恒生指数": "恒生指数",
     "日经225": "日经225",
@@ -93,24 +110,30 @@ EM_GLOBAL_NAME_MAP = {
     "台湾加权": "台湾加权",
 }
 EM_US_NAME_MAP = {
-    "阿里巴巴": "阿里巴巴",
-    "拼多多": "拼多多",
-    "京东": "京东",
+    "英伟达": "英伟达",
+    "英特尔": "英特尔",
+    "谷歌": "谷歌",
+    "西数/闪迪": "西数/闪迪",
+    "中概互联网ETF": "中概互联网ETF",
 }
 
 STOOQ_MAP = {
     "^GSPC": "^spx",
     "^IXIC": "^ndq",
+    "^NDX": "^ndx",
     "^DJI": "^dji",
     "^VIX": "^vix",
+    "NVDA": "nvda.us",
+    "INTC": "intc.us",
+    "GOOGL": "googl.us",
+    "WDC": "wdc.us",
     "KWEB": "kweb.us",
-    "BABA": "baba.us",
-    "PDD": "pdd.us",
-    "JD": "jd.us",
     "^HSI": "^hsi",
     "^N225": "^nkx",
     "^KS11": "^kospi",
     "^TWII": "^twse",
+    "005930.KS": "005930.ks",
+    "000660.KS": "000660.ks",
     "GC=F": "gc.f",
     "CL=F": "cl.f",
     "USDCNY=X": "usdcny",
@@ -424,7 +447,7 @@ def build() -> dict:
         美股 / 中概标的额外校验数据日期：必须达到最近一个美股交易日，否则判定
         「该源尚未更新」，继续换源；全部过期时退回日期最新的那一版，并在日志告警。
         """
-        us_related = market in ("美股", "中概")
+        us_related = market.startswith("美股") or market == "中概"
         expected = expected_us_trade_date() if us_related else None
         fallback: tuple[date | None, dict, str] | None = None
 
