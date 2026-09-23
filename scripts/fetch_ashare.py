@@ -627,6 +627,8 @@ def main() -> int:
         "source": "akshare",
         "stale": False,
         "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
+        # 复盘脚本据此决定文件名与「当日是否有新数据」，不要用日历日代替
+        "tradeDay": day,
         "indices": indices or prev.get("indices", []),
         "breadth": breadth or prev.get("breadth", {"up": 0, "down": 0, "flat": 0, "limitUp": 0, "limitDown": 0}),
         "volume": {"amount": volume or 0, "prevAmount": prev_volume or 0, "changePct": change_pct},
@@ -650,6 +652,7 @@ def main() -> int:
         "source": "akshare",
         "stale": False,
         "note": "延迟数据，龙虎榜为收盘后披露口径。",
+        "tradeDay": day,
         "items": items,
         "topInflow": top_in,
         "topOutflow": top_out,

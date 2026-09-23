@@ -31,6 +31,9 @@ const reviews = defineCollection({
     dataUpdatedAt: z.string().optional(),
     // true 时会打「示例」标记，提示内容为模板数据
     sample: z.boolean().default(false),
+    // 由 scripts/gen_review.py 自动生成时为 true；engine 记录观点来源：llm（大模型）/ rules（降级留空）
+    generated: z.boolean().default(false),
+    engine: z.string().optional(),
     tags: z.array(z.string()).default([]),
     // 明日预案：条件分支（客观描述，不构成建议）
     plan: z

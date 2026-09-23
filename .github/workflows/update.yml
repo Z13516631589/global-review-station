@@ -16,6 +16,8 @@ on:
     - cron: '33 7 * * 1-5'
     # A股盘后（龙虎榜 / 融资余额）：北京 18:33
     - cron: '33 10 * * 1-5'
+    # 复盘生成：北京 19:13（盘后数据抓完后再写当日复盘，数据最全）
+    - cron: '13 11 * * 1-5'
     # 美股收盘：北京 05:23（周二~周六凌晨）
     # 说明：04:23 太赶——美股 04:00 才收盘，新浪日 K 往往要延迟更久才更新出当日数据，
     # 抓太早会拿到上一个交易日的 K 线（表现为"数据对不上"）。这里推迟一小时，
@@ -36,6 +38,7 @@ on:
           - A股收盘
           - A股盘后
           - 美股收盘
+          - 复盘生成
 
 permissions:
   contents: write
@@ -67,6 +70,7 @@ jobs:
               "13 1 * * 1-5")    BATCH="盘前消息" ;;
               "33 7 * * 1-5")    BATCH="A股收盘" ;;
               "33 10 * * 1-5")   BATCH="A股盘后" ;;
+              "13 11 * * 1-5")   BATCH="复盘生成" ;;
               "23 21 * * 2-6")   BATCH="美股收盘" ;;
               "13 5 * * 0,6")    BATCH="周末刷新" ;;
               *)                 BATCH="盘中刷新" ;;
@@ -98,8 +102,25 @@ jobs:
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
           NEWS_RSS: ${{ vars.NEWS_RSS }}
         run: |
-          echo "批次：$FETCH_BATCH"
-          timeout 900 python scripts/fetch_all.py --batch "$FETCH_BATCH" || echo "抓取超时或失败，沿用上一版数据"
+          # 「复盘生成」批次本质是收盘后的一次抓取，数据批次仍记为 A股收盘，避免污染页面上的批次标记
+          DATA_BATCH="$FETCH_BATCH"
+          if [ "$FETCH_BATCH" = "复盘生成" ]; then DATA_BATCH="A股收盘"; fi
+          echo "批次：$FETCH_BATCH（数据批次 $DATA_BATCH）"
+          timeout 900 python scripts/fetch_all.py --batch "$DATA_BATCH" || echo "抓取超时或失败，沿用上一版数据"
+
+      - name: 生成当日复盘（仅「复盘生成」批次）
+        # 观点章节由大模型撰写；接口不可用时只出数据章节，观点留空，绝不编造。
+        continue-on-error: true
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_API_BASE: ${{ secrets.LLM_API_BASE }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+        run: |
+          if [ "$FETCH_BATCH" != "复盘生成" ]; then
+            echo "批次 $FETCH_BATCH 不生成复盘，跳过"
+            exit 0
+          fi
+          timeout 600 python scripts/gen_review.py || echo "复盘生成失败（不影响本次部署）"
 
       - name: 打印数据时间戳 + 新鲜度自检（便于排查"内容没变"）
         run: |
@@ -161,7 +182,7 @@ jobs:
         run: |
           git config user.name "数据脚本（自动生成）"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data
+          git add src/data src/content
           if git diff --cached --quiet; then
             echo "数据无变化，跳过回写"
           else
