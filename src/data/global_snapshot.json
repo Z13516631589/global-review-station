@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-23T19:52:45+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-09-23T20:16:41+08:00",
+  "batch": "盘中刷新",
   "source": "sina+yfinance",
   "stale": false,
   "note": "上一交易日收盘的延迟数据，用于复盘记录。",
@@ -170,33 +170,33 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 4338.5,
-          "change": -37.8999,
-          "changePct": -0.87,
+          "price": 4351.2002,
+          "change": -25.1997,
+          "changePct": -0.58,
           "asOf": "2026-09-23"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 90.91,
-          "change": -3.68,
-          "changePct": -3.89,
+          "price": 90.61,
+          "change": -3.98,
+          "changePct": -4.21,
           "asOf": "2026-09-23"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.6973,
-          "change": 0.002,
+          "price": 6.6972,
+          "change": 0.0019,
           "changePct": 0.03,
           "asOf": "2026-09-23"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 85642.7578,
-          "change": -529.5234,
-          "changePct": -0.61,
+          "price": 85449.9219,
+          "change": -722.3594,
+          "changePct": -0.84,
           "asOf": "2026-09-23"
         }
       ]
