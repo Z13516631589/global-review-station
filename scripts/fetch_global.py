@@ -16,11 +16,13 @@ from __future__ import annotations
 
 import os
 import sys
+from datetime import date, datetime, timedelta
 
 from common import (
     batch_from_args,
     call_with_deadline,
     merge_with_previous,
+    now_cn,
     now_iso,
     optional_import,
     retry_call,
@@ -137,6 +139,48 @@ class SourceGuard:
 
 
 GUARD = SourceGuard()
+
+
+# --------------------------------------------------------------------------
+# 数据新鲜度闸门
+# --------------------------------------------------------------------------
+# 新浪的美股日 K 在美股收盘后往往要延迟数小时才更新出当日 K 线。凌晨那批抓取时，
+# 最后一条常常还是上一个交易日的；脚本若照单全收，网站就会把「前天收盘」当成
+# 「昨夜收盘」展示——外表看着是最新数据，实际滞后一个交易日（用户核对会发现对不上）。
+#
+# 这里给美股相关标的加一道闸门：数据日期必须达到最近一个美股交易日，否则判定
+# 「该数据源尚未更新」，继续换下一个源；所有源都过期时，退而取日期最新的那个
+# （不硬丢数据），并在 note 里如实标注滞后。
+US_CLOSE_HOUR_ET = 16
+US_TZ_OFFSET = 12  # 北京时间 - 12h ≈ 美东夏令时
+
+
+def _parse_date(value) -> date | None:
+    """兼容 '2026-09-21' / '2026-09-21 00:00:00' / '2026/09/21' 等日期写法。"""
+    if value is None:
+        return None
+    s = str(value).strip()
+    if not s:
+        return None
+    try:
+        return date.fromisoformat(s[:10].replace("/", "-"))
+    except ValueError:
+        pass
+    try:
+        return datetime.fromisoformat(s[:19]).date()
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def expected_us_trade_date() -> date:
+    """最近一个「应已完成收盘」的美股交易日（美东日期；不处理美国节假日）。"""
+    now_et = now_cn() - timedelta(hours=US_TZ_OFFSET)
+    d = now_et.date()
+    if now_et.hour < US_CLOSE_HOUR_ET:  # 美东还没到收盘时刻
+        d -= timedelta(days=1)
+    while d.weekday() >= 5:  # 跳过周六 / 周日
+        d -= timedelta(days=1)
+    return d
 
 
 # --------------------------------------------------------------------------
@@ -374,35 +418,69 @@ def build() -> dict:
     if ak is None:
         log.info("未安装 akshare，跳过新浪 / 东财数据源")
 
-    def resolve(symbol: str, name: str):
+    def resolve(symbol: str, name: str, market: str):
+        """按 新浪 → 东财 → yfinance → stooq 顺序取数。
+
+        美股 / 中概标的额外校验数据日期：必须达到最近一个美股交易日，否则判定
+        「该源尚未更新」，继续换源；全部过期时退回日期最新的那一版，并在日志告警。
+        """
+        us_related = market in ("美股", "中概")
+        expected = expected_us_trade_date() if us_related else None
+        fallback: tuple[date | None, dict, str] | None = None
+
+        def accept(quote, src):
+            nonlocal fallback
+            if not quote:
+                return None
+            d = _parse_date(quote.get("asOf", "")) if us_related else None
+            if us_related and expected and d is not None and d < expected:
+                log.info(
+                    "%s 源 %s 数据日期 %s 早于最近交易日 %s，判定源未更新，换源",
+                    symbol, src, d, expected,
+                )
+                if fallback is None or (fallback[0] is None or d > fallback[0]):
+                    fallback = (d, quote, src)
+                return None
+            return quote, src
+
+        candidates = []
         if ak is not None:
-            q = fetch_sina_us(ak, symbol)
-            if q:
-                return q, "sina"
-            q = fetch_sina_hk(ak, symbol, name)
-            if q:
-                return q, "sina"
-            q = em.lookup(symbol, name)
-            if q:
-                return q, "eastmoney"
-        q = fetch_yfinance(symbol)
-        if q:
-            return q, "yfinance"
-        q = fetch_stooq(symbol)
-        if q:
-            return q, "stooq"
+            candidates.append((lambda: fetch_sina_us(ak, symbol), "sina"))
+            candidates.append((lambda: fetch_sina_hk(ak, symbol, name), "sina"))
+            candidates.append((lambda: em.lookup(symbol, name), "eastmoney"))
+        candidates.append((lambda: fetch_yfinance(symbol), "yfinance"))
+        candidates.append((lambda: fetch_stooq(symbol), "stooq"))
+
+        for getter, src in candidates:
+            got = retry_call(getter, times=1, delay=0.0, label=f"{src} {symbol}")
+            picked = accept(got, src)
+            if picked:
+                return picked
+
+        if fallback is not None:
+            log.warning(
+                "%s：所有数据源日期都早于 %s，沿用其中最新的一版（%s / %s）",
+                symbol, expected, fallback[2], fallback[0],
+            )
+            return fallback[1], fallback[2]
         return None, ""
 
     groups = []
     ok_total = 0
+    lagged = 0
+    us_expected = expected_us_trade_date()
     sources: set[str] = set()
     for g in GROUPS:
         items = []
         for symbol, name in g["items"]:
-            q, src = resolve(symbol, name)
+            q, src = resolve(symbol, name, g["market"])
             if q:
                 ok_total += 1
                 sources.add(src)
+                if g["market"] in ("美股", "中概"):
+                    d = _parse_date(q.get("asOf", ""))
+                    if d is not None and d < us_expected:
+                        lagged += 1
                 items.append({"symbol": symbol, "name": name, **q})
             else:
                 log.warning("全球标的抓取失败：%s %s", symbol, name)
@@ -412,12 +490,20 @@ def build() -> dict:
         log.warning("全球快照无任何有效数据，保留上一版")
         return {}
 
+    note = "上一交易日收盘的延迟数据，用于复盘记录。"
+    if lagged:
+        note = (
+            f"注意：有 {lagged} 个美股标的数据日期早于最近交易日（{us_expected}），"
+            "各数据源当日 K 线尚未更新，暂用其上一条收盘价，页面已标注具体日期。"
+        )
+        log.warning("本轮有 %d 个美股标的数据滞后于 %s", lagged, us_expected)
+
     return {
         "updatedAt": now_iso(),
         "batch": batch_from_args("美股收盘"),
         "source": "+".join(sorted(sources)),
         "stale": False,
-        "note": "上一交易日收盘的延迟数据，用于复盘记录。",
+        "note": note,
         "groups": groups,
     }
 

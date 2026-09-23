@@ -50,7 +50,9 @@ const groups = limitGroups ? data.groups.slice(0, limitGroups) : data.groups;
                   <tr class="border-b border-ink-500/60 last:border-0">
                     <td class="py-2 pr-2">
                       <div class="text-slate-200">{q.name}</div>
-                      <div class="num text-[11px] text-muted">{q.symbol}</div>
+                      <div class="num text-[11px] text-muted">
+                        {q.symbol}{q.asOf ? ` · 截至 ${q.asOf.slice(5)}` : ''}
+                      </div>
                     </td>
                     <td class="num py-2 text-right text-slate-100">{fmtNum(q.price)}</td>
                     <td class="num py-2 text-right">
@@ -70,6 +72,15 @@ const groups = limitGroups ? data.groups.slice(0, limitGroups) : data.groups;
   }
 
   <p class="mt-4 text-[12px] leading-5 text-muted">
-    口径说明：全球指数为上一交易日收盘（延迟数据）；美股交易日对应北京时间次日凌晨。数据仅用于复盘记录。
+    口径说明：全球指数为上一交易日收盘（延迟数据）；美股交易日对应北京时间次日凌晨。
+    每行价格下方的「截至 MM-DD」是该笔数据对应的交易日，请注意与抓取时间区分。
   </p>
+
+  {
+    data.note && data.note.includes('注意') && (
+      <p class="mt-2 rounded-lg border border-gold/30 bg-gold/10 px-3 py-2 text-[12px] leading-5 text-gold/90">
+        {data.note}
+      </p>
+    )
+  }
 </section>
