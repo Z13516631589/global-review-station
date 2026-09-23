@@ -432,6 +432,37 @@ def fallback_tags(a: dict) -> list[str]:
     return [t for t in tags if t][:3]
 
 
+def render_viewpoint(llm: dict) -> list[str]:
+    """渲染第五、六节（观点由大模型或 WorkBuddy 撰写）。"""
+    body = ["## 五、复盘观点（AI 生成，仅供参考，不构成投资建议）", ""]
+    for item in llm.get("viewpoint") or []:
+        heading = str(item.get("heading", "")).strip()
+        text = str(item.get("body", "")).strip()
+        if not heading and not text:
+            continue
+        if heading:
+            body.append(f"**{heading}**")
+        if text:
+            body.append(text)
+        body.append("")
+    if len(body) <= 2:
+        body += ["（本轮未返回有效观点条目，观点章节留空。）", ""]
+
+    plan = llm.get("plan") or []
+    body += ["## 六、明日预案（情景推演，非操作建议）", "", "| 情景 | 触发条件 | 应对思路 |", "| --- | --- | --- |"]
+    for row in plan:
+        body.append(
+            f"| {yaml_str(row.get('scenario', ''))} | {yaml_str(row.get('trigger', ''))} | {yaml_str(row.get('action', ''))} |"
+        )
+    if not plan:
+        body.append("| — | — | （本轮未返回预案，留空） |")
+    watch = str(llm.get("watchpoints") or "").strip()
+    if watch:
+        body += ["", f"**三个关键观察点**：{watch}"]
+    body += ["", "> 以上情景为基于当日公开数据的推演与风格化解读，不构成任何投资建议；据此操作，风险自负。"]
+    return body
+
+
 def build_mdx(day, a, d, g, n, llm: dict | None) -> tuple[str, str]:
     engine = "llm" if llm else "rules"
     head = str((llm or {}).get("title") or "").strip()
@@ -472,33 +503,7 @@ def build_mdx(day, a, d, g, n, llm: dict | None) -> tuple[str, str]:
     ]
 
     if llm:
-        vp = llm.get("viewpoint") or []
-        body = ["## 五、复盘观点（AI 生成，仅供参考，不构成投资建议）", ""]
-        for item in vp:
-            heading = str(item.get("heading", "")).strip()
-            text = str(item.get("body", "")).strip()
-            if not heading and not text:
-                continue
-            body.append(f"**{heading}**" if heading else "")
-            if text:
-                body.append(text)
-            body.append("")
-        if len(body) <= 2:
-            body.append("（本轮大模型未返回有效观点条目，观点章节留空。）")
-            body.append("")
-
-        plan = llm.get("plan") or []
-        body += ["## 六、明日预案（情景推演，非操作建议）", "", "| 情景 | 触发条件 | 应对思路 |", "| --- | --- | --- |"]
-        for row in plan:
-            body.append(
-                f"| {yaml_str(row.get('scenario', ''))} | {yaml_str(row.get('trigger', ''))} | {yaml_str(row.get('action', ''))} |"
-            )
-        if not plan:
-            body.append("| — | — | （本轮大模型未返回预案，留空） |")
-        watch = str(llm.get("watchpoints") or "").strip()
-        if watch:
-            body += ["", f"**三个关键观察点**：{watch}"]
-        body += ["", "> 以上情景为基于当日公开数据的推演与风格化解读，不构成任何投资建议；据此操作，风险自负。"]
+        body = render_viewpoint(llm)
     else:
         body = [
             "## 五、复盘观点",
@@ -515,12 +520,75 @@ def build_mdx(day, a, d, g, n, llm: dict | None) -> tuple[str, str]:
     return "\n".join(fm + body), engine
 
 
+def split_mdx(text: str) -> tuple[dict, str]:
+    """拆出 frontmatter（简单 key: value）与正文。"""
+    fm: dict = {}
+    body = text
+    if text.startswith("---"):
+        parts = text.split("---", 2)
+        if len(parts) >= 3:
+            for line in parts[1].splitlines():
+                if ":" in line:
+                    k, v = line.split(":", 1)
+                    fm[k.strip()] = v.strip().strip('"')
+            body = parts[2]
+    return fm, body
+
+
+def fill_viewpoint(day, vp: dict, target: Path) -> bool:
+    """
+    把观点回填进已存在的当日复盘：只替换 frontmatter 的标题/摘要/标签
+    与第五、六节，第一~四节的客观数据原样保留（避免重复渲染导致数字漂移）。
+    """
+    if not target.exists():
+        log.warning("%s 不存在，请先生成当日数据骨架", target.name)
+        return False
+    fm, body = split_mdx(target.read_text(encoding="utf-8"))
+    marker = body.find("\n## 五")
+    objective = body[:marker].rstrip() if marker > 0 else body.rstrip()
+
+    title = str(vp.get("title") or fm.get("title") or "").strip()
+    if title and "：" in title:
+        title = title.split("：")[-1].strip()
+    title = f"{day.month}月{day.day}日复盘：{title}" if title else fm.get("title", "")
+    summary = str(vp.get("summary") or fm.get("summary") or "").strip()
+    tags = [str(t)[:6] for t in (vp.get("tags") or [])][:3] or [fm.get("tags", "")]
+
+    lines = [
+        "---",
+        f'title: "{yaml_str(title)}"',
+        f"date: {fm.get('date') or day.isoformat()}",
+        f"author: {fm.get('author') or 'AI 复盘助手（数据+观点自动生成）'}",
+        f"batch: {fm.get('batch') or 'A股收盘'}",
+        f'dataUpdatedAt: "{fm.get("dataUpdatedAt", "")}"',
+        "sample: false",
+        f'summary: "{yaml_str(summary)}"',
+        "tags: [" + ", ".join(f'"{yaml_str(t)}"' for t in tags if t) + "]",
+        "generated: true",
+        f"engine: {vp.get('engine') or 'assistant'}",
+        "---",
+        "",
+        objective.lstrip("\n"),
+        "",
+    ]
+    lines += render_viewpoint(vp)
+    lines += ["", "## 七、待补充", "", "- [ ] 标的观察与历史战绩结算（需结合实盘人工记录）", ""]
+    target.write_text("\n".join(lines), encoding="utf-8")
+    log.info("已回填观点到 %s（%d 字）", target.name, len("\n".join(lines)))
+    return True
+
+
 # ---------------------------------------------------------------- 主流程
 def main() -> int:
     ap = argparse.ArgumentParser(description="生成当日复盘 MDX")
     ap.add_argument("--date", help="指定交易日 YYYY-MM-DD（默认按数据自动推断）")
     ap.add_argument("--force", action="store_true", help="覆盖已存在的当日复盘")
     ap.add_argument("--allow-stale", action="store_true", help="数据是旧的也照样生成（调试用）")
+    ap.add_argument(
+        "--fill-viewpoint",
+        metavar="JSON",
+        help="把一个观点 JSON 文件回填进当日复盘（只替换第五、六节与标题摘要，不动客观数据）",
+    )
     args = ap.parse_args()
 
     a = load("ashare.json")
@@ -535,6 +603,12 @@ def main() -> int:
     day = parse_day(args.date) or parse_day(a.get("tradeDay")) or expected_trade_day()
     expect = expected_trade_day()
     age = hours_since(a.get("updatedAt") or "")
+
+    if args.fill_viewpoint:
+        # 回填观点时不重复校验新鲜度：骨架已经生成过了，这里只替换观点章节
+        vp = json.loads(Path(args.fill_viewpoint).read_text(encoding="utf-8"))
+        REVIEWS.mkdir(parents=True, exist_ok=True)
+        return 0 if fill_viewpoint(day, vp, REVIEWS / f"{day.isoformat()}.mdx") else 1
 
     if not args.allow_stale:
         if a.get("stale"):
