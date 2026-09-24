@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-24T23:26:00+08:00",
-  "batch": "A股盘后",
+  "updatedAt": "2026-09-24T23:50:17+08:00",
+  "batch": "A股收盘",
   "source": "eastmoney+sina+yfinance",
   "stale": false,
   "note": "上一交易日收盘的延迟数据，用于复盘记录。",
@@ -44,9 +44,9 @@
         {
           "symbol": "^VIX",
           "name": "恐慌指数",
-          "price": 16.04,
-          "change": 0.86,
-          "changePct": 5.67,
+          "price": 16.22,
+          "change": 1.04,
+          "changePct": 6.85,
           "asOf": "2026-09-24"
         }
       ]
@@ -58,33 +58,33 @@
         {
           "symbol": "NVDA",
           "name": "英伟达",
-          "price": 221.942,
-          "change": -3.568,
-          "changePct": -1.58,
+          "price": 221.81,
+          "change": -3.7,
+          "changePct": -1.64,
           "asOf": "2026-09-24"
         },
         {
           "symbol": "INTC",
           "name": "英特尔",
-          "price": 122.85,
-          "change": 0.25,
-          "changePct": 0.2,
+          "price": 122.52,
+          "change": -0.08,
+          "changePct": -0.07,
           "asOf": "2026-09-24"
         },
         {
           "symbol": "GOOGL",
           "name": "谷歌",
-          "price": 338.71,
-          "change": 0.88,
-          "changePct": 0.26,
+          "price": 337.92,
+          "change": 0.09,
+          "changePct": 0.03,
           "asOf": "2026-09-24"
         },
         {
           "symbol": "WDC",
           "name": "西数/闪迪",
-          "price": 455.29,
-          "change": -18.4,
-          "changePct": -3.88,
+          "price": 455.945,
+          "change": -17.745,
+          "changePct": -3.75,
           "asOf": "2026-09-24"
         }
       ]
@@ -170,33 +170,33 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 4283.3999,
-          "change": -35.0,
-          "changePct": -0.81,
+          "price": 4288.0,
+          "change": -30.3999,
+          "changePct": -0.7,
           "asOf": "2026-09-24"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 95.97,
-          "change": 3.81,
-          "changePct": 4.13,
+          "price": 96.29,
+          "change": 4.13,
+          "changePct": 4.48,
           "asOf": "2026-09-24"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.7026,
-          "change": 0.003,
-          "changePct": 0.04,
+          "price": 6.7028,
+          "change": 0.0032,
+          "changePct": 0.05,
           "asOf": "2026-09-24"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 84107.0781,
-          "change": -275.9297,
-          "changePct": -0.33,
+          "price": 84316.9766,
+          "change": -66.0312,
+          "changePct": -0.08,
           "asOf": "2026-09-24"
         }
       ]
