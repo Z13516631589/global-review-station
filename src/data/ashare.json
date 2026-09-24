@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-24T14:46:26+08:00",
+  "updatedAt": "2026-09-24T15:34:06+08:00",
   "batch": "盘中刷新",
   "source": "akshare",
   "stale": false,
@@ -9,80 +9,80 @@
     {
       "code": "000001",
       "name": "上证指数",
-      "close": 3895.3,
-      "change": -41.22,
-      "changePct": -1.05,
-      "amount": 7272.95,
-      "amplitude": 1.01
+      "close": 3888.37,
+      "change": -48.15,
+      "changePct": -1.22,
+      "amount": 7836.13,
+      "amplitude": 1.07
     },
     {
       "code": "399001",
       "name": "深证成指",
-      "close": 13341.66,
-      "change": -294.41,
-      "changePct": -2.16,
-      "amount": 8054.57,
-      "amplitude": 1.87
+      "close": 13316.97,
+      "change": -319.11,
+      "changePct": -2.34,
+      "amount": 8697.44,
+      "amplitude": 1.91
     },
     {
       "code": "399006",
       "name": "创业板指",
-      "close": 3297.77,
-      "change": -81.84,
-      "changePct": -2.42,
-      "amount": 3814.84,
-      "amplitude": 2.33
+      "close": 3288.95,
+      "change": -90.66,
+      "changePct": -2.68,
+      "amount": 4119.41,
+      "amplitude": 2.45
     },
     {
       "code": "000300",
       "name": "沪深300",
-      "close": 4447.13,
-      "change": -70.15,
-      "changePct": -1.55,
-      "amount": 3478.48,
-      "amplitude": 1.3
+      "close": 4439.14,
+      "change": -78.13,
+      "changePct": -1.73,
+      "amount": 3754.62,
+      "amplitude": 1.35
     },
     {
       "code": "000688",
       "name": "科创50",
-      "close": 1627.77,
-      "change": -33.09,
-      "changePct": -1.99,
-      "amount": 651.43,
-      "amplitude": 1.78
+      "close": 1621.87,
+      "change": -38.98,
+      "changePct": -2.35,
+      "amount": 699.88,
+      "amplitude": 1.9
     }
   ],
   "breadth": {
-    "up": 1082,
-    "down": 3996,
-    "flat": 132,
-    "limitUp": 48,
-    "limitDown": 12,
+    "up": 1084,
+    "down": 4001,
+    "flat": 125,
+    "limitUp": 52,
+    "limitDown": 14,
     "total": 5210
   },
   "volume": {
-    "amount": 15336.39,
-    "prevAmount": 13523.93,
-    "changePct": 13.4
+    "amount": 16533.57,
+    "prevAmount": 15336.39,
+    "changePct": 7.81
   },
   "margin": {
     "balance": 13316.43,
     "change": -78.04
   },
   "sentiment": {
-    "score": 35,
+    "score": 32,
     "label": "中性偏弱",
     "desc": "",
     "drivers": [
-      "涨跌家数 1082 / 3996，上涨占比 21.3%",
-      "涨停 48 家、跌停 12 家",
-      "两市成交 15336 亿，环比 +13.40%"
+      "涨跌家数 1084 / 4001，上涨占比 21.3%",
+      "涨停 52 家、跌停 14 家",
+      "两市成交 16534 亿，环比 +7.81%"
     ]
   },
   "sectors": [
     {
       "name": "纺织机械",
-      "changePct": 1.9,
+      "changePct": 1.85,
       "direction": "up",
       "driver": "",
       "leading": [
@@ -90,17 +90,8 @@
       ]
     },
     {
-      "name": "纺织行业",
-      "changePct": 0.49,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sz000850"
-      ]
-    },
-    {
       "name": "家具行业",
-      "changePct": 0.34,
+      "changePct": 1.35,
       "direction": "up",
       "driver": "",
       "leading": [
@@ -108,8 +99,17 @@
       ]
     },
     {
+      "name": "纺织行业",
+      "changePct": 0.38,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sz000850"
+      ]
+    },
+    {
       "name": "公路桥梁",
-      "changePct": 0.25,
+      "changePct": 0.16,
       "direction": "up",
       "driver": "",
       "leading": [
@@ -117,44 +117,26 @@
       ]
     },
     {
-      "name": "煤炭行业",
-      "changePct": 0.12,
+      "name": "服装鞋类",
+      "changePct": 0.08,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh600792"
+        "sz002029"
       ]
     },
     {
       "name": "环保行业",
-      "changePct": 0.1,
+      "changePct": 0.08,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh603686"
-      ]
-    },
-    {
-      "name": "船舶制造",
-      "changePct": -0.62,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sh600072"
-      ]
-    },
-    {
-      "name": "房地产",
-      "changePct": -0.54,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sh600641"
+        "sz002200"
       ]
     },
     {
       "name": "摩托车",
-      "changePct": -0.25,
+      "changePct": -0.61,
       "direction": "down",
       "driver": "",
       "leading": [
@@ -163,7 +145,7 @@
     },
     {
       "name": "陶瓷行业",
-      "changePct": -0.24,
+      "changePct": -0.3,
       "direction": "down",
       "driver": "",
       "leading": [
@@ -172,7 +154,7 @@
     },
     {
       "name": "传媒娱乐",
-      "changePct": -0.21,
+      "changePct": -0.29,
       "direction": "down",
       "driver": "",
       "leading": [
@@ -181,11 +163,29 @@
     },
     {
       "name": "交通运输",
-      "changePct": -0.05,
+      "changePct": -0.14,
       "direction": "down",
       "driver": "",
       "leading": [
         "sz000905"
+      ]
+    },
+    {
+      "name": "家电行业",
+      "changePct": -0.07,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sz002005"
+      ]
+    },
+    {
+      "name": "石油行业",
+      "changePct": -0.06,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600583"
       ]
     }
   ],
