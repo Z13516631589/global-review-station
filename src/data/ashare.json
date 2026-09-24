@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-24T07:48:55+08:00",
-  "batch": "美股收盘",
+  "updatedAt": "2026-09-24T14:11:23+08:00",
+  "batch": "盘前消息",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
@@ -9,107 +9,80 @@
     {
       "code": "000001",
       "name": "上证指数",
-      "close": 3936.52,
-      "change": -15.61,
-      "changePct": -0.4,
-      "amount": 8341.33,
-      "amplitude": 0.43
+      "close": 3893.21,
+      "change": -43.31,
+      "changePct": -1.1,
+      "amount": 6427.98,
+      "amplitude": 1.01
     },
     {
       "code": "399001",
       "name": "深证成指",
-      "close": 13636.07,
-      "change": -87.66,
-      "changePct": -0.64,
-      "amount": 9308.44,
-      "amplitude": 0.91
+      "close": 13347.12,
+      "change": -288.95,
+      "changePct": -2.12,
+      "amount": 7090.5,
+      "amplitude": 1.75
     },
     {
       "code": "399006",
       "name": "创业板指",
-      "close": 3379.61,
-      "change": -20.32,
-      "changePct": -0.6,
-      "amount": 4397.77,
-      "amplitude": 1.16
+      "close": 3299.57,
+      "change": -80.04,
+      "changePct": -2.37,
+      "amount": 3368.09,
+      "amplitude": 2.19
     },
     {
       "code": "000300",
       "name": "沪深300",
-      "close": 4517.28,
-      "change": -27.31,
-      "changePct": -0.6,
-      "amount": 3782.89,
-      "amplitude": 0.75
+      "close": 4445.33,
+      "change": -71.95,
+      "changePct": -1.59,
+      "amount": 3029.65,
+      "amplitude": 1.27
     },
     {
       "code": "000688",
       "name": "科创50",
-      "close": 1660.85,
-      "change": -4.19,
-      "changePct": -0.25,
-      "amount": 751.75,
-      "amplitude": 1.19
+      "close": 1629.48,
+      "change": -31.38,
+      "changePct": -1.89,
+      "amount": 572.76,
+      "amplitude": 1.46
     }
   ],
   "breadth": {
-    "up": 1757,
-    "down": 3366,
-    "flat": 87,
-    "limitUp": 51,
-    "limitDown": 14,
+    "up": 1101,
+    "down": 3988,
+    "flat": 121,
+    "limitUp": 42,
+    "limitDown": 11,
     "total": 5210
   },
   "volume": {
-    "amount": 17649.77,
+    "amount": 13523.93,
     "prevAmount": 17649.77,
-    "changePct": 0.0
+    "changePct": -23.38
   },
   "margin": {
     "balance": 13316.43,
     "change": -78.04
   },
   "sentiment": {
-    "score": 38,
-    "label": "中性偏弱",
+    "score": 14,
+    "label": "冰点",
     "desc": "",
     "drivers": [
-      "涨跌家数 1757 / 3366，上涨占比 34.3%",
-      "涨停 51 家、跌停 14 家",
-      "两市成交 17650 亿，环比 +0.00%"
+      "涨跌家数 1101 / 3988，上涨占比 21.6%",
+      "涨停 42 家、跌停 11 家",
+      "两市成交 13524 亿，环比 -23.38%"
     ]
   },
   "sectors": [
     {
-      "name": "物资外贸",
-      "changePct": 1.27,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh600605"
-      ]
-    },
-    {
-      "name": "摩托车",
-      "changePct": 0.67,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sz001696"
-      ]
-    },
-    {
-      "name": "水泥行业",
-      "changePct": 0.65,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh600802"
-      ]
-    },
-    {
       "name": "纺织机械",
-      "changePct": 0.43,
+      "changePct": 2.01,
       "direction": "up",
       "driver": "",
       "leading": [
@@ -117,75 +90,102 @@
       ]
     },
     {
+      "name": "纺织行业",
+      "changePct": 0.4,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sz000850"
+      ]
+    },
+    {
+      "name": "陶瓷行业",
+      "changePct": 0.34,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sh603268"
+      ]
+    },
+    {
+      "name": "家具行业",
+      "changePct": 0.25,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sz000910"
+      ]
+    },
+    {
+      "name": "服装鞋类",
+      "changePct": 0.16,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sz002029"
+      ]
+    },
+    {
+      "name": "家电行业",
+      "changePct": 0.04,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sz002005"
+      ]
+    },
+    {
+      "name": "船舶制造",
+      "changePct": -0.4,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600072"
+      ]
+    },
+    {
+      "name": "环保行业",
+      "changePct": -0.25,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sz002200"
+      ]
+    },
+    {
+      "name": "石油行业",
+      "changePct": -0.2,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh601857"
+      ]
+    },
+    {
+      "name": "煤炭行业",
+      "changePct": -0.12,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600792"
+      ]
+    },
+    {
+      "name": "摩托车",
+      "changePct": -0.1,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh601777"
+      ]
+    },
+    {
       "name": "公路桥梁",
-      "changePct": 0.12,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh600368"
-      ]
-    },
-    {
-      "name": "化工行业",
-      "changePct": 0.09,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sz300192"
-      ]
-    },
-    {
-      "name": "供水供气",
-      "changePct": -0.29,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz000593"
-      ]
-    },
-    {
-      "name": "食品行业",
-      "changePct": -0.26,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz002286"
-      ]
-    },
-    {
-      "name": "塑料制品",
-      "changePct": -0.13,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz300305"
-      ]
-    },
-    {
-      "name": "房地产",
-      "changePct": -0.09,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sh600743"
-      ]
-    },
-    {
-      "name": "其它行业",
       "changePct": -0.07,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sh600172"
-      ]
-    },
-    {
-      "name": "酿酒行业",
-      "changePct": -0.06,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sh600059"
+        "sh600377"
       ]
     }
   ],
