@@ -1,11 +1,21 @@
 {
-  "updatedAt": "2026-09-25T23:27:22+08:00",
-  "batch": "A股盘后",
+  "updatedAt": "2026-09-25T23:49:43+08:00",
+  "batch": "A股收盘",
   "source": "akshare+rss",
   "analyzer": "rules",
   "stale": false,
   "note": "影响分析由大模型或规则词典自动生成，仅做事实性归纳，不构成投资建议。",
   "items": [
+    {
+      "id": "563970e35b2a",
+      "title": "欧洲主要股指多数收涨 德国DAX30指数涨0.51%",
+      "source": "akshare",
+      "time": "2026-09-25 23:46",
+      "url": "",
+      "sentiment": "中性",
+      "sector": "宏观",
+      "analysis": "该消息指向宏观板块，事件本身对相关标的的影响方向中性，可观察其成交与价格反应是否延续。"
+    },
     {
       "id": "67fc7048bf26",
       "title": "Anthropic在美国“供应链风险”标签案中遭遇法庭挫折",
