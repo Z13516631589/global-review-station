@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-29T02:15:39+08:00",
-  "batch": "A股盘后",
+  "updatedAt": "2026-09-29T02:37:23+08:00",
+  "batch": "A股收盘",
   "source": "sina+yfinance",
   "stale": false,
   "note": "上一交易日收盘的延迟数据，用于复盘记录。",
@@ -58,33 +58,33 @@
         {
           "symbol": "NVDA",
           "name": "英伟达",
-          "price": 230.235,
-          "change": 5.165,
-          "changePct": 2.29,
+          "price": 229.8101,
+          "change": 4.7401,
+          "changePct": 2.11,
           "asOf": "2026-09-28"
         },
         {
           "symbol": "INTC",
           "name": "英特尔",
-          "price": 115.45,
-          "change": -7.55,
-          "changePct": -6.14,
+          "price": 115.2512,
+          "change": -7.7488,
+          "changePct": -6.3,
           "asOf": "2026-09-28"
         },
         {
           "symbol": "GOOGL",
           "name": "谷歌",
-          "price": 342.5,
-          "change": -1.42,
-          "changePct": -0.41,
+          "price": 342.19,
+          "change": -1.73,
+          "changePct": -0.5,
           "asOf": "2026-09-28"
         },
         {
           "symbol": "WDC",
           "name": "西数/闪迪",
-          "price": 455.0,
-          "change": -1.81,
-          "changePct": -0.4,
+          "price": 455.1198,
+          "change": -1.6902,
+          "changePct": -0.37,
           "asOf": "2026-09-28"
         }
       ]
@@ -156,9 +156,9 @@
         {
           "symbol": "KWEB",
           "name": "中概互联网ETF",
-          "price": 24.781,
-          "change": 0.201,
-          "changePct": 0.82,
+          "price": 24.755,
+          "change": 0.175,
+          "changePct": 0.71,
           "asOf": "2026-09-28"
         }
       ]
@@ -170,9 +170,9 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 4170.5,
-          "change": -150.7002,
-          "changePct": -3.49,
+          "price": 4168.7998,
+          "change": -152.4004,
+          "changePct": -3.53,
           "asOf": "2026-09-28"
         },
         {
@@ -194,9 +194,9 @@
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 83972.2812,
-          "change": -485.8047,
-          "changePct": -0.58,
+          "price": 83878.0781,
+          "change": -580.0078,
+          "changePct": -0.69,
           "asOf": "2026-09-28"
         }
       ]
