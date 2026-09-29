@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-29T16:24:32+08:00",
-  "batch": "盘中刷新",
+  "updatedAt": "2026-09-29T22:16:57+08:00",
+  "batch": "A股收盘",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，龙虎榜为收盘后披露口径。",
@@ -67,6 +67,46 @@
       "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
     },
     {
+      "code": "600032",
+      "name": "浙江新能",
+      "close": 8.17,
+      "changePct": 9.96,
+      "netBuy": 8923.42,
+      "buyAmount": 16110.52,
+      "sellAmount": 7187.1,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "603042",
+      "name": "华脉科技",
+      "close": 16.55,
+      "changePct": -1.84,
+      "netBuy": 8867.56,
+      "buyAmount": 23152.07,
+      "sellAmount": 14284.51,
+      "reason": "有价格涨跌幅限制的日换手率达到20%的前五只证券"
+    },
+    {
+      "code": "600488",
+      "name": "津药药业",
+      "close": 6.9,
+      "changePct": 10.05,
+      "netBuy": 8355.81,
+      "buyAmount": 27295.5,
+      "sellAmount": 18939.69,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "603636",
+      "name": "南威软件",
+      "close": 7.87,
+      "changePct": 10.07,
+      "netBuy": 6233.42,
+      "buyAmount": 9647.19,
+      "sellAmount": 3413.77,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
+    },
+    {
       "code": "301513",
       "name": "尚水智能",
       "close": 51.42,
@@ -77,54 +117,14 @@
       "reason": "日涨幅达到15%的前5只证券"
     },
     {
-      "code": "301699",
-      "name": "洛轴股份",
-      "close": 37.71,
-      "changePct": -7.3,
-      "netBuy": 5886.79,
-      "buyAmount": 21737.88,
-      "sellAmount": 15851.09,
-      "reason": "日换手率达到30%的前5只证券"
-    },
-    {
-      "code": "002205",
-      "name": "国统股份",
-      "close": 12.76,
-      "changePct": 10.0,
-      "netBuy": 5091.08,
-      "buyAmount": 7167.13,
-      "sellAmount": 2076.05,
-      "reason": "日振幅值达到15%的前5只证券"
-    },
-    {
-      "code": "002614",
-      "name": "奥佳华",
-      "close": 8.13,
-      "changePct": -4.35,
-      "netBuy": 4524.58,
-      "buyAmount": 21301.21,
-      "sellAmount": 16776.63,
-      "reason": "日换手率达到20%的前5只证券"
-    },
-    {
-      "code": "301190",
-      "name": "善水科技",
-      "close": 29.94,
-      "changePct": 20.0,
-      "netBuy": 4328.66,
-      "buyAmount": 20233.77,
-      "sellAmount": 15905.1,
-      "reason": "连续三个交易日内，涨幅偏离值累计达到30%的证券"
-    },
-    {
-      "code": "000823",
-      "name": "超声电子",
-      "close": 24.4,
-      "changePct": 10.01,
-      "netBuy": 4222.84,
-      "buyAmount": 40347.89,
-      "sellAmount": 36125.05,
-      "reason": "日涨幅偏离值达到7%的前5只证券"
+      "code": "600721",
+      "name": "百花医药",
+      "close": 12.95,
+      "changePct": 6.32,
+      "netBuy": 5985.26,
+      "buyAmount": 20502.82,
+      "sellAmount": 14517.57,
+      "reason": "有价格涨跌幅限制的日换手率达到20%的前五只证券"
     }
   ],
   "topInflow": [],
