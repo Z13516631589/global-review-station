@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-29T22:16:36+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-09-30T00:37:28+08:00",
+  "batch": "A股盘后",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
@@ -66,8 +66,8 @@
     "changePct": 0.0
   },
   "margin": {
-    "balance": 13378.63,
-    "change": 5.26
+    "balance": 13373.37,
+    "change": 62.72
   },
   "sentiment": {
     "score": 63,
