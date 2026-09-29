@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-29T15:32:36+08:00",
+  "updatedAt": "2026-09-29T16:25:05+08:00",
   "batch": "盘中刷新",
-  "source": "eastmoney+sina+yfinance",
+  "source": "sina+yfinance",
   "stale": false,
   "note": "上一交易日收盘的延迟数据，用于复盘记录。",
   "groups": [
@@ -44,9 +44,9 @@
         {
           "symbol": "^VIX",
           "name": "恐慌指数",
-          "price": 16.18,
-          "change": 0.11,
-          "changePct": 0.68,
+          "price": 16.17,
+          "change": 0.1,
+          "changePct": 0.62,
           "asOf": "2026-09-29"
         }
       ]
@@ -96,18 +96,18 @@
         {
           "symbol": "^HSI",
           "name": "恒生指数",
-          "price": 24531.379,
-          "change": -111.131,
-          "changePct": -0.45,
+          "price": 24499.98,
+          "change": -142.529,
+          "changePct": -0.58,
           "asOf": ""
         },
         {
           "symbol": "^N225",
           "name": "日经225",
-          "price": 65481.27,
-          "change": -396.35,
+          "price": 65481.2695,
+          "change": -396.3477,
           "changePct": -0.6,
-          "asOf": ""
+          "asOf": "2026-09-29"
         },
         {
           "symbol": "^KS11",
@@ -120,10 +120,10 @@
         {
           "symbol": "^TWII",
           "name": "台湾加权",
-          "price": 47631.96,
-          "change": -392.64,
+          "price": 47631.9609,
+          "change": -392.6406,
           "changePct": -0.82,
-          "asOf": ""
+          "asOf": "2026-09-29"
         }
       ]
     },
@@ -170,33 +170,33 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 4177.7002,
-          "change": 9.3003,
-          "changePct": 0.22,
+          "price": 4172.2998,
+          "change": 3.8999,
+          "changePct": 0.09,
           "asOf": "2026-09-29"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 93.7,
-          "change": 1.1,
-          "changePct": 1.19,
+          "price": 93.29,
+          "change": 0.69,
+          "changePct": 0.75,
           "asOf": "2026-09-29"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.6953,
-          "change": -0.0175,
-          "changePct": -0.26,
+          "price": 6.7028,
+          "change": -0.01,
+          "changePct": -0.15,
           "asOf": "2026-09-29"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 83983.4219,
-          "change": 480.8125,
-          "changePct": 0.58,
+          "price": 84174.9922,
+          "change": 672.3828,
+          "changePct": 0.81,
           "asOf": "2026-09-29"
         }
       ]
