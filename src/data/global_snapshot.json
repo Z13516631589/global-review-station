@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-30T22:09:02+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-10-01T00:30:20+08:00",
+  "batch": "A股盘后",
   "source": "eastmoney+sina+yfinance",
   "stale": false,
   "note": "上一交易日收盘的延迟数据，用于复盘记录。",
@@ -44,9 +44,9 @@
         {
           "symbol": "^VIX",
           "name": "恐慌指数",
-          "price": 15.77,
-          "change": -0.27,
-          "changePct": -1.68,
+          "price": 15.85,
+          "change": -0.19,
+          "changePct": -1.18,
           "asOf": "2026-09-30"
         }
       ]
@@ -58,33 +58,33 @@
         {
           "symbol": "NVDA",
           "name": "英伟达",
-          "price": 230.51,
-          "change": 3.3,
-          "changePct": 1.45,
+          "price": 230.2699,
+          "change": 3.0599,
+          "changePct": 1.35,
           "asOf": "2026-09-30"
         },
         {
           "symbol": "INTC",
           "name": "英特尔",
-          "price": 118.8699,
-          "change": 2.9399,
-          "changePct": 2.54,
+          "price": 119.08,
+          "change": 3.15,
+          "changePct": 2.72,
           "asOf": "2026-09-30"
         },
         {
           "symbol": "GOOGL",
           "name": "谷歌",
-          "price": 352.03,
-          "change": 11.11,
-          "changePct": 3.26,
+          "price": 352.0,
+          "change": 11.08,
+          "changePct": 3.25,
           "asOf": "2026-09-30"
         },
         {
           "symbol": "WDC",
           "name": "西数/闪迪",
-          "price": 458.41,
-          "change": 4.93,
-          "changePct": 1.09,
+          "price": 461.515,
+          "change": 8.035,
+          "changePct": 1.77,
           "asOf": "2026-09-30"
         }
       ]
@@ -112,9 +112,9 @@
         {
           "symbol": "^KS11",
           "name": "韩国综合",
-          "price": 6838.04,
-          "change": -32.77,
-          "changePct": -0.48,
+          "price": 6870.8101,
+          "change": -18.9302,
+          "changePct": -0.27,
           "asOf": "2026-09-30"
         },
         {
@@ -134,17 +134,17 @@
         {
           "symbol": "005930.KS",
           "name": "三星电子",
-          "price": 268500.0,
-          "change": -4000.0,
-          "changePct": -1.47,
+          "price": 272500.0,
+          "change": 2500.0,
+          "changePct": 0.93,
           "asOf": "2026-09-30"
         },
         {
           "symbol": "000660.KS",
           "name": "SK海力士",
-          "price": 1776000.0,
-          "change": 11000.0,
-          "changePct": 0.62,
+          "price": 1765000.0,
+          "change": -3000.0,
+          "changePct": -0.17,
           "asOf": "2026-09-30"
         }
       ]
@@ -156,9 +156,9 @@
         {
           "symbol": "KWEB",
           "name": "中概互联网ETF",
-          "price": 24.625,
-          "change": 0.255,
-          "changePct": 1.05,
+          "price": 24.525,
+          "change": 0.155,
+          "changePct": 0.64,
           "asOf": "2026-09-30"
         }
       ]
@@ -170,33 +170,33 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 4209.5,
-          "change": 29.7998,
-          "changePct": 0.71,
+          "price": 4191.7002,
+          "change": 12.0,
+          "changePct": 0.29,
           "asOf": "2026-09-30"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 90.82,
-          "change": 1.44,
-          "changePct": 1.61,
+          "price": 91.35,
+          "change": 1.97,
+          "changePct": 2.2,
           "asOf": "2026-09-30"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.6967,
-          "change": -0.0136,
-          "changePct": -0.2,
+          "price": 6.6978,
+          "change": -0.0125,
+          "changePct": -0.19,
           "asOf": "2026-09-30"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 84318.6484,
-          "change": 696.2188,
-          "changePct": 0.83,
+          "price": 84249.9922,
+          "change": 627.5625,
+          "changePct": 0.75,
           "asOf": "2026-09-30"
         }
       ]
