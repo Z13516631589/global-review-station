@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-30T00:54:04+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-09-30T08:36:50+08:00",
+  "batch": "美股收盘",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
@@ -82,43 +82,16 @@
   "sectors": [
     {
       "name": "传媒娱乐",
-      "changePct": 2.2,
+      "changePct": 3.03,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sz000607"
-      ]
-    },
-    {
-      "name": "房地产",
-      "changePct": 1.8,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh600657"
-      ]
-    },
-    {
-      "name": "建筑建材",
-      "changePct": 1.46,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sz002205"
-      ]
-    },
-    {
-      "name": "玻璃行业",
-      "changePct": 1.23,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sz300395"
+        "sh600825"
       ]
     },
     {
       "name": "开发区",
-      "changePct": 1.19,
+      "changePct": 1.98,
       "direction": "up",
       "driver": "",
       "leading": [
@@ -126,66 +99,93 @@
       ]
     },
     {
-      "name": "印刷包装",
-      "changePct": 1.18,
+      "name": "房地产",
+      "changePct": 1.63,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sz002400"
+        "sh600657"
       ]
     },
     {
-      "name": "生物制药",
-      "changePct": -0.17,
-      "direction": "down",
+      "name": "印刷包装",
+      "changePct": 1.56,
+      "direction": "up",
       "driver": "",
       "leading": [
-        "sz300147"
+        "sh600880"
       ]
     },
     {
-      "name": "化纤行业",
-      "changePct": -0.15,
-      "direction": "down",
+      "name": "船舶制造",
+      "changePct": 1.36,
+      "direction": "up",
       "driver": "",
       "leading": [
-        "sz002172"
+        "sh600150"
       ]
     },
     {
-      "name": "石油行业",
-      "changePct": -0.12,
-      "direction": "down",
+      "name": "有色金属",
+      "changePct": 1.08,
+      "direction": "up",
       "driver": "",
       "leading": [
-        "sz000819"
+        "sh600888"
       ]
     },
     {
-      "name": "纺织机械",
-      "changePct": -0.1,
+      "name": "电力行业",
+      "changePct": -0.32,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sz002021"
+        "sh600110"
+      ]
+    },
+    {
+      "name": "玻璃行业",
+      "changePct": -0.23,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600629"
       ]
     },
     {
       "name": "家电行业",
+      "changePct": -0.22,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600336"
+      ]
+    },
+    {
+      "name": "商业百货",
+      "changePct": -0.13,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600774"
+      ]
+    },
+    {
+      "name": "汽车制造",
+      "changePct": -0.12,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh601238"
+      ]
+    },
+    {
+      "name": "水泥行业",
       "changePct": -0.05,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sz002242"
-      ]
-    },
-    {
-      "name": "医疗器械",
-      "changePct": -0.01,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz300246"
+        "sh600678"
       ]
     }
   ],
