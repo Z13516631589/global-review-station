@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-30T16:27:58+08:00",
-  "batch": "盘中刷新",
+  "updatedAt": "2026-09-30T22:08:26+08:00",
+  "batch": "A股收盘",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，龙虎榜为收盘后披露口径。",
@@ -57,6 +57,16 @@
       "reason": "日涨幅达到15%的前5只证券"
     },
     {
+      "code": "688137",
+      "name": "近岸蛋白",
+      "close": 160.39,
+      "changePct": 13.47,
+      "netBuy": 15474.22,
+      "buyAmount": 50064.89,
+      "sellAmount": 34590.67,
+      "reason": "有价格涨跌幅限制的连续3个交易日内收盘价格涨幅偏离值累计达到30%的证券"
+    },
+    {
       "code": "000678",
       "name": "襄阳轴承",
       "close": 12.89,
@@ -87,44 +97,34 @@
       "reason": "日涨幅偏离值达到7%的前5只证券"
     },
     {
-      "code": "000504",
-      "name": "南华生物",
-      "close": 12.42,
-      "changePct": 10.01,
-      "netBuy": 8162.89,
-      "buyAmount": 21162.12,
-      "sellAmount": 12999.22,
-      "reason": "日涨幅偏离值达到7%的前5只证券"
+      "code": "600825",
+      "name": "新华传媒",
+      "close": 10.35,
+      "changePct": 9.99,
+      "netBuy": 9204.3,
+      "buyAmount": 12907.66,
+      "sellAmount": 3703.36,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
     },
     {
-      "code": "000504",
-      "name": "南华生物",
-      "close": 12.42,
-      "changePct": 10.01,
-      "netBuy": 8162.89,
-      "buyAmount": 21162.12,
-      "sellAmount": 12999.22,
-      "reason": "日振幅值达到15%的前5只证券"
+      "code": "600059",
+      "name": "古越龙山",
+      "close": 12.27,
+      "changePct": 10.04,
+      "netBuy": 8620.43,
+      "buyAmount": 19496.66,
+      "sellAmount": 10876.23,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
     },
     {
-      "code": "000002",
-      "name": "万科A",
-      "close": 4.26,
-      "changePct": 4.41,
-      "netBuy": 7138.46,
-      "buyAmount": 68896.48,
-      "sellAmount": 61758.02,
-      "reason": "日振幅值达到15%的前5只证券"
-    },
-    {
-      "code": "002640",
-      "name": "跨境通",
-      "close": 3.91,
-      "changePct": -0.76,
-      "netBuy": 4665.8,
-      "buyAmount": 16349.45,
-      "sellAmount": 11683.65,
-      "reason": "日换手率达到20%的前5只证券"
+      "code": "688185",
+      "name": "康希诺",
+      "close": 102.64,
+      "changePct": 20.0,
+      "netBuy": 8613.98,
+      "buyAmount": 42008.18,
+      "sellAmount": 33394.2,
+      "reason": "有价格涨跌幅限制的连续3个交易日内收盘价格涨幅偏离值累计达到30%的证券"
     }
   ],
   "topInflow": [],
