@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-02T22:03:44+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-10-03T00:23:57+08:00",
+  "batch": "A股盘后",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，龙虎榜为收盘后披露口径。",
