@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-01T08:38:41+08:00",
+  "updatedAt": "2026-10-02T08:57:33+08:00",
   "batch": "美股收盘",
   "source": "akshare",
   "stale": false,
@@ -66,8 +66,8 @@
     "changePct": 0.0
   },
   "margin": {
-    "balance": 13310.65,
-    "change": 26.93
+    "balance": 13283.72,
+    "change": -0.7
   },
   "sentiment": {
     "score": 48,
