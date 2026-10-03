@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-03T08:35:47+08:00",
-  "batch": "美股收盘",
-  "source": "eastmoney+sina+yfinance",
+  "updatedAt": "2026-10-03T18:24:17+08:00",
+  "batch": "周末刷新",
+  "source": "sina+yfinance",
   "stale": false,
   "note": "上一交易日收盘的延迟数据，用于复盘记录。",
   "groups": [
@@ -58,33 +58,33 @@
         {
           "symbol": "NVDA",
           "name": "英伟达",
-          "price": 230.86,
-          "change": 2.48,
-          "changePct": 1.09,
+          "price": 233.95,
+          "change": 3.09,
+          "changePct": 1.34,
           "asOf": "2026-10-02"
         },
         {
           "symbol": "INTC",
           "name": "英特尔",
-          "price": 120.0,
-          "change": -0.23,
-          "changePct": -0.19,
+          "price": 119.33,
+          "change": -0.67,
+          "changePct": -0.56,
           "asOf": "2026-10-02"
         },
         {
           "symbol": "GOOGL",
           "name": "谷歌",
-          "price": 338.24,
-          "change": -5.84,
-          "changePct": -1.7,
+          "price": 343.5,
+          "change": 5.26,
+          "changePct": 1.56,
           "asOf": "2026-10-02"
         },
         {
           "symbol": "WDC",
           "name": "西数/闪迪",
-          "price": 462.56,
-          "change": 8.1,
-          "changePct": 1.78,
+          "price": 415.29,
+          "change": -47.27,
+          "changePct": -10.22,
           "asOf": "2026-10-02"
         }
       ]
@@ -104,26 +104,26 @@
         {
           "symbol": "^N225",
           "name": "日经225",
-          "price": 68309.46,
-          "change": -647.26,
+          "price": 68309.4609,
+          "change": -647.2578,
           "changePct": -0.94,
-          "asOf": ""
+          "asOf": "2026-10-02"
         },
         {
           "symbol": "^KS11",
           "name": "韩国综合",
-          "price": 6971.3501,
-          "change": 133.3101,
-          "changePct": 1.95,
+          "price": 7003.7402,
+          "change": 32.3901,
+          "changePct": 0.46,
           "asOf": "2026-10-02"
         },
         {
           "symbol": "^TWII",
           "name": "台湾加权",
-          "price": 48475.74,
+          "price": 48475.7383,
           "change": 122.25,
           "changePct": 0.25,
-          "asOf": ""
+          "asOf": "2026-10-02"
         }
       ]
     },
@@ -156,9 +156,9 @@
         {
           "symbol": "KWEB",
           "name": "中概互联网ETF",
-          "price": 24.33,
-          "change": -0.18,
-          "changePct": -0.73,
+          "price": 23.86,
+          "change": -0.47,
+          "changePct": -1.93,
           "asOf": "2026-10-02"
         }
       ]
@@ -170,33 +170,33 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 4172.1001,
-          "change": -30.1997,
-          "changePct": -0.72,
+          "price": 4162.2998,
+          "change": -40.0,
+          "changePct": -0.95,
           "asOf": "2026-10-02"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 91.26,
-          "change": -1.61,
-          "changePct": -1.73,
+          "price": 91.11,
+          "change": -1.76,
+          "changePct": -1.9,
           "asOf": "2026-10-02"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.6987,
-          "change": -0.0058,
-          "changePct": -0.09,
-          "asOf": "2026-10-02"
+          "price": 6.7048,
+          "change": 0.0003,
+          "changePct": 0.0,
+          "asOf": "2026-10-03"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 84619.7422,
-          "change": -233.3594,
-          "changePct": -0.28,
+          "price": 84551.9766,
+          "change": 54.7656,
+          "changePct": 0.06,
           "asOf": "2026-10-03"
         }
       ]
