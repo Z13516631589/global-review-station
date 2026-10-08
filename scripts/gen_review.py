@@ -201,7 +201,7 @@ def section_dragons(d: dict, a: dict) -> str:
             best[code] = it
     rank = sorted(best.values(), key=lambda x: to_float(x.get("netBuy")) or float("-inf"), reverse=True)[:5]
 
-    lines = ["## 三、资金面 · 龙虎榜（东方财富近一月统计口径）", "", "| 标的 | 收盘 | 涨跌幅 | 净买额（万） |", "| --- | --- | --- | --- |"]
+    lines = ["## 三、资金面 · 龙虎榜（东方财富，当日上榜口径）", "", "| 标的 | 收盘 | 涨跌幅 | 净买额（万） |", "| --- | --- | --- | --- |"]
     for it in rank:
         lines.append(
             f"| {it.get('name', '—')} {it.get('code', '')} | {fmt_num(it.get('close'))} "
