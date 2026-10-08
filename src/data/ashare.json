@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-08T01:49:28+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-10-08T09:09:12+08:00",
+  "batch": "美股收盘",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
@@ -9,47 +9,47 @@
     {
       "code": "000001",
       "name": "上证指数",
-      "close": 3842.19,
-      "change": 11.74,
-      "changePct": 0.31,
-      "amount": 6793.99,
-      "amplitude": 0.47
+      "close": 3842.11,
+      "change": -0.09,
+      "changePct": -0.0,
+      "amount": 0.0,
+      "amplitude": null
     },
     {
       "code": "399001",
       "name": "深证成指",
-      "close": 12887.62,
-      "change": -14.33,
-      "changePct": -0.11,
-      "amount": 7585.9,
-      "amplitude": 0.87
+      "close": 0.0,
+      "change": 0,
+      "changePct": 0,
+      "amount": 0.0,
+      "amplitude": null
     },
     {
       "code": "399006",
       "name": "创业板指",
-      "close": 3135.28,
-      "change": -7.29,
-      "changePct": -0.23,
-      "amount": 3662.39,
-      "amplitude": 1.52
+      "close": 0.0,
+      "change": 0,
+      "changePct": 0,
+      "amount": 0.0,
+      "amplitude": null
     },
     {
       "code": "000300",
       "name": "沪深300",
-      "close": 4357.62,
-      "change": 12.41,
-      "changePct": 0.29,
-      "amount": 3564.92,
-      "amplitude": 0.62
+      "close": 4357.51,
+      "change": -0.11,
+      "changePct": -0.0,
+      "amount": 0.0,
+      "amplitude": null
     },
     {
       "code": "000688",
       "name": "科创50",
       "close": 1530.01,
-      "change": -39.33,
-      "changePct": -2.51,
-      "amount": 718.79,
-      "amplitude": 3.32
+      "change": 0,
+      "changePct": 0,
+      "amount": 0.0,
+      "amplitude": null
     }
   ],
   "breadth": {
