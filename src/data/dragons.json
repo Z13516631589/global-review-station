@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-08T16:53:37+08:00",
-  "batch": "盘中刷新",
+  "updatedAt": "2026-10-08T22:49:43+08:00",
+  "batch": "A股收盘",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，龙虎榜为收盘后披露口径。",
@@ -67,14 +67,44 @@
       "reason": "日换手率达到30%的前5只证券"
     },
     {
-      "code": "603773",
-      "name": "沃格光电",
-      "close": 80.7,
-      "changePct": -10.0,
-      "netBuy": 14059.56,
-      "buyAmount": 14059.56,
-      "sellAmount": null,
-      "reason": "有价格涨跌幅限制的日收盘价格跌幅偏离值达到7%的前五只证券"
+      "code": "688313",
+      "name": "仕佳光子",
+      "close": 127.6,
+      "changePct": -17.4,
+      "netBuy": 13531.59,
+      "buyAmount": 108741.17,
+      "sellAmount": 95209.58,
+      "reason": "有价格涨跌幅限制的日收盘价格跌幅达到15%的前五只证券"
+    },
+    {
+      "code": "600663",
+      "name": "陆家嘴",
+      "close": 11.12,
+      "changePct": 9.99,
+      "netBuy": 12835.78,
+      "buyAmount": 28900.45,
+      "sellAmount": 16064.67,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "600127",
+      "name": "金健米业",
+      "close": 13.8,
+      "changePct": 5.02,
+      "netBuy": 12444.83,
+      "buyAmount": 41578.03,
+      "sellAmount": 29133.21,
+      "reason": "有价格涨跌幅限制的日换手率达到20%的前五只证券"
+    },
+    {
+      "code": "603906",
+      "name": "龙蟠科技",
+      "close": 20.94,
+      "changePct": 9.98,
+      "netBuy": 11405.74,
+      "buyAmount": 31265.71,
+      "sellAmount": 19859.97,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
     },
     {
       "code": "002614",
@@ -87,44 +117,14 @@
       "reason": "日振幅值达到15%的前5只证券"
     },
     {
-      "code": "002490",
-      "name": "山东墨龙",
-      "close": 7.6,
-      "changePct": 9.99,
-      "netBuy": 7819.77,
-      "buyAmount": 12825.07,
-      "sellAmount": 5005.3,
-      "reason": "日涨幅偏离值达到7%的前5只证券"
-    },
-    {
-      "code": "300530",
-      "name": "领湃科技",
-      "close": 24.08,
-      "changePct": 19.98,
-      "netBuy": 7676.65,
-      "buyAmount": 10410.42,
-      "sellAmount": 2733.78,
-      "reason": "日涨幅达到15%的前5只证券"
-    },
-    {
-      "code": "301190",
-      "name": "善水科技",
-      "close": 39.52,
-      "changePct": 9.99,
-      "netBuy": 7614.41,
-      "buyAmount": 33383.24,
-      "sellAmount": 25768.83,
-      "reason": "连续三个交易日内，涨幅偏离值累计达到30%的证券"
-    },
-    {
-      "code": "300530",
-      "name": "领湃科技",
-      "close": 24.08,
-      "changePct": 19.98,
-      "netBuy": 6541.6,
-      "buyAmount": 12512.13,
-      "sellAmount": 5970.53,
-      "reason": "连续三个交易日内，涨幅偏离值累计达到30%的证券"
+      "code": "688578",
+      "name": "艾力斯",
+      "close": 89.26,
+      "changePct": -20.0,
+      "netBuy": 9354.35,
+      "buyAmount": 19355.55,
+      "sellAmount": 10001.2,
+      "reason": "有价格涨跌幅限制的日收盘价格跌幅达到15%的前五只证券"
     }
   ],
   "topInflow": [],
