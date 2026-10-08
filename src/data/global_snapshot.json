@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-08T15:24:23+08:00",
-  "batch": "盘前消息",
+  "updatedAt": "2026-10-08T16:00:18+08:00",
+  "batch": "盘中刷新",
   "source": "eastmoney+sina+yfinance",
   "stale": false,
   "note": "上一交易日收盘的延迟数据，用于复盘记录。",
@@ -44,10 +44,10 @@
         {
           "symbol": "^VIX",
           "name": "恐慌指数",
-          "price": 15.08,
-          "change": 0.07,
-          "changePct": 0.47,
-          "asOf": "2026-10-07"
+          "price": 15.63,
+          "change": 0.55,
+          "changePct": 3.65,
+          "asOf": "2026-10-08"
         }
       ]
     },
@@ -96,9 +96,9 @@
         {
           "symbol": "^HSI",
           "name": "恒生指数",
-          "price": 23807.49,
-          "change": -323.01,
-          "changePct": -1.34,
+          "price": 23778.439,
+          "change": -352.061,
+          "changePct": -1.46,
           "asOf": ""
         },
         {
@@ -170,33 +170,33 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 4149.3999,
-          "change": 8.6997,
-          "changePct": 0.21,
+          "price": 4144.2998,
+          "change": 3.5996,
+          "changePct": 0.09,
           "asOf": "2026-10-08"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 91.32,
-          "change": 3.04,
-          "changePct": 3.44,
+          "price": 91.72,
+          "change": 3.44,
+          "changePct": 3.9,
           "asOf": "2026-10-08"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.7021,
-          "change": -0.0024,
-          "changePct": -0.04,
+          "price": 6.7026,
+          "change": -0.0019,
+          "changePct": -0.03,
           "asOf": "2026-10-08"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 83160.6016,
-          "change": -115.3281,
-          "changePct": -0.14,
+          "price": 82945.4688,
+          "change": -330.4609,
+          "changePct": -0.4,
           "asOf": "2026-10-08"
         }
       ]

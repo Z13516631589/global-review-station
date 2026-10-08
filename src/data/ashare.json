@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-08T15:23:40+08:00",
-  "batch": "盘前消息",
+  "updatedAt": "2026-10-08T15:59:38+08:00",
+  "batch": "盘中刷新",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
@@ -62,21 +62,21 @@
   },
   "volume": {
     "amount": 16821.09,
-    "prevAmount": 14379.89,
-    "changePct": 16.98
+    "prevAmount": 16821.09,
+    "changePct": 0.0
   },
   "margin": {
     "balance": 13345.62,
     "change": -53.28
   },
   "sentiment": {
-    "score": 45,
-    "label": "中性",
+    "score": 34,
+    "label": "中性偏弱",
     "desc": "",
     "drivers": [
       "涨跌家数 1634 / 3466，上涨占比 32.0%",
       "涨停 44 家、跌停 16 家",
-      "两市成交 16821 亿，环比 +16.98%"
+      "两市成交 16821 亿，环比 +0.00%"
     ]
   },
   "sectors": [
