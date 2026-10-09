@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-09T16:57:39+08:00",
-  "batch": "盘中刷新",
+  "updatedAt": "2026-10-09T22:35:09+08:00",
+  "batch": "A股收盘",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，龙虎榜为收盘后披露口径。",
@@ -97,34 +97,34 @@
       "reason": "日跌幅偏离值达到7%的前5只证券"
     },
     {
-      "code": "300981",
-      "name": "中红医疗",
-      "close": 23.36,
-      "changePct": 19.98,
-      "netBuy": 7929.31,
-      "buyAmount": 33118.35,
-      "sellAmount": 25189.04,
-      "reason": "连续三个交易日内，涨幅偏离值累计达到30%的证券"
+      "code": "601929",
+      "name": "吉视传媒",
+      "close": 2.5,
+      "changePct": 10.13,
+      "netBuy": 10619.3,
+      "buyAmount": 16653.06,
+      "sellAmount": 6033.77,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
     },
     {
-      "code": "300189",
-      "name": "神农种业",
-      "close": 6.69,
-      "changePct": 10.4,
-      "netBuy": 7182.35,
-      "buyAmount": 25149.42,
-      "sellAmount": 17967.08,
-      "reason": "日换手率达到30%的前5只证券"
+      "code": "600354",
+      "name": "敦煌种业",
+      "close": 9.99,
+      "changePct": 10.02,
+      "netBuy": 8782.83,
+      "buyAmount": 18523.14,
+      "sellAmount": 9740.31,
+      "reason": "有价格涨跌幅限制的日换手率达到20%的前五只证券"
     },
     {
-      "code": "301689",
-      "name": "电科思仪",
-      "close": 71.01,
-      "changePct": -1.65,
-      "netBuy": 7121.59,
-      "buyAmount": 22193.18,
-      "sellAmount": 15071.59,
-      "reason": "日换手率达到30%的前5只证券"
+      "code": "603232",
+      "name": "格尔软件",
+      "close": 16.98,
+      "changePct": 9.97,
+      "netBuy": 8073.87,
+      "buyAmount": 13243.88,
+      "sellAmount": 5170.01,
+      "reason": "有价格涨跌幅限制的日价格振幅达到15%的前五只证券"
     }
   ],
   "topInflow": [],
