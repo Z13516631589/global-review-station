@@ -153,11 +153,15 @@ def section_overview(a: dict) -> str:
         lines.append(f"- 涨停 **{b['limitUp']}** 家、跌停 **{b.get('limitDown', '—')}** 家。")
 
     m = a.get("margin") or {}
-    if to_float(m.get("balance")) is not None:
+    bal = to_float(m.get("balance"))
+    if bal is not None:
         mchg = to_float(m.get("change"))
         sign = "+" if (mchg or 0) >= 0 else ""
+        asof = m.get("asOf")
+        suffix = f"（截至 {asof}）" if asof else ""
+        caveat = "（两融余额披露有 T+1 滞后，环比口径存疑，以余额为准）" if m.get("stale") else ""
         lines.append(
-            f"- 融资余额 {to_float(m['balance']):,.2f} 亿，环比 **{sign}{mchg:,.2f} 亿**（上交所口径）。"
+            f"- 融资余额 {bal:,.2f} 亿{suffix}，环比 **{sign}{mchg:,.2f} 亿**（上交所口径）{caveat}。"
         )
 
     s = a.get("sentiment") or {}
@@ -234,7 +238,11 @@ def section_global(g: dict, n: dict) -> str:
         lines.append("- 美股快照当日抓取失败，本节留空。")
 
     if ap:
-        parts = [f"{it.get('name')} {fmt_num(it.get('price'))}（{fmt_pct(it.get('changePct'))}）" for it in (ap.get("items") or [])[:3]]
+        parts = []
+        for it in (ap.get("items") or [])[:3]:
+            as_of = f"（截至 {it.get('asOf')[5:]}）" if it.get("asOf") else ""
+            mark = "（涨跌幅待核实）" if it.get("stale") or it.get("changePct") is None else ""
+            parts.append(f"{it.get('name')} {fmt_num(it.get('price'))}（{fmt_pct(it.get('changePct'))}）{as_of}{mark}")
         if parts:
             lines.append(f"- 亚太：{'、'.join(parts)}。")
 

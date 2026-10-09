@@ -17,7 +17,7 @@ akshare 的函数名与域名偶有调整，这里对每个数据需求列出多
 from __future__ import annotations
 
 import sys
-from datetime import timedelta
+from datetime import date, datetime, timedelta
 
 from common import (
     batch_from_args,
@@ -87,6 +87,40 @@ def to_wan(v):
     if v is None:
         return None
     return round(v / 1e4, 2) if abs(v) > 1e6 else round(v, 2)
+
+
+def _parse_date(value):
+    """兼容 '2026-09-21' / '2026-09-21 00:00:00' / '20260921' 等写法，返回 date。"""
+    if value is None:
+        return None
+    s = str(value).strip()
+    if not s:
+        return None
+    try:
+        return date.fromisoformat(s[:10].replace("/", "-"))
+    except ValueError:
+        pass
+    try:
+        return datetime.strptime(s[:10], "%Y%m%d").date()
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def _trim_history(hist: dict, keep: int = 90) -> dict:
+    """只保留最近 keep 个交易日的成交额历史，避免文件无限增长。"""
+    keys = sorted(hist)
+    if len(keys) > keep:
+        for k in keys[:-keep]:
+            hist.pop(k, None)
+    return hist
+
+
+def prev_volume_for(day: str, history: dict):
+    """返回 history 中 tradeDay < day 的最近一个交易日的成交额（亿元）。"""
+    prior = [k for k in history if k < day and to_float(history.get(k)) is not None]
+    if not prior:
+        return None
+    return to_float(history[max(prior)])
 
 
 # --------------------------------------------------------------------------
@@ -514,20 +548,54 @@ def fetch_fund_rank(ak):
 
 
 def fetch_margin(ak):
+    """融资余额：取最近两个不同交易日的余额做环比，并标注数据日期与滞后标记。
+
+    两融数据由交易所 T+1 披露，且 akshare 返回的 DataFrame 行序与间隔不固定，
+    直接取 iloc[-1]/iloc[-2] 常会把「跨周末/假期的两个非相邻日」当相邻日对比，
+    导致 change 与余额变动对不上。这里按日期去重排序后再取最近两个交易日。
+    """
     today = now_cn().date()
-    start = (today - timedelta(days=20)).strftime("%Y%m%d")
+    start = (today - timedelta(days=45)).strftime("%Y%m%d")  # 拉长区间，确保跨周末/假期仍有 ≥2 个交易日
     end = today.strftime("%Y%m%d")
     df, _ = call_first(ak, ["stock_margin_sse"], start_date=start, end_date=end)
     if df is None:
         return None
     col = find_col(df, ["融资余额"])
-    if not col or len(df) < 2:
+    if not col:
         return None
-    last = to_float(df[col].iloc[-1])
-    prev = to_float(df[col].iloc[-2])
-    if last is None or prev is None:
+    date_col = find_col(df, ["日期", "交易日期", "date", "交易日"])
+
+    if date_col is None:
+        # 没有日期列：退而取最后两行（顺序不保证，尽力而为）
+        if len(df) < 2:
+            return None
+        vals = [to_yi(v) for v in df[col].tolist()[-2:] if to_float(v) is not None]
+        if len(vals) < 2:
+            return None
+        last, prev = vals[-1], vals[-2]
+        return {"balance": round(last, 2), "change": round(last - prev, 2), "asOf": "", "stale": False}
+
+    work = df[[date_col, col]].copy()
+    work["_d"] = work[date_col].map(_parse_date)
+    work["_v"] = work[col].map(to_yi)
+    work = work.dropna(subset=["_d", "_v"])
+    if len(work) < 2:
         return None
-    return {"balance": to_yi(last) or 0, "change": round((to_yi(last) or 0) - (to_yi(prev) or 0), 2)}
+    work = work.sort_values("_d")
+    # 每个交易日只保留最后一条余额，再取最近两个不同交易日
+    daily = work.groupby("_d", as_index=False)["_v"].last().sort_values("_d")
+    dates = daily["_d"].tolist()
+    vals = daily["_v"].tolist()
+    last, prev = vals[-1], vals[-2]
+    as_of = dates[-1].isoformat()
+    # 最新数据落后超过 2 天 → 说明当日两融尚未披露，change 仅供参考
+    stale = (today - dates[-1]).days > 2
+    return {
+        "balance": round(last, 2),
+        "change": round(last - prev, 2),
+        "asOf": as_of,
+        "stale": stale,
+    }
 
 
 # --------------------------------------------------------------------------
@@ -614,12 +682,25 @@ def main() -> int:
         log.warning("A股核心数据全部抓取失败，保留上一版 JSON")
         return 1
 
-    prev = merge_with_previous({}, OUT_ASHARE, ["volume", "margin", "breadth", "indices", "sectors"])
-    prev_volume = (prev.get("volume") or {}).get("amount")
+    prev = merge_with_previous({}, OUT_ASHARE, ["volume", "margin", "breadth", "indices", "sectors", "volumeHistory"])
+    # 逐交易日成交额历史：对比基准必须是「上一交易日」，而非磁盘上一次写入——
+    # CI 同一交易日会跑多批（盘前/盘中/收盘/盘后），后一批若直接读前一批同日数据，
+    # 会把 prevAmount 写成与 amount 相同，导致环比 0.00%（持平）假象。历史挂在 ashare.json
+    # 内（随数据快照一起提交），跨日/同日多次运行都不会污染「上一交易日」对比。
+    history = dict(prev.get("volumeHistory") or {})
+    if not history:
+        _pf_day = prev.get("tradeDay")
+        _pf_vol = (prev.get("volume") or {}).get("amount")
+        if _pf_day and _pf_day != day and to_float(_pf_vol) is not None:
+            history[_pf_day] = to_float(_pf_vol)
+    prev_volume = prev_volume_for(day, history)
     volume = amount if amount else prev_volume
     change_pct = 0.0
     if volume and prev_volume:
         change_pct = round((volume - prev_volume) / prev_volume * 100, 2)
+    if volume:
+        history[day] = volume
+        history = _trim_history(history)
 
     ashare_payload = {
         "updatedAt": now_iso(),
@@ -632,6 +713,7 @@ def main() -> int:
         "indices": indices or prev.get("indices", []),
         "breadth": breadth or prev.get("breadth", {"up": 0, "down": 0, "flat": 0, "limitUp": 0, "limitDown": 0}),
         "volume": {"amount": volume or 0, "prevAmount": prev_volume or 0, "changePct": change_pct},
+        "volumeHistory": history,
         "margin": margin or prev.get("margin"),
         "sentiment": build_sentiment(breadth, volume, prev_volume),
         "sectors": sectors or prev.get("sectors", []),

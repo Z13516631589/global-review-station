@@ -206,6 +206,22 @@ def expected_us_trade_date() -> date:
     return d
 
 
+# 亚太市场（东京 14:00 / 首尔 15:30 / 台湾 13:30 / 香港 16:00 北京时间收盘）中，
+# 香港最晚。以 16:00 为界：在此之前，当日亚太时段尚未全部收盘，视为「上一交易日」才靠谱。
+ASIA_CLOSE_HOUR_BJ = 16
+
+
+def expected_asia_trade_date() -> date:
+    """最近一个「应已完成收盘」的亚太交易日（北京时间日期；不处理亚洲节假日）。"""
+    now_bj = now_cn()
+    d = now_bj.date()
+    if now_bj.hour < ASIA_CLOSE_HOUR_BJ:
+        d -= timedelta(days=1)
+    while d.weekday() >= 5:  # 跳过周六 / 周日
+        d -= timedelta(days=1)
+    return d
+
+
 # --------------------------------------------------------------------------
 # 数据源 1：新浪财经
 # --------------------------------------------------------------------------
@@ -435,6 +451,32 @@ def fetch_stooq(symbol: str):
 
 
 # --------------------------------------------------------------------------
+def build_candidates(ak, em, symbol: str, name: str, market: str):
+    """按市场决定取数源顺序。
+
+    亚太市场（日经 / 恒生 / 韩国 / 台湾）的主力源（东财全球指数 spot）不带数据日期，
+    且在不同时段抓到的「涨跌幅」基准会漂——早盘批次常把上一交易日收盘当现价，导致
+    涨跌幅虚高甚至整档不刷新。因此亚太优先用带真实数据日期的 yfinance / stooq，其
+    changePct 是「最近一个已完成交易日 vs 前一交易日」的真实日变动，从根本上规避基准漂移。
+    """
+    cands = []
+    if ak is not None:
+        if market.startswith("美股"):
+            cands.append((lambda: fetch_sina_us(ak, symbol), "sina_us"))
+        cands.append((lambda: fetch_sina_hk(ak, symbol, name), "sina_hk"))
+        cands.append((lambda: em.lookup(symbol, name), "eastmoney"))
+    if market == "亚太":
+        # 带日期的源放最前，优先采用其真实日变动
+        cands = [
+            (lambda: fetch_yfinance(symbol), "yfinance"),
+            (lambda: fetch_stooq(symbol), "stooq"),
+        ] + cands
+    else:
+        cands.append((lambda: fetch_yfinance(symbol), "yfinance"))
+        cands.append((lambda: fetch_stooq(symbol), "stooq"))
+    return cands
+
+
 def build() -> dict:
     ak = optional_import("akshare")
     em = EastmoneyCache()
@@ -442,56 +484,63 @@ def build() -> dict:
         log.info("未安装 akshare，跳过新浪 / 东财数据源")
 
     def resolve(symbol: str, name: str, market: str):
-        """按 新浪 → 东财 → yfinance → stooq 顺序取数。
+        """按源顺序取数，并对需要日期闸门的标的做新鲜度校验。
 
-        美股 / 中概标的额外校验数据日期：必须达到最近一个美股交易日，否则判定
-        「该源尚未更新」，继续换源；全部过期时退回日期最新的那一版，并在日志告警。
+        - 美股 / 中概 / 亚太：校验数据日期必须达到最近一个对应交易日，否则判定源未更新，
+          继续换源；所有源都过期时退回价格（压下涨跌幅，避免展示错误百分比）。
+        - 其它市场（美股科技 / 韩国芯片 / 商品）：第一条有效即采用。
         """
-        us_related = market.startswith("美股") or market == "中概"
-        expected = expected_us_trade_date() if us_related else None
-        fallback: tuple[date | None, dict, str] | None = None
+        if market == "亚太":
+            expected = expected_asia_trade_date()
+            is_dated = True
+        elif market.startswith("美股") or market == "中概":
+            expected = expected_us_trade_date()
+            is_dated = True
+        else:
+            expected = None
+            is_dated = False
 
-        def accept(quote, src):
-            nonlocal fallback
-            if not quote:
-                return None
-            d = _parse_date(quote.get("asOf", "")) if us_related else None
-            if us_related and expected and d is not None and d < expected:
-                log.info(
-                    "%s 源 %s 数据日期 %s 早于最近交易日 %s，判定源未更新，换源",
-                    symbol, src, d, expected,
-                )
-                if fallback is None or (fallback[0] is None or d > fallback[0]):
-                    fallback = (d, quote, src)
-                return None
-            return quote, src
-
-        candidates = []
-        if ak is not None:
-            candidates.append((lambda: fetch_sina_us(ak, symbol), "sina"))
-            candidates.append((lambda: fetch_sina_hk(ak, symbol, name), "sina"))
-            candidates.append((lambda: em.lookup(symbol, name), "eastmoney"))
-        candidates.append((lambda: fetch_yfinance(symbol), "yfinance"))
-        candidates.append((lambda: fetch_stooq(symbol), "stooq"))
+        candidates = build_candidates(ak, em, symbol, name, market)
+        fresh = None
+        stale: tuple[date, dict, str] | None = None  # 带日期但早于期望交易日
+        undated = None  # 无 asOf 的源（东财 / 新浪），无法校验
 
         for getter, src in candidates:
             got = retry_call(getter, times=1, delay=0.0, label=f"{src} {symbol}")
-            picked = accept(got, src)
-            if picked:
-                return picked
+            if not got:
+                continue
+            if is_dated and expected:
+                d = _parse_date(got.get("asOf", ""))
+                if d is not None:
+                    if d == expected:
+                        fresh = (got, src)
+                        break
+                    if stale is None or d > stale[0]:
+                        stale = (d, got, src)
+                elif undated is None:
+                    undated = (got, src)
+            else:
+                fresh = (got, src)
+                break
 
-        if fallback is not None:
-            log.warning(
-                "%s：所有数据源日期都早于 %s，沿用其中最新的一版（%s / %s）",
-                symbol, expected, fallback[2], fallback[0],
-            )
-            return fallback[1], fallback[2]
+        if fresh:
+            return fresh
+        if stale:
+            # 数据为更早一期的收盘：保留价格，压下涨跌幅避免展示错误百分比
+            q = dict(stale[1])
+            q["changePct"] = None
+            q["stale"] = True
+            log.info("%s 源 %s 数据日期 %s 早于最近交易日 %s，压下涨跌幅，仅保留价格", symbol, stale[2], stale[0], expected)
+            return q, stale[2]
+        if undated:
+            return undated
         return None, ""
 
     groups = []
     ok_total = 0
     lagged = 0
     us_expected = expected_us_trade_date()
+    asia_expected = expected_asia_trade_date()
     sources: set[str] = set()
     for g in GROUPS:
         items = []
@@ -500,10 +549,9 @@ def build() -> dict:
             if q:
                 ok_total += 1
                 sources.add(src)
-                if g["market"] in ("美股", "中概"):
-                    d = _parse_date(q.get("asOf", ""))
-                    if d is not None and d < us_expected:
-                        lagged += 1
+                # 数据日期落后于对应最近交易日的，计入滞后（涨跌幅已被压下，仅保留价格）
+                if q.get("stale"):
+                    lagged += 1
                 items.append({"symbol": symbol, "name": name, **q})
             else:
                 log.warning("全球标的抓取失败：%s %s", symbol, name)
@@ -516,10 +564,11 @@ def build() -> dict:
     note = "上一交易日收盘的延迟数据，用于复盘记录。"
     if lagged:
         note = (
-            f"注意：有 {lagged} 个美股标的数据日期早于最近交易日（{us_expected}），"
-            "各数据源当日 K 线尚未更新，暂用其上一条收盘价，页面已标注具体日期。"
+            f"注意：有 {lagged} 个标的数据日期早于最近交易日"
+            f"（美股/中概 {us_expected}、亚太 {asia_expected}），"
+            "各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。"
         )
-        log.warning("本轮有 %d 个美股标的数据滞后于 %s", lagged, us_expected)
+        log.warning("本轮有 %d 个标的数据滞后（美股/中概 %s、亚太 %s）", lagged, us_expected, asia_expected)
 
     return {
         "updatedAt": now_iso(),
