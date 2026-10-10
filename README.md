@@ -108,6 +108,31 @@ npm run build:fresh
 3. **预览**：`npm run dev`
 4. **构建部署**：`npm run build` → Vercel / Cloudflare Pages
 
+### 3.1 本地兜底流程（CI 的「复盘生成」批次没跑出骨架时用）
+
+GitHub Actions 的定时任务偶有排队丢弃，「复盘生成」批次可能没生成当日骨架。
+这时本机一键补齐（Windows PowerShell）：
+
+```powershell
+# 全流程：同步远端 → 抓当日数据 → 生成复盘骨架 → 构建 → 提交 → 推送 → 线上校验
+npm run local:review                       # 目标日 = 最近工作日
+npm run local:review -- -Date 2026-10-09   # 指定交易日
+npm run local:review -- -Force             # 覆盖已存在的骨架（会先自动备份为 .mdx.bak）
+npm run local:review -- -SkipFetch         # 代理/网络不可用时，用磁盘现有 JSON
+npm run local:review:dry                    # 只看过程：-SkipFetch -SkipBuild -NoPush
+
+# 等价于直接调用脚本
+powershell -ExecutionPolicy Bypass -File scripts/local-review.ps1 -Date 2026-10-09
+```
+
+脚本要点：
+
+- **幂等可重跑**：已存在的当日 MDX **默认保留**（不覆盖人工填过的观点）；`-Force` 覆盖前会自动备份为 `*.mdx.bak`。
+- **只提交当日 MDX + `src/data`**，不夹带无关改动；推送走「清代理 + git 直连」（系统代理会 502）。
+- **数据纪律**：骨架量能环比在缺少可信「上一交易日」基准时，如实显示「环比暂不可用」，**不显示假的 0.00%**。
+- 流程只生成**客观数据骨架**；第五节「复盘观点」仍由 AI/人工撰写后，用
+  `python scripts/gen_review.py --date <日> --fill-viewpoint <file>.json` 回填。
+
 frontmatter 字段（见 `src/content.config.ts`；下面是**格式示例**，数字请替换为当日真实数据）：
 
 ```yaml
