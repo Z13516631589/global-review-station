@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import sys
 from datetime import date, datetime, timedelta
+from pathlib import Path
 
 from common import (
     batch_from_args,
@@ -121,6 +122,12 @@ def prev_volume_for(day: str, history: dict):
     if not prior:
         return None
     return to_float(history[max(prior)])
+
+
+# 注意：不要从 git 历史回捞旧 ashare.json 的成交额来「自愈」——
+# 旧代码会把「当日成交额」写进 tradeDay 标注为前一日的文件里（实测 git 历史里
+# 20261008 的 rev 混有 10/9 的 19005.4），回捞只会把错误基准灌进历史，违反铁律。
+# 因此基准只认「随快照一起提交的 volumeHistory」这一个干净来源；缺失时就如实留空。
 
 
 # --------------------------------------------------------------------------
@@ -688,14 +695,11 @@ def main() -> int:
     # 会把 prevAmount 写成与 amount 相同，导致环比 0.00%（持平）假象。历史挂在 ashare.json
     # 内（随数据快照一起提交），跨日/同日多次运行都不会污染「上一交易日」对比。
     history = dict(prev.get("volumeHistory") or {})
-    if not history:
-        _pf_day = prev.get("tradeDay")
-        _pf_vol = (prev.get("volume") or {}).get("amount")
-        if _pf_day and _pf_day != day and to_float(_pf_vol) is not None:
-            history[_pf_day] = to_float(_pf_vol)
+    # 只从「上一版 volumeHistory」取基准；老数据没有该字段时留空（宁可显示不可用，
+    # 也不拿被污染的旧值凑一个假环比）。
     prev_volume = prev_volume_for(day, history)
     volume = amount if amount else prev_volume
-    change_pct = 0.0
+    change_pct = None
     if volume and prev_volume:
         change_pct = round((volume - prev_volume) / prev_volume * 100, 2)
     if volume:

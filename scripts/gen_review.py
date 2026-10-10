@@ -134,10 +134,14 @@ def section_overview(a: dict) -> str:
         tail = ""
         if sh and sz:
             tail = f"（上证 {sh:,.0f} 亿 + 深证 {sz:,.0f} 亿）"
-        tag = "放量" if (chg or 0) > 0 else ("缩量" if (chg or 0) < 0 else "持平")
-        lines.append(
-            f"- 两市成交合计约 **{amount:,.0f} 亿**{tail}，较上一交易日 **{fmt_pct(chg)}**（{tag}）。"
-        )
+        if chg is None or not prev_amount:
+            # 没有可信的上一交易日基准：如实说明，绝不显示 0.00%（持平）
+            lines.append(f"- 两市成交合计约 **{amount:,.0f} 亿**{tail}（上一交易日基准缺失，环比暂不可用）。")
+        else:
+            tag = "放量" if chg > 0 else ("缩量" if chg < 0 else "持平")
+            lines.append(
+                f"- 两市成交合计约 **{amount:,.0f} 亿**{tail}，较上一交易日 **{fmt_pct(chg)}**（{tag}）。"
+            )
     else:
         lines.append("- 两市成交额接口当日不可用，该项留空。")
 
@@ -426,7 +430,10 @@ def fallback_summary(a: dict, day: datetime.date) -> str:
     for i in idx:
         seg.append(f"{i.get('name')} {fmt_num(i.get('close'))}（{fmt_pct(i.get('changePct'))}）")
     if to_float(v.get("amount")):
-        seg.append(f"两市成交 {to_float(v['amount']):,.0f} 亿（环比 {fmt_pct(v.get('changePct'))}）")
+        if to_float(v.get("changePct")) is None or not to_float(v.get("prevAmount")):
+            seg.append(f"两市成交 {to_float(v['amount']):,.0f} 亿（环比暂不可用）")
+        else:
+            seg.append(f"两市成交 {to_float(v['amount']):,.0f} 亿（环比 {fmt_pct(v.get('changePct'))}）")
     if b.get("up") is not None:
         seg.append(f"上涨 {b.get('up')} 家 / 下跌 {b.get('down')} 家，涨停 {b.get('limitUp')} 家、跌停 {b.get('limitDown')} 家")
     return f"{day.month}月{day.day}日复盘：" + "，".join(seg) + "。"
@@ -436,7 +443,8 @@ def fallback_tags(a: dict) -> list[str]:
     sectors = [s for s in (a.get("sectors") or []) if s.get("direction") == "up"][:2]
     tags = [str(s.get("name"))[:4] for s in sectors]
     v = to_float((a.get("volume") or {}).get("changePct"))
-    tags.append("放量" if (v or 0) > 0 else "缩量")
+    if v is not None:  # 环比不可用时不下「放量/缩量」判断，避免误导
+        tags.append("放量" if v > 0 else "缩量")
     return [t for t in tags if t][:3]
 
 

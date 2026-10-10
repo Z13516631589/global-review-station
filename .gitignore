@@ -23,5 +23,9 @@ venv/
 Thumbs.db
 *.log
 
+# 本地兜底流程的 MDX 备份 / 调试临时文件
+src/content/reviews/*.mdx.bak
+scripts/_*.txt
+
 # WorkBuddy 本地工作数据（不入库）
 .workbuddy/

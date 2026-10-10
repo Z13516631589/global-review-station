@@ -17,7 +17,9 @@
     "fetch:ashare": "node scripts/run-fetch.mjs fetch_ashare.py",
     "fetch:news": "node scripts/run-fetch.mjs fetch_news.py",
     "bootstrap:py": "node scripts/run-fetch.mjs --ensure-deps",
-    "astro": "astro"
+    "astro": "astro",
+    "local:review": "powershell -ExecutionPolicy Bypass -File scripts/local-review.ps1",
+    "local:review:dry": "powershell -ExecutionPolicy Bypass -File scripts/local-review.ps1 -SkipFetch -SkipBuild -NoPush"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
