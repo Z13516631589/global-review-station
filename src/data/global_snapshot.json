@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-10-13T00:56:35+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-10-13T03:58:37+08:00",
+  "batch": "A股盘后",
   "source": "sina_us+yfinance",
   "stale": false,
-  "note": "注意：有 7 个标的数据日期早于最近交易日（美股/中概 2026-10-09、亚太 2026-10-12），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
+  "note": "注意：有 8 个标的数据日期早于最近交易日（美股/中概 2026-10-09、亚太 2026-10-12），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
   "groups": [
     {
       "market": "美股",
@@ -44,8 +44,8 @@
         {
           "symbol": "^VIX",
           "name": "恐慌指数",
-          "price": 15.22,
-          "change": 0.38,
+          "price": 15.24,
+          "change": 0.4,
           "changePct": null,
           "asOf": "2026-10-12",
           "stale": true
@@ -59,8 +59,8 @@
         {
           "symbol": "NVDA",
           "name": "英伟达",
-          "price": 226.1255,
-          "change": -3.1545,
+          "price": 226.49,
+          "change": -2.79,
           "changePct": null,
           "asOf": "2026-10-12",
           "stale": true
@@ -68,8 +68,8 @@
         {
           "symbol": "INTC",
           "name": "英特尔",
-          "price": 101.21,
-          "change": -3.49,
+          "price": 101.385,
+          "change": -3.315,
           "changePct": null,
           "asOf": "2026-10-12",
           "stale": true
@@ -77,8 +77,8 @@
         {
           "symbol": "GOOGL",
           "name": "谷歌",
-          "price": 353.604,
-          "change": 1.944,
+          "price": 352.62,
+          "change": 0.96,
           "changePct": null,
           "asOf": "2026-10-12",
           "stale": true
@@ -86,8 +86,8 @@
         {
           "symbol": "WDC",
           "name": "西数/闪迪",
-          "price": 387.71,
-          "change": -9.57,
+          "price": 386.935,
+          "change": -10.345,
           "changePct": null,
           "asOf": "2026-10-12",
           "stale": true
@@ -120,8 +120,9 @@
           "name": "韩国综合",
           "price": 6625.9302,
           "change": -177.9697,
-          "changePct": -2.62,
-          "asOf": "2026-10-12"
+          "changePct": null,
+          "asOf": "2026-10-08",
+          "stale": true
         },
         {
           "symbol": "^TWII",
@@ -143,7 +144,7 @@
           "price": 262000.0,
           "change": -6500.0,
           "changePct": -2.42,
-          "asOf": "2026-10-12"
+          "asOf": "2026-10-08"
         },
         {
           "symbol": "000660.KS",
@@ -151,7 +152,7 @@
           "price": 1681000.0,
           "change": -42000.0,
           "changePct": -2.44,
-          "asOf": "2026-10-12"
+          "asOf": "2026-10-08"
         }
       ]
     },
@@ -162,8 +163,8 @@
         {
           "symbol": "KWEB",
           "name": "中概互联网ETF",
-          "price": 24.75,
-          "change": -0.18,
+          "price": 24.765,
+          "change": -0.165,
           "changePct": null,
           "asOf": "2026-10-12",
           "stale": true
@@ -177,33 +178,33 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 4185.5,
-          "change": -30.7998,
-          "changePct": -0.73,
+          "price": 4192.3999,
+          "change": -23.8999,
+          "changePct": -0.57,
           "asOf": "2026-10-12"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 93.69,
-          "change": 1.84,
-          "changePct": 2.0,
+          "price": 93.39,
+          "change": 1.54,
+          "changePct": 1.68,
           "asOf": "2026-10-12"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.692,
-          "change": -0.0101,
-          "changePct": -0.15,
+          "price": 6.6831,
+          "change": -0.019,
+          "changePct": -0.28,
           "asOf": "2026-10-12"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 82445.6719,
-          "change": -1233.7969,
-          "changePct": -1.47,
+          "price": 82753.7109,
+          "change": -925.7578,
+          "changePct": -1.11,
           "asOf": "2026-10-12"
         }
       ]
