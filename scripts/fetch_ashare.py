@@ -17,7 +17,7 @@ akshare 的函数名与域名偶有调整，这里对每个数据需求列出多
 from __future__ import annotations
 
 import sys
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, time
 from pathlib import Path
 
 from common import (
@@ -641,6 +641,27 @@ def build_sentiment(breadth, volume, prev_volume):
     return {"score": score, "label": label, "desc": "", "drivers": drivers}
 
 
+def _is_post_close_batch(batch: str, now: datetime) -> bool:
+    """是否允许写入 volumeHistory。
+
+    只有在「收盘后批次」且龙虎榜口径已更新到当日时才写，理由：
+
+      * 盘中刷新 / 盘前消息 在 15:00 前，实时累计成交额尚未成定局；
+      * 盘中 / 早盘批次里 resolve_trade_day() 依赖的龙虎榜口径常滞后到「上一交易日」，
+        但 fetch_market_amount() 返回的是「当日」实时累计额 —— 二者错位会把今天的钱
+        记到昨天的键上，污染历史基准（10/12 就曾因此把 10/09 真实 19005 亿覆盖成 15378 亿）。
+
+    因此：明确是收盘后批次（A股收盘 / A股盘后 / 复盘生成），或北京时间 ≥15:00 的工作日，
+    才允许写；其余一律不写，留待后续更干净的批次落盘。
+    """
+    if batch in ("A股收盘", "A股盘后", "复盘生成"):
+        return True
+    # 兜底：北京时间 ≥15:00 且为工作日，视为收盘后
+    if now.weekday() < 5 and now.time() >= time(15, 0):
+        return True
+    return False
+
+
 def resolve_trade_day(ak):
     """
     解析「最近交易日」：凌晨 / 节假日后当天还没有龙虎榜与收盘数据，
@@ -702,9 +723,24 @@ def main() -> int:
     change_pct = None
     if volume and prev_volume:
         change_pct = round((volume - prev_volume) / prev_volume * 100, 2)
-    if volume:
+
+    # 写入 volumeHistory 的硬约束：仅在「收盘后批次」且「龙虎榜口径已更新到当日」时落盘。
+    # 否则盘中实时累计额会被错记到上一交易日键，污染历史基准（见 _is_post_close_batch 注释）。
+    now = now_cn()
+    today_str = now.strftime("%Y%m%d")
+    post_close = _is_post_close_batch(batch, now)
+    if volume and post_close and day == today_str:
         history[day] = volume
         history = _trim_history(history)
+        log.info("写入 volumeHistory[%s]=%.2f（收盘后且龙虎榜口径一致）", day, volume)
+    elif volume:
+        log.info(
+            "跳过 volumeHistory 写入（批次=%s, post_close=%s, day=%s, today=%s）—— 避免把实时累计额错记到上一交易日",
+            batch,
+            post_close,
+            day,
+            today_str,
+        )
 
     ashare_payload = {
         "updatedAt": now_iso(),
