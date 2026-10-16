@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-16T22:59:33+08:00",
-  "batch": "A股盘后",
+  "updatedAt": "2026-10-16T23:23:23+08:00",
+  "batch": "A股收盘",
   "source": "sina_us+yfinance",
   "stale": false,
   "note": "注意：有 6 个标的数据日期早于最近交易日（美股/中概 2026-10-15、亚太 2026-10-16），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
@@ -44,8 +44,8 @@
         {
           "symbol": "^VIX",
           "name": "恐慌指数",
-          "price": 15.82,
-          "change": -0.64,
+          "price": 16.07,
+          "change": -0.39,
           "changePct": null,
           "asOf": "2026-10-16",
           "stale": true
@@ -59,8 +59,8 @@
         {
           "symbol": "NVDA",
           "name": "英伟达",
-          "price": 217.59,
-          "change": 0.36,
+          "price": 216.415,
+          "change": -0.815,
           "changePct": null,
           "asOf": "2026-10-16",
           "stale": true
@@ -68,8 +68,8 @@
         {
           "symbol": "INTC",
           "name": "英特尔",
-          "price": 92.59,
-          "change": -2.78,
+          "price": 91.4275,
+          "change": -3.9425,
           "changePct": null,
           "asOf": "2026-10-16",
           "stale": true
@@ -77,8 +77,8 @@
         {
           "symbol": "GOOGL",
           "name": "谷歌",
-          "price": 344.93,
-          "change": -4.29,
+          "price": 343.63,
+          "change": -5.59,
           "changePct": null,
           "asOf": "2026-10-16",
           "stale": true
@@ -86,8 +86,8 @@
         {
           "symbol": "WDC",
           "name": "西数/闪迪",
-          "price": 343.264,
-          "change": -13.186,
+          "price": 339.08,
+          "change": -17.37,
           "changePct": null,
           "asOf": "2026-10-16",
           "stale": true
@@ -109,17 +109,17 @@
         {
           "symbol": "^N225",
           "name": "日经225",
-          "price": 65324.2891,
-          "change": 898.3398,
-          "changePct": 1.39,
+          "price": 64425.9492,
+          "change": -3318.3398,
+          "changePct": -4.9,
           "asOf": "2026-10-16"
         },
         {
           "symbol": "^KS11",
           "name": "韩国综合",
-          "price": 5668.0498,
-          "change": 113.8296,
-          "changePct": 2.05,
+          "price": 5554.2202,
+          "change": -454.5898,
+          "changePct": -7.57,
           "asOf": "2026-10-16"
         },
         {
@@ -139,17 +139,17 @@
         {
           "symbol": "005930.KS",
           "name": "三星电子",
-          "price": 215500.0,
-          "change": 5500.0,
-          "changePct": 2.62,
+          "price": 210000.0,
+          "change": -22000.0,
+          "changePct": -9.48,
           "asOf": "2026-10-16"
         },
         {
           "symbol": "000660.KS",
           "name": "SK海力士",
-          "price": 1272000.0,
-          "change": 10000.0,
-          "changePct": 0.79,
+          "price": 1262000.0,
+          "change": -157000.0,
+          "changePct": -11.06,
           "asOf": "2026-10-16"
         }
       ]
@@ -161,8 +161,8 @@
         {
           "symbol": "KWEB",
           "name": "中概互联网ETF",
-          "price": 24.6163,
-          "change": 0.0063,
+          "price": 24.54,
+          "change": -0.07,
           "changePct": null,
           "asOf": "2026-10-16",
           "stale": true
@@ -176,17 +176,17 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 4207.8999,
-          "change": 37.7998,
-          "changePct": 0.91,
+          "price": 4203.8999,
+          "change": 33.7998,
+          "changePct": 0.81,
           "asOf": "2026-10-16"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 95.71,
-          "change": -2.26,
-          "changePct": -2.31,
+          "price": 95.44,
+          "change": -2.53,
+          "changePct": -2.58,
           "asOf": "2026-10-16"
         },
         {
@@ -200,9 +200,9 @@
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 81863.6094,
-          "change": -277.8516,
-          "changePct": -0.34,
+          "price": 81483.3516,
+          "change": -658.1094,
+          "changePct": -0.8,
           "asOf": "2026-10-16"
         }
       ]
