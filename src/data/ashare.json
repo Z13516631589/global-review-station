@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-18T17:32:43+08:00",
-  "batch": "周末刷新",
+  "updatedAt": "2026-10-19T14:14:00+08:00",
+  "batch": "盘前消息",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
@@ -53,17 +53,17 @@
     }
   ],
   "breadth": {
-    "up": 3061,
-    "down": 2023,
-    "flat": 132,
-    "limitUp": 61,
-    "limitDown": 11,
-    "total": 5216
+    "up": 2701,
+    "down": 2377,
+    "flat": 135,
+    "limitUp": 45,
+    "limitDown": 13,
+    "total": 5213
   },
   "volume": {
-    "amount": 15554.14,
+    "amount": 12314.2,
     "prevAmount": 16329.96,
-    "changePct": -4.75
+    "changePct": -24.59
   },
   "volumeHistory": {
     "20261009": 19005.4,
@@ -77,49 +77,22 @@
     "balance": 12582.5,
     "change": -72.37,
     "asOf": "2026-10-16",
-    "stale": false
+    "stale": true
   },
   "sentiment": {
-    "score": 58,
-    "label": "偏强",
+    "score": 40,
+    "label": "中性偏弱",
     "desc": "",
     "drivers": [
-      "涨跌家数 3061 / 2023，上涨占比 60.2%",
-      "涨停 61 家、跌停 11 家",
-      "两市成交 15554 亿，环比 -4.75%"
+      "涨跌家数 2701 / 2377，上涨占比 53.2%",
+      "涨停 45 家、跌停 13 家",
+      "两市成交 12314 亿，环比 -24.59%"
     ]
   },
   "sectors": [
     {
-      "name": "飞机制造",
-      "changePct": 4.2,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh600316"
-      ]
-    },
-    {
-      "name": "摩托车",
-      "changePct": 3.09,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sz001696"
-      ]
-    },
-    {
-      "name": "水泥行业",
-      "changePct": 2.65,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh600802"
-      ]
-    },
-    {
       "name": "陶瓷行业",
-      "changePct": 2.26,
+      "changePct": 3.16,
       "direction": "up",
       "driver": "",
       "leading": [
@@ -127,75 +100,102 @@
       ]
     },
     {
+      "name": "船舶制造",
+      "changePct": 1.91,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sh600685"
+      ]
+    },
+    {
+      "name": "摩托车",
+      "changePct": 1.89,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sz000913"
+      ]
+    },
+    {
       "name": "汽车制造",
-      "changePct": 2.22,
+      "changePct": 1.58,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh600699"
+        "sh600178"
       ]
     },
     {
-      "name": "纺织机械",
-      "changePct": 2.12,
+      "name": "发电设备",
+      "changePct": 1.41,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh600843"
+        "sz002028"
       ]
     },
     {
-      "name": "金融行业",
-      "changePct": -0.35,
-      "direction": "down",
+      "name": "飞机制造",
+      "changePct": 1.33,
+      "direction": "up",
       "driver": "",
       "leading": [
-        "sz000415"
+        "sz000738"
       ]
     },
     {
-      "name": "电子信息",
-      "changePct": -0.34,
+      "name": "印刷包装",
+      "changePct": -0.09,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sz300045"
+        "sz002117"
       ]
     },
     {
-      "name": "生物制药",
-      "changePct": -0.32,
+      "name": "化工行业",
+      "changePct": -0.09,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sz300006"
+        "sh603188"
+      ]
+    },
+    {
+      "name": "建筑建材",
+      "changePct": -0.08,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sz002178"
+      ]
+    },
+    {
+      "name": "家具行业",
+      "changePct": -0.04,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh603818"
       ]
     },
     {
       "name": "商业百货",
-      "changePct": -0.16,
+      "changePct": -0.01,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sz002264"
+        "sz000408"
       ]
     },
     {
-      "name": "其它行业",
-      "changePct": -0.1,
+      "name": "石油行业",
+      "changePct": -0.01,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sz002297"
-      ]
-    },
-    {
-      "name": "家电行业",
-      "changePct": -0.07,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz002076"
+        "sz002207"
       ]
     }
   ],
