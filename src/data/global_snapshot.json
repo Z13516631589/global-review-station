@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-10-20T01:07:01+08:00",
-  "batch": "A股盘后",
+  "updatedAt": "2026-10-20T01:29:42+08:00",
+  "batch": "A股收盘",
   "source": "sina_us+yfinance",
   "stale": false,
-  "note": "注意：有 7 个标的数据日期早于最近交易日（美股/中概 2026-10-16、亚太 2026-10-19），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
+  "note": "注意：有 8 个标的数据日期早于最近交易日（美股/中概 2026-10-16、亚太 2026-10-19），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
   "groups": [
     {
       "market": "美股",
@@ -44,8 +44,8 @@
         {
           "symbol": "^VIX",
           "name": "恐慌指数",
-          "price": 18.11,
-          "change": -1.88,
+          "price": 18.42,
+          "change": -1.57,
           "changePct": null,
           "asOf": "2026-10-19",
           "stale": true
@@ -59,8 +59,8 @@
         {
           "symbol": "NVDA",
           "name": "英伟达",
-          "price": 218.2301,
-          "change": 4.1001,
+          "price": 217.93,
+          "change": 3.8,
           "changePct": null,
           "asOf": "2026-10-19",
           "stale": true
@@ -68,8 +68,8 @@
         {
           "symbol": "INTC",
           "name": "英特尔",
-          "price": 92.874,
-          "change": 3.024,
+          "price": 92.6301,
+          "change": 2.7801,
           "changePct": null,
           "asOf": "2026-10-19",
           "stale": true
@@ -77,8 +77,8 @@
         {
           "symbol": "GOOGL",
           "name": "谷歌",
-          "price": 344.2529,
-          "change": 3.6629,
+          "price": 344.615,
+          "change": 4.025,
           "changePct": null,
           "asOf": "2026-10-19",
           "stale": true
@@ -86,8 +86,8 @@
         {
           "symbol": "WDC",
           "name": "西数/闪迪",
-          "price": 348.62,
-          "change": 16.62,
+          "price": 347.5574,
+          "change": 15.5574,
           "changePct": null,
           "asOf": "2026-10-19",
           "stale": true
@@ -120,8 +120,9 @@
           "name": "韩国综合",
           "price": 5668.0498,
           "change": 113.8296,
-          "changePct": 2.05,
-          "asOf": "2026-10-19"
+          "changePct": null,
+          "asOf": "2026-10-16",
+          "stale": true
         },
         {
           "symbol": "^TWII",
@@ -143,7 +144,7 @@
           "price": 215500.0,
           "change": 5500.0,
           "changePct": 2.62,
-          "asOf": "2026-10-19"
+          "asOf": "2026-10-16"
         },
         {
           "symbol": "000660.KS",
@@ -151,7 +152,7 @@
           "price": 1272000.0,
           "change": 10000.0,
           "changePct": 0.79,
-          "asOf": "2026-10-19"
+          "asOf": "2026-10-16"
         }
       ]
     },
@@ -162,8 +163,8 @@
         {
           "symbol": "KWEB",
           "name": "中概互联网ETF",
-          "price": 24.2715,
-          "change": -0.1385,
+          "price": 24.265,
+          "change": -0.145,
           "changePct": null,
           "asOf": "2026-10-19",
           "stale": true
@@ -177,32 +178,32 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 4160.1001,
-          "change": -21.0,
-          "changePct": -0.5,
+          "price": 4156.2998,
+          "change": -24.8003,
+          "changePct": -0.59,
           "asOf": "2026-10-19"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 98.83,
-          "change": -2.58,
-          "changePct": -2.54,
+          "price": 99.26,
+          "change": -2.15,
+          "changePct": -2.12,
           "asOf": "2026-10-19"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.6801,
-          "change": -0.0108,
-          "changePct": -0.16,
+          "price": 6.6695,
+          "change": -0.0214,
+          "changePct": -0.32,
           "asOf": "2026-10-19"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 81884.4375,
-          "change": -133.1641,
+          "price": 81887.4062,
+          "change": -130.1953,
           "changePct": -0.16,
           "asOf": "2026-10-19"
         }
