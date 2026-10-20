@@ -1,21 +1,11 @@
 {
-  "updatedAt": "2026-10-20T14:38:06+08:00",
+  "updatedAt": "2026-10-20T15:28:09+08:00",
   "batch": "盘中刷新",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，龙虎榜为收盘后披露口径。",
   "tradeDay": "20261019",
   "items": [
-    {
-      "code": "002343",
-      "name": "慈文传媒",
-      "close": 10.26,
-      "changePct": 9.97,
-      "netBuy": 21575.9,
-      "buyAmount": 37126.7,
-      "sellAmount": 15550.8,
-      "reason": "日换手率达到20%的前5只证券"
-    },
     {
       "code": "002343",
       "name": "慈文传媒",
@@ -35,6 +25,16 @@
       "buyAmount": 37126.7,
       "sellAmount": 15550.8,
       "reason": "日涨幅偏离值达到7%的前5只证券"
+    },
+    {
+      "code": "002343",
+      "name": "慈文传媒",
+      "close": 10.26,
+      "changePct": 9.97,
+      "netBuy": 21575.9,
+      "buyAmount": 37126.7,
+      "sellAmount": 15550.8,
+      "reason": "日换手率达到20%的前5只证券"
     },
     {
       "code": "301666",
