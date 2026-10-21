@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-21T20:27:44+08:00",
-  "batch": "盘中刷新",
+  "updatedAt": "2026-10-21T21:08:04+08:00",
+  "batch": "A股收盘",
   "source": "sina_us+yfinance",
   "stale": false,
   "note": "注意：有 1 个标的数据日期早于最近交易日（美股/中概 2026-10-20、亚太 2026-10-21），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
@@ -44,8 +44,8 @@
         {
           "symbol": "^VIX",
           "name": "恐慌指数",
-          "price": 17.32,
-          "change": 0.01,
+          "price": 17.12,
+          "change": -0.19,
           "changePct": null,
           "asOf": "2026-10-21",
           "stale": true
@@ -171,17 +171,17 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 4156.2998,
-          "change": 13.6997,
-          "changePct": 0.33,
+          "price": 4146.5,
+          "change": 3.8999,
+          "changePct": 0.09,
           "asOf": "2026-10-21"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 98.33,
-          "change": -3.46,
-          "changePct": -3.4,
+          "price": 97.46,
+          "change": -4.33,
+          "changePct": -4.25,
           "asOf": "2026-10-21"
         },
         {
@@ -195,9 +195,9 @@
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 83487.8828,
-          "change": 546.8828,
-          "changePct": 0.66,
+          "price": 83609.8594,
+          "change": 668.8594,
+          "changePct": 0.81,
           "asOf": "2026-10-21"
         }
       ]
