@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T14:35:35+08:00",
+  "updatedAt": "2026-10-22T15:31:51+08:00",
   "batch": "盘中刷新",
   "source": "akshare",
   "stale": false,
@@ -9,61 +9,61 @@
     {
       "code": "000001",
       "name": "上证指数",
-      "close": 3663.43,
-      "change": -49.6,
-      "changePct": -1.34,
-      "amount": 6184.5,
+      "close": 3658.03,
+      "change": -55.0,
+      "changePct": -1.48,
+      "amount": 7060.96,
       "amplitude": 1.74
     },
     {
       "code": "399001",
       "name": "深证成指",
-      "close": 11413.79,
-      "change": -290.56,
-      "changePct": -2.48,
-      "amount": 7270.44,
+      "close": 11357.32,
+      "change": -347.04,
+      "changePct": -2.96,
+      "amount": 8226.13,
       "amplitude": 2.9
     },
     {
       "code": "399006",
       "name": "创业板指",
-      "close": 2599.04,
-      "change": -95.67,
-      "changePct": -3.55,
-      "amount": 3576.6,
-      "amplitude": 3.84
+      "close": 2576.9,
+      "change": -117.81,
+      "changePct": -4.37,
+      "amount": 4040.51,
+      "amplitude": 4.13
     },
     {
       "code": "000300",
       "name": "沪深300",
-      "close": 4041.86,
-      "change": -70.08,
-      "changePct": -1.7,
-      "amount": 3708.1,
+      "close": 4036.3,
+      "change": -75.64,
+      "changePct": -1.84,
+      "amount": 4350.84,
       "amplitude": 2.13
     },
     {
       "code": "000688",
       "name": "科创50",
-      "close": 1313.18,
-      "change": -30.1,
-      "changePct": -2.24,
-      "amount": 625.86,
+      "close": 1305.87,
+      "change": -37.41,
+      "changePct": -2.79,
+      "amount": 728.1,
       "amplitude": 3.32
     }
   ],
   "breadth": {
-    "up": 533,
-    "down": 4652,
-    "flat": 33,
-    "limitUp": 31,
-    "limitDown": 42,
+    "up": 447,
+    "down": 4739,
+    "flat": 32,
+    "limitUp": 33,
+    "limitDown": 62,
     "total": 5218
   },
   "volume": {
-    "amount": 13463.28,
+    "amount": 15287.09,
     "prevAmount": 14561.07,
-    "changePct": -7.54
+    "changePct": 4.99
   },
   "volumeHistory": {
     "20261009": 19005.4,
@@ -83,28 +83,19 @@
     "stale": false
   },
   "sentiment": {
-    "score": 17,
+    "score": 25,
     "label": "冰点",
     "desc": "",
     "drivers": [
-      "涨跌家数 533 / 4652，上涨占比 10.3%",
-      "涨停 31 家、跌停 42 家",
-      "两市成交 13463 亿，环比 -7.54%"
+      "涨跌家数 447 / 4739，上涨占比 8.6%",
+      "涨停 33 家、跌停 62 家",
+      "两市成交 15287 亿，环比 +4.99%"
     ]
   },
   "sectors": [
     {
-      "name": "电器行业",
-      "changePct": -1.38,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz002249"
-      ]
-    },
-    {
       "name": "发电设备",
-      "changePct": -1.19,
+      "changePct": -1.7,
       "direction": "down",
       "driver": "",
       "leading": [
@@ -112,17 +103,17 @@
       ]
     },
     {
-      "name": "金融行业",
-      "changePct": -0.86,
+      "name": "家电行业",
+      "changePct": -1.53,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sh601398"
+        "sz002076"
       ]
     },
     {
       "name": "公路桥梁",
-      "changePct": -0.85,
+      "changePct": -1.04,
       "direction": "down",
       "driver": "",
       "leading": [
@@ -130,8 +121,17 @@
       ]
     },
     {
+      "name": "金融行业",
+      "changePct": -0.92,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh601398"
+      ]
+    },
+    {
       "name": "石油行业",
-      "changePct": -0.67,
+      "changePct": -0.75,
       "direction": "down",
       "driver": "",
       "leading": [
@@ -140,7 +140,7 @@
     },
     {
       "name": "酿酒行业",
-      "changePct": -0.51,
+      "changePct": -0.39,
       "direction": "down",
       "driver": "",
       "leading": [
