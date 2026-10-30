@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-30T16:33:41+08:00",
-  "batch": "盘中刷新",
+  "updatedAt": "2026-10-30T22:29:07+08:00",
+  "batch": "A股收盘",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，龙虎榜为收盘后披露口径。",
@@ -47,14 +47,24 @@
       "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
     },
     {
-      "code": "301520",
-      "name": "万邦医药",
-      "close": 60.06,
-      "changePct": 20.0,
-      "netBuy": 15600.01,
-      "buyAmount": 25096.38,
-      "sellAmount": 9496.37,
-      "reason": "日涨幅达到15%的前5只证券"
+      "code": "603186",
+      "name": "华正新材",
+      "close": 147.29,
+      "changePct": -0.05,
+      "netBuy": 21430.37,
+      "buyAmount": 55774.66,
+      "sellAmount": 34344.29,
+      "reason": "有价格涨跌幅限制的日价格振幅达到15%的前五只证券"
+    },
+    {
+      "code": "600721",
+      "name": "百花医药",
+      "close": 9.83,
+      "changePct": 9.96,
+      "netBuy": 15624.36,
+      "buyAmount": 26125.51,
+      "sellAmount": 10501.15,
+      "reason": "有价格涨跌幅限制的日换手率达到20%的前五只证券"
     },
     {
       "code": "301520",
@@ -65,6 +75,16 @@
       "buyAmount": 25096.38,
       "sellAmount": 9496.37,
       "reason": "日换手率达到30%的前5只证券"
+    },
+    {
+      "code": "301520",
+      "name": "万邦医药",
+      "close": 60.06,
+      "changePct": 20.0,
+      "netBuy": 15600.01,
+      "buyAmount": 25096.38,
+      "sellAmount": 9496.37,
+      "reason": "日涨幅达到15%的前5只证券"
     },
     {
       "code": "002708",
@@ -105,26 +125,6 @@
       "buyAmount": 31400.2,
       "sellAmount": 18091.15,
       "reason": "日涨幅偏离值达到7%的前5只证券"
-    },
-    {
-      "code": "002636",
-      "name": "金安国纪",
-      "close": 63.68,
-      "changePct": 10.0,
-      "netBuy": 13215.27,
-      "buyAmount": 72920.04,
-      "sellAmount": 59704.77,
-      "reason": "日涨幅偏离值达到7%的前5只证券"
-    },
-    {
-      "code": "300030",
-      "name": "阳普医疗",
-      "close": 7.31,
-      "changePct": 20.03,
-      "netBuy": 9480.69,
-      "buyAmount": 14886.06,
-      "sellAmount": 5405.37,
-      "reason": "日涨幅达到15%的前5只证券"
     }
   ],
   "topInflow": [],
