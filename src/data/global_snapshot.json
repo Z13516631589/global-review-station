@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-10-30T15:09:15+08:00",
-  "batch": "盘前消息",
+  "updatedAt": "2026-10-30T15:45:43+08:00",
+  "batch": "盘中刷新",
   "source": "sina_us+yfinance",
   "stale": false,
-  "note": "注意：有 4 个标的数据日期早于最近交易日（美股/中概 2026-10-29、亚太 2026-10-29），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
+  "note": "注意：有 5 个标的数据日期早于最近交易日（美股/中概 2026-10-29、亚太 2026-10-29），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
   "groups": [
     {
       "market": "美股",
@@ -44,10 +44,11 @@
         {
           "symbol": "^VIX",
           "name": "恐慌指数",
-          "price": 17.2,
-          "change": 0.29,
-          "changePct": 1.71,
-          "asOf": "2026-10-29"
+          "price": 18.46,
+          "change": 1.26,
+          "changePct": null,
+          "asOf": "2026-10-30",
+          "stale": true
         }
       ]
     },
@@ -96,8 +97,8 @@
         {
           "symbol": "^HSI",
           "name": "恒生指数",
-          "price": 23308.5391,
-          "change": 349.8887,
+          "price": 23322.4805,
+          "change": 363.8301,
           "changePct": null,
           "asOf": "2026-10-30",
           "stale": true
@@ -174,33 +175,33 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 3991.8999,
-          "change": -39.5,
-          "changePct": -0.98,
+          "price": 3990.2,
+          "change": -41.2,
+          "changePct": -1.02,
           "asOf": "2026-10-30"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 102.86,
-          "change": 0.86,
-          "changePct": 0.84,
+          "price": 103.73,
+          "change": 1.73,
+          "changePct": 1.7,
           "asOf": "2026-10-30"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.657,
-          "change": -0.009,
-          "changePct": -0.14,
+          "price": 6.6447,
+          "change": -0.0213,
+          "changePct": -0.32,
           "asOf": "2026-10-30"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 78377.6797,
-          "change": -2889.9062,
-          "changePct": -3.56,
+          "price": 78049.4062,
+          "change": 274.2969,
+          "changePct": 0.35,
           "asOf": "2026-10-30"
         }
       ]
