@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-30T01:25:36+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-10-30T09:13:48+08:00",
+  "batch": "美股收盘",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
@@ -9,47 +9,47 @@
     {
       "code": "000001",
       "name": "上证指数",
-      "close": 3651.43,
-      "change": -30.04,
-      "changePct": -0.82,
-      "amount": 7156.21,
-      "amplitude": 0.9
+      "close": 3651.41,
+      "change": -0.03,
+      "changePct": -0.0,
+      "amount": 0.0,
+      "amplitude": null
     },
     {
       "code": "399001",
       "name": "深证成指",
-      "close": 11138.2,
-      "change": -334.98,
-      "changePct": -2.92,
-      "amount": 8408.96,
-      "amplitude": 2.12
+      "close": 0.0,
+      "change": 0,
+      "changePct": 0,
+      "amount": 0.0,
+      "amplitude": null
     },
     {
       "code": "399006",
       "name": "创业板指",
-      "close": 2517.59,
-      "change": -117.17,
-      "changePct": -4.45,
-      "amount": 4193.57,
-      "amplitude": 3.06
+      "close": 0.0,
+      "change": 0,
+      "changePct": 0,
+      "amount": 0.0,
+      "amplitude": null
     },
     {
       "code": "000300",
       "name": "沪深300",
-      "close": 4041.84,
-      "change": -42.03,
-      "changePct": -1.03,
-      "amount": 4118.93,
-      "amplitude": 1.11
+      "close": 4041.47,
+      "change": -0.36,
+      "changePct": -0.01,
+      "amount": 0.0,
+      "amplitude": null
     },
     {
       "code": "000688",
       "name": "科创50",
       "close": 1228.09,
-      "change": -54.84,
-      "changePct": -4.28,
-      "amount": 711.0,
-      "amplitude": 4.0
+      "change": 0,
+      "changePct": 0,
+      "amount": 0.0,
+      "amplitude": null
     }
   ],
   "breadth": {
@@ -61,9 +61,9 @@
     "total": 5216
   },
   "volume": {
-    "amount": 15565.17,
+    "amount": 16284.78,
     "prevAmount": 16284.78,
-    "changePct": -4.42
+    "changePct": 0.0
   },
   "volumeHistory": {
     "20261009": 19005.4,
@@ -83,19 +83,19 @@
     "20261029": 15565.17
   },
   "margin": {
-    "balance": 12303.08,
-    "change": 30.39,
-    "asOf": "2026-10-28",
+    "balance": 12181.89,
+    "change": -121.19,
+    "asOf": "2026-10-29",
     "stale": false
   },
   "sentiment": {
-    "score": 20,
+    "score": 23,
     "label": "冰点",
     "desc": "",
     "drivers": [
       "涨跌家数 756 / 4400，上涨占比 14.7%",
       "涨停 39 家、跌停 52 家",
-      "两市成交 15565 亿，环比 -4.42%"
+      "两市成交 16285 亿，环比 +0.00%"
     ]
   },
   "sectors": [
