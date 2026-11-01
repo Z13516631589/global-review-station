@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-31T18:55:20+08:00",
-  "batch": "周末刷新",
+  "updatedAt": "2026-11-01T08:14:21+08:00",
+  "batch": "美股收盘",
   "source": "sina_us+yfinance",
   "stale": false,
   "note": "上一交易日收盘的延迟数据，用于复盘记录。",
@@ -186,18 +186,18 @@
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.654,
-          "change": -0.007,
-          "changePct": -0.11,
+          "price": 6.6449,
+          "change": -0.0161,
+          "changePct": -0.24,
           "asOf": "2026-10-31"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 77300.7812,
-          "change": 102.5703,
-          "changePct": 0.13,
-          "asOf": "2026-10-31"
+          "price": 77380.3828,
+          "change": 182.1719,
+          "changePct": 0.24,
+          "asOf": "2026-11-01"
         }
       ]
     }
