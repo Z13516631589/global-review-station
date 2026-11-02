@@ -1,11 +1,21 @@
 {
-  "updatedAt": "2026-11-03T04:28:29+08:00",
-  "batch": "A股盘后",
+  "updatedAt": "2026-11-03T04:45:24+08:00",
+  "batch": "A股收盘",
   "source": "akshare+rss",
   "analyzer": "rules",
   "stale": false,
   "note": "影响分析由大模型或规则词典自动生成，仅做事实性归纳，不构成投资建议。",
   "items": [
+    {
+      "id": "e8afcef8dd01",
+      "title": "国际油价2日大幅下跌",
+      "source": "akshare",
+      "time": "2026-11-03 04:35",
+      "url": "",
+      "sentiment": "利空",
+      "sector": "宏观",
+      "analysis": "该消息指向宏观板块，事件本身对相关标的的影响方向偏负面，可观察其成交与价格反应是否延续。"
+    },
     {
       "id": "fc63c0448283",
       "title": "美元指数2日下跌",
