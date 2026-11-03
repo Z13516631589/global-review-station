@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-03T04:47:51+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-11-03T15:57:42+08:00",
+  "batch": "盘前消息",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，龙虎榜为收盘后披露口径。",
@@ -64,7 +64,7 @@
       "netBuy": 14980.48,
       "buyAmount": 31618.02,
       "sellAmount": 16637.54,
-      "reason": "日换手率达到20%的前5只证券"
+      "reason": "日涨幅偏离值达到7%的前5只证券"
     },
     {
       "code": "000530",
@@ -74,17 +74,7 @@
       "netBuy": 14980.48,
       "buyAmount": 31618.02,
       "sellAmount": 16637.54,
-      "reason": "日涨幅偏离值达到7%的前5只证券"
-    },
-    {
-      "code": "000678",
-      "name": "襄阳轴承",
-      "close": 19.89,
-      "changePct": 10.01,
-      "netBuy": 12866.59,
-      "buyAmount": 35217.25,
-      "sellAmount": 22350.66,
-      "reason": "日涨幅偏离值达到7%的前5只证券"
+      "reason": "日换手率达到20%的前5只证券"
     },
     {
       "code": "000678",
@@ -97,14 +87,14 @@
       "reason": "日换手率达到20%的前5只证券"
     },
     {
-      "code": "301052",
-      "name": "果麦文化",
-      "close": 39.19,
-      "changePct": 19.99,
-      "netBuy": 11958.07,
-      "buyAmount": 26475.0,
-      "sellAmount": 14516.93,
-      "reason": "日涨幅达到15%的前5只证券"
+      "code": "000678",
+      "name": "襄阳轴承",
+      "close": 19.89,
+      "changePct": 10.01,
+      "netBuy": 12866.59,
+      "buyAmount": 35217.25,
+      "sellAmount": 22350.66,
+      "reason": "日涨幅偏离值达到7%的前5只证券"
     },
     {
       "code": "301052",
@@ -115,6 +105,16 @@
       "buyAmount": 26475.0,
       "sellAmount": 14516.93,
       "reason": "日换手率达到30%的前5只证券"
+    },
+    {
+      "code": "301052",
+      "name": "果麦文化",
+      "close": 39.19,
+      "changePct": 19.99,
+      "netBuy": 11958.07,
+      "buyAmount": 26475.0,
+      "sellAmount": 14516.93,
+      "reason": "日涨幅达到15%的前5只证券"
     },
     {
       "code": "000995",
