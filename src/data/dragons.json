@@ -1,11 +1,21 @@
 {
-  "updatedAt": "2026-11-03T16:35:27+08:00",
+  "updatedAt": "2026-11-03T17:28:58+08:00",
   "batch": "盘中刷新",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，龙虎榜为收盘后披露口径。",
   "tradeDay": "20261103",
   "items": [
+    {
+      "code": "603186",
+      "name": "华正新材",
+      "close": 132.02,
+      "changePct": -10.0,
+      "netBuy": 18535.38,
+      "buyAmount": 57277.16,
+      "sellAmount": 38741.78,
+      "reason": "有价格涨跌幅限制的日收盘价格跌幅偏离值达到7%的前五只证券"
+    },
     {
       "code": "000591",
       "name": "太阳能",
@@ -107,24 +117,14 @@
       "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
     },
     {
-      "code": "000599",
-      "name": "青岛双星",
-      "close": 4.5,
-      "changePct": 10.02,
-      "netBuy": 4885.63,
-      "buyAmount": 8638.51,
-      "sellAmount": 3752.88,
-      "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
-    },
-    {
-      "code": "301513",
-      "name": "尚水智能",
-      "close": 54.78,
-      "changePct": 20.0,
-      "netBuy": 3282.78,
-      "buyAmount": 7856.79,
-      "sellAmount": 4574.0,
-      "reason": "日涨幅达到15%的前5只证券"
+      "code": "605577",
+      "name": "龙版传媒",
+      "close": 14.3,
+      "changePct": 10.0,
+      "netBuy": 6165.77,
+      "buyAmount": 8818.59,
+      "sellAmount": 2652.82,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
     }
   ],
   "topInflow": [],
