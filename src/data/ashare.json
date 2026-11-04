@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-04T09:30:42+08:00",
-  "batch": "美股收盘",
+  "updatedAt": "2026-11-04T15:29:48+08:00",
+  "batch": "盘前消息",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
@@ -9,61 +9,61 @@
     {
       "code": "000001",
       "name": "上证指数",
-      "close": 3603.2,
-      "change": -4.9,
-      "changePct": -0.14,
-      "amount": 202.85,
-      "amplitude": 0.16
+      "close": 3686.17,
+      "change": 78.08,
+      "changePct": 2.16,
+      "amount": 9532.65,
+      "amplitude": 2.64
     },
     {
       "code": "399001",
       "name": "深证成指",
-      "close": 10903.42,
-      "change": 26.43,
-      "changePct": 0.24,
-      "amount": 210.82,
-      "amplitude": 0.11
+      "close": 11335.69,
+      "change": 458.7,
+      "changePct": 4.22,
+      "amount": 10844.27,
+      "amplitude": 4.93
     },
     {
       "code": "399006",
       "name": "创业板指",
-      "close": 2396.12,
-      "change": 4.47,
-      "changePct": 0.19,
-      "amount": 91.49,
-      "amplitude": 0.24
+      "close": 2544.73,
+      "change": 153.08,
+      "changePct": 6.4,
+      "amount": 5470.99,
+      "amplitude": 7.64
     },
     {
       "code": "000300",
       "name": "沪深300",
-      "close": 4007.86,
-      "change": -1.02,
-      "changePct": -0.03,
-      "amount": 117.77,
-      "amplitude": 0.19
+      "close": 4101.34,
+      "change": 92.46,
+      "changePct": 2.31,
+      "amount": 5972.6,
+      "amplitude": 2.96
     },
     {
       "code": "000688",
       "name": "科创50",
-      "close": 1149.32,
-      "change": -1.96,
-      "changePct": -0.17,
-      "amount": 16.04,
-      "amplitude": 0.33
+      "close": 1265.47,
+      "change": 114.19,
+      "changePct": 9.92,
+      "amount": 1045.2,
+      "amplitude": 10.61
     }
   ],
   "breadth": {
-    "up": 2466,
-    "down": 1859,
-    "flat": 893,
-    "limitUp": 7,
-    "limitDown": 5,
+    "up": 4331,
+    "down": 764,
+    "flat": 123,
+    "limitUp": 121,
+    "limitDown": 11,
     "total": 5218
   },
   "volume": {
-    "amount": 440.65,
+    "amount": 20376.92,
     "prevAmount": 17836.9,
-    "changePct": -97.53
+    "changePct": 14.24
   },
   "volumeHistory": {
     "20261009": 19005.4,
@@ -92,122 +92,113 @@
     "stale": false
   },
   "sentiment": {
-    "score": 36,
-    "label": "中性偏弱",
+    "score": 92,
+    "label": "过热",
     "desc": "",
     "drivers": [
-      "涨跌家数 2466 / 1859，上涨占比 57.0%",
-      "涨停 7 家、跌停 5 家",
-      "两市成交 441 亿，环比 -97.53%"
+      "涨跌家数 4331 / 764，上涨占比 85.0%",
+      "涨停 121 家、跌停 11 家",
+      "两市成交 20377 亿，环比 +14.24%"
     ]
   },
   "sectors": [
     {
-      "name": "有色金属",
-      "changePct": 0.68,
+      "name": "次新股",
+      "changePct": 9.4,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sz002428"
+        "bj920298"
       ]
     },
     {
       "name": "电子器件",
-      "changePct": 0.64,
+      "changePct": 7.44,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh600537"
+        "sz300139"
       ]
     },
     {
-      "name": "服装鞋类",
-      "changePct": 0.61,
+      "name": "陶瓷行业",
+      "changePct": 6.91,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sz002029"
+        "sh603268"
       ]
     },
     {
-      "name": "次新股",
-      "changePct": 0.51,
+      "name": "玻璃行业",
+      "changePct": 5.55,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh601123"
+        "sz300395"
       ]
     },
     {
-      "name": "电器行业",
-      "changePct": 0.46,
+      "name": "有色金属",
+      "changePct": 5.39,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sz002580"
+        "sz002578"
       ]
     },
     {
-      "name": "家具行业",
-      "changePct": 0.44,
+      "name": "机械行业",
+      "changePct": 4.78,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sz002718"
+        "sz300260"
       ]
     },
     {
-      "name": "汽车制造",
-      "changePct": -0.07,
+      "name": "酿酒行业",
+      "changePct": -2.09,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sh600699"
+        "sz002646"
       ]
     },
     {
-      "name": "印刷包装",
+      "name": "金融行业",
+      "changePct": -0.3,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600816"
+      ]
+    },
+    {
+      "name": "食品行业",
       "changePct": -0.06,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sz300071"
+        "sz002626"
       ]
     },
     {
-      "name": "交通运输",
-      "changePct": -0.05,
+      "name": "农林牧渔",
+      "changePct": -0.04,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sh600834"
+        "sh600371"
       ]
     },
     {
-      "name": "飞机制造",
-      "changePct": -0.02,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sh600343"
-      ]
-    },
-    {
-      "name": "综合行业",
-      "changePct": -0.02,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sh600892"
-      ]
-    },
-    {
-      "name": "开发区",
+      "name": "公路桥梁",
       "changePct": -0.01,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sh600658"
+        "sh601107"
       ]
     }
   ],
