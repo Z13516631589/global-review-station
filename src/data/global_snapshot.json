@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-11-05T16:01:10+08:00",
-  "batch": "盘前消息",
+  "updatedAt": "2026-11-05T16:34:39+08:00",
+  "batch": "盘中刷新",
   "source": "sina_us+yfinance",
   "stale": false,
-  "note": "注意：有 1 个标的数据日期早于最近交易日（美股/中概 2026-11-04、亚太 2026-11-04），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
+  "note": "注意：有 1 个标的数据日期早于最近交易日（美股/中概 2026-11-04、亚太 2026-11-05），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
   "groups": [
     {
       "market": "美股",
@@ -44,10 +44,11 @@
         {
           "symbol": "^VIX",
           "name": "恐慌指数",
-          "price": 16.61,
-          "change": -4.22,
-          "changePct": -20.26,
-          "asOf": "2026-11-04"
+          "price": 17.09,
+          "change": 0.48,
+          "changePct": null,
+          "asOf": "2026-11-05",
+          "stale": true
         }
       ]
     },
@@ -96,11 +97,10 @@
         {
           "symbol": "^HSI",
           "name": "恒生指数",
-          "price": 24773.8203,
-          "change": 854.3203,
-          "changePct": null,
-          "asOf": "2026-11-05",
-          "stale": true
+          "price": 24796.9805,
+          "change": 877.4805,
+          "changePct": 3.67,
+          "asOf": "2026-11-05"
         },
         {
           "symbol": "^N225",
@@ -171,33 +171,33 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 4131.6001,
-          "change": 58.6001,
-          "changePct": 1.44,
+          "price": 4135.2998,
+          "change": 62.2998,
+          "changePct": 1.53,
           "asOf": "2026-11-05"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 87.98,
-          "change": -0.14,
-          "changePct": -0.16,
+          "price": 87.87,
+          "change": -0.25,
+          "changePct": -0.28,
           "asOf": "2026-11-05"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.6698,
-          "change": -0.0003,
-          "changePct": -0.0,
+          "price": 6.6695,
+          "change": -0.0006,
+          "changePct": -0.01,
           "asOf": "2026-11-05"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 80298.6484,
-          "change": -106.6406,
-          "changePct": -0.13,
+          "price": 80510.4609,
+          "change": 105.1719,
+          "changePct": 0.13,
           "asOf": "2026-11-05"
         }
       ]
