@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T16:33:17+08:00",
+  "updatedAt": "2026-11-05T17:24:41+08:00",
   "batch": "盘中刷新",
   "source": "akshare",
   "stale": false,
@@ -25,6 +25,26 @@
       "buyAmount": 28039.66,
       "sellAmount": 7772.91,
       "reason": "日涨幅达到15%的前5只证券"
+    },
+    {
+      "code": "600261",
+      "name": "阳光照明",
+      "close": 4.91,
+      "changePct": 10.09,
+      "netBuy": 12244.14,
+      "buyAmount": 20908.93,
+      "sellAmount": 8664.79,
+      "reason": "有价格涨跌幅限制的日价格振幅达到15%的前五只证券"
+    },
+    {
+      "code": "600261",
+      "name": "阳光照明",
+      "close": 4.91,
+      "changePct": 10.09,
+      "netBuy": 12244.14,
+      "buyAmount": 20908.93,
+      "sellAmount": 8664.79,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
     },
     {
       "code": "301697",
@@ -84,7 +104,7 @@
       "netBuy": 9476.14,
       "buyAmount": 23792.64,
       "sellAmount": 14316.5,
-      "reason": "日换手率达到20%的前5只证券"
+      "reason": "日涨幅偏离值达到7%的前5只证券"
     },
     {
       "code": "002343",
@@ -94,37 +114,17 @@
       "netBuy": 9476.14,
       "buyAmount": 23792.64,
       "sellAmount": 14316.5,
-      "reason": "日涨幅偏离值达到7%的前5只证券"
+      "reason": "日换手率达到20%的前5只证券"
     },
     {
-      "code": "300093",
-      "name": "金刚光伏",
-      "close": 18.66,
-      "changePct": 20.0,
-      "netBuy": 5465.51,
-      "buyAmount": 12258.53,
-      "sellAmount": 6793.02,
-      "reason": "日涨幅达到15%的前5只证券"
-    },
-    {
-      "code": "002565",
-      "name": "顺灏股份",
-      "close": 9.82,
-      "changePct": 9.97,
-      "netBuy": 2395.57,
-      "buyAmount": 39107.21,
-      "sellAmount": 36711.64,
-      "reason": "日涨幅偏离值达到7%的前5只证券"
-    },
-    {
-      "code": "300493",
-      "name": "润欣科技",
-      "close": 13.94,
-      "changePct": 19.97,
-      "netBuy": 1332.58,
-      "buyAmount": 11187.57,
-      "sellAmount": 9854.99,
-      "reason": "日涨幅达到15%的前5只证券"
+      "code": "601929",
+      "name": "吉视传媒",
+      "close": 2.5,
+      "changePct": 10.13,
+      "netBuy": 9149.68,
+      "buyAmount": 13215.5,
+      "sellAmount": 4065.82,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
     }
   ],
   "topInflow": [],
