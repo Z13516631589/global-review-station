@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T16:31:34+08:00",
+  "updatedAt": "2026-11-06T17:22:37+08:00",
   "batch": "盘中刷新",
   "source": "akshare",
   "stale": false,
@@ -27,6 +27,36 @@
       "reason": "日涨幅达到15%的前5只证券"
     },
     {
+      "code": "601595",
+      "name": "上海电影",
+      "close": 35.76,
+      "changePct": 10.0,
+      "netBuy": 11916.42,
+      "buyAmount": 24219.77,
+      "sellAmount": 12303.35,
+      "reason": "有价格涨跌幅限制的日价格振幅达到15%的前五只证券"
+    },
+    {
+      "code": "600327",
+      "name": "大东方",
+      "close": 4.91,
+      "changePct": 10.09,
+      "netBuy": 10798.46,
+      "buyAmount": 16757.72,
+      "sellAmount": 5959.26,
+      "reason": "有价格涨跌幅限制的日价格振幅达到15%的前五只证券"
+    },
+    {
+      "code": "600327",
+      "name": "大东方",
+      "close": 4.91,
+      "changePct": 10.09,
+      "netBuy": 10798.46,
+      "buyAmount": 16757.72,
+      "sellAmount": 5959.26,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
+    },
+    {
       "code": "000525",
       "name": "红太阳",
       "close": 5.02,
@@ -47,6 +77,16 @@
       "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
     },
     {
+      "code": "601599",
+      "name": "浙文影业",
+      "close": 5.08,
+      "changePct": 9.96,
+      "netBuy": 9492.63,
+      "buyAmount": 28974.65,
+      "sellAmount": 19482.02,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
+    },
+    {
       "code": "002929",
       "name": "润建股份",
       "close": 63.11,
@@ -55,6 +95,16 @@
       "buyAmount": 52441.46,
       "sellAmount": 42963.48,
       "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "601188",
+      "name": "龙江交通",
+      "close": 3.81,
+      "changePct": 10.12,
+      "netBuy": 9042.2,
+      "buyAmount": 17008.98,
+      "sellAmount": 7966.78,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
     },
     {
       "code": "002388",
@@ -75,56 +125,6 @@
       "buyAmount": 15487.91,
       "sellAmount": 10436.93,
       "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
-    },
-    {
-      "code": "300686",
-      "name": "智动力",
-      "close": 13.68,
-      "changePct": 20.0,
-      "netBuy": 4772.78,
-      "buyAmount": 13177.87,
-      "sellAmount": 8405.09,
-      "reason": "连续三个交易日内，涨幅偏离值累计达到30%的证券"
-    },
-    {
-      "code": "301718",
-      "name": "通则康威",
-      "close": 47.9,
-      "changePct": -0.77,
-      "netBuy": 4181.3,
-      "buyAmount": 7964.84,
-      "sellAmount": 3783.54,
-      "reason": "日换手率达到30%的前5只证券"
-    },
-    {
-      "code": "300686",
-      "name": "智动力",
-      "close": 13.68,
-      "changePct": 20.0,
-      "netBuy": 4004.59,
-      "buyAmount": 9637.21,
-      "sellAmount": 5632.61,
-      "reason": "日涨幅达到15%的前5只证券"
-    },
-    {
-      "code": "301697",
-      "name": "贝特利",
-      "close": 36.6,
-      "changePct": 20.0,
-      "netBuy": 3603.62,
-      "buyAmount": 11118.27,
-      "sellAmount": 7514.65,
-      "reason": "日换手率达到30%的前5只证券"
-    },
-    {
-      "code": "301697",
-      "name": "贝特利",
-      "close": 36.6,
-      "changePct": 20.0,
-      "netBuy": 3603.62,
-      "buyAmount": 11118.27,
-      "sellAmount": 7514.65,
-      "reason": "日涨幅达到15%的前5只证券"
     }
   ],
   "topInflow": [],
