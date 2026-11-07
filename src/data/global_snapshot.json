@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-07T09:00:24+08:00",
-  "batch": "美股收盘",
+  "updatedAt": "2026-11-07T19:43:30+08:00",
+  "batch": "周末刷新",
   "source": "sina_us+yfinance",
   "stale": false,
   "note": "上一交易日收盘的延迟数据，用于复盘记录。",
@@ -58,33 +58,33 @@
         {
           "symbol": "NVDA",
           "name": "英伟达",
-          "price": 181.6,
-          "change": -18.53,
-          "changePct": -9.26,
+          "price": 186.64,
+          "change": 5.04,
+          "changePct": 2.78,
           "asOf": "2026-11-06"
         },
         {
           "symbol": "INTC",
           "name": "英特尔",
-          "price": 52.25,
-          "change": -6.02,
-          "changePct": -10.33,
+          "price": 56.28,
+          "change": 4.03,
+          "changePct": 7.71,
           "asOf": "2026-11-06"
         },
         {
           "symbol": "GOOGL",
           "name": "谷歌",
-          "price": 282.57,
-          "change": -6.36,
-          "changePct": -2.2,
+          "price": 284.78,
+          "change": 2.21,
+          "changePct": 0.78,
           "asOf": "2026-11-06"
         },
         {
           "symbol": "WDC",
           "name": "西数/闪迪",
-          "price": 267.63,
-          "change": -56.2,
-          "changePct": -17.35,
+          "price": 263.78,
+          "change": -3.85,
+          "changePct": -1.44,
           "asOf": "2026-11-06"
         }
       ]
@@ -96,33 +96,33 @@
         {
           "symbol": "^HSI",
           "name": "恒生指数",
-          "price": 24796.9805,
-          "change": 877.4805,
-          "changePct": 3.67,
+          "price": 24481.8594,
+          "change": -315.1211,
+          "changePct": -1.27,
           "asOf": "2026-11-06"
         },
         {
           "symbol": "^N225",
           "name": "日经225",
-          "price": 61077.8984,
-          "change": -1110.7305,
-          "changePct": -1.79,
+          "price": 57434.7695,
+          "change": -3643.1289,
+          "changePct": -5.96,
           "asOf": "2026-11-06"
         },
         {
           "symbol": "^KS11",
           "name": "韩国综合",
-          "price": 5383.7998,
-          "change": -300.0,
-          "changePct": -5.28,
+          "price": 5059.6899,
+          "change": -324.1099,
+          "changePct": -6.02,
           "asOf": "2026-11-06"
         },
         {
           "symbol": "^TWII",
           "name": "台湾加权",
-          "price": 41574.7188,
-          "change": -1374.1914,
-          "changePct": -3.2,
+          "price": 39701.6406,
+          "change": -1873.0781,
+          "changePct": -4.51,
           "asOf": "2026-11-06"
         }
       ]
@@ -156,9 +156,9 @@
         {
           "symbol": "KWEB",
           "name": "中概互联网ETF",
-          "price": 24.76,
-          "change": 0.44,
-          "changePct": 1.81,
+          "price": 24.88,
+          "change": 0.12,
+          "changePct": 0.48,
           "asOf": "2026-11-06"
         }
       ]
@@ -170,33 +170,33 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 4079.5,
-          "change": -34.0,
-          "changePct": -0.83,
+          "price": 4074.8999,
+          "change": -38.6001,
+          "changePct": -0.94,
           "asOf": "2026-11-06"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 90.34,
-          "change": -0.18,
-          "changePct": -0.2,
+          "price": 90.83,
+          "change": 0.31,
+          "changePct": 0.34,
           "asOf": "2026-11-06"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.688,
-          "change": 0.0149,
-          "changePct": 0.22,
-          "asOf": "2026-11-06"
+          "price": 6.671,
+          "change": -0.017,
+          "changePct": -0.25,
+          "asOf": "2026-11-07"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 75787.8906,
-          "change": -154.2344,
-          "changePct": -0.2,
+          "price": 75911.9219,
+          "change": 164.9922,
+          "changePct": 0.22,
           "asOf": "2026-11-07"
         }
       ]
