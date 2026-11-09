@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T16:41:10+08:00",
+  "updatedAt": "2026-11-09T17:43:23+08:00",
   "batch": "盘中刷新",
   "source": "akshare",
   "stale": false,
@@ -25,6 +25,26 @@
       "buyAmount": 35944.19,
       "sellAmount": 10638.2,
       "reason": "日涨幅偏离值达到7%的前5只证券"
+    },
+    {
+      "code": "600715",
+      "name": "文投控股",
+      "close": 2.59,
+      "changePct": 10.21,
+      "netBuy": 17195.33,
+      "buyAmount": 24610.5,
+      "sellAmount": 7415.17,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
+    },
+    {
+      "code": "688801",
+      "name": "燧原科技",
+      "close": 432.8,
+      "changePct": 17.26,
+      "netBuy": 16405.8,
+      "buyAmount": 43804.65,
+      "sellAmount": 27398.86,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅达到15%的前五只证券"
     },
     {
       "code": "300825",
@@ -67,6 +87,36 @@
       "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
     },
     {
+      "code": "601188",
+      "name": "龙江交通",
+      "close": 4.19,
+      "changePct": 9.97,
+      "netBuy": 11559.68,
+      "buyAmount": 24214.77,
+      "sellAmount": 12655.09,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "600838",
+      "name": "上海九百",
+      "close": 11.5,
+      "changePct": 10.05,
+      "netBuy": 9810.8,
+      "buyAmount": 17805.24,
+      "sellAmount": 7994.44,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
+    },
+    {
+      "code": "603366",
+      "name": "日出东方",
+      "close": 9.89,
+      "changePct": 10.01,
+      "netBuy": 9614.59,
+      "buyAmount": 13114.67,
+      "sellAmount": 3500.08,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
+    },
+    {
       "code": "301010",
       "name": "晶雪节能",
       "close": 26.21,
@@ -75,56 +125,6 @@
       "buyAmount": 11310.54,
       "sellAmount": 2630.76,
       "reason": "日涨幅达到15%的前5只证券"
-    },
-    {
-      "code": "301313",
-      "name": "凡拓数创",
-      "close": 69.77,
-      "changePct": 2.78,
-      "netBuy": 8582.07,
-      "buyAmount": 27496.43,
-      "sellAmount": 18914.36,
-      "reason": "日换手率达到30%的前5只证券"
-    },
-    {
-      "code": "002488",
-      "name": "金固股份",
-      "close": 7.48,
-      "changePct": 10.0,
-      "netBuy": 7769.13,
-      "buyAmount": 21459.32,
-      "sellAmount": 13690.19,
-      "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
-    },
-    {
-      "code": "000995",
-      "name": "皇台酒业",
-      "close": 16.7,
-      "changePct": 1.64,
-      "netBuy": 6057.57,
-      "buyAmount": 13358.71,
-      "sellAmount": 7301.15,
-      "reason": "日换手率达到20%的前5只证券"
-    },
-    {
-      "code": "002889",
-      "name": "东方嘉盛",
-      "close": 16.4,
-      "changePct": 9.99,
-      "netBuy": 5512.64,
-      "buyAmount": 12361.56,
-      "sellAmount": 6848.92,
-      "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
-    },
-    {
-      "code": "000525",
-      "name": "红太阳",
-      "close": 5.52,
-      "changePct": 9.96,
-      "netBuy": 4702.31,
-      "buyAmount": 24619.3,
-      "sellAmount": 19917.0,
-      "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
     }
   ],
   "topInflow": [],
