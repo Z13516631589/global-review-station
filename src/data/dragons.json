@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-10T16:52:16+08:00",
+  "updatedAt": "2026-11-10T17:44:10+08:00",
   "batch": "盘中刷新",
   "source": "akshare",
   "stale": false,
@@ -15,6 +15,36 @@
       "buyAmount": 50542.6,
       "sellAmount": 23703.3,
       "reason": "日涨幅达到15%的前5只证券"
+    },
+    {
+      "code": "600408",
+      "name": "安泰集团",
+      "close": 3.65,
+      "changePct": 9.94,
+      "netBuy": 11654.08,
+      "buyAmount": 24481.61,
+      "sellAmount": 12827.53,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "600715",
+      "name": "文投控股",
+      "close": 2.85,
+      "changePct": 10.04,
+      "netBuy": 10925.93,
+      "buyAmount": 30510.41,
+      "sellAmount": 19584.48,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "603703",
+      "name": "盛洋科技",
+      "close": 12.21,
+      "changePct": 10.0,
+      "netBuy": 10436.0,
+      "buyAmount": 28693.01,
+      "sellAmount": 18257.01,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
     },
     {
       "code": "001308",
@@ -87,44 +117,14 @@
       "reason": "日换手率达到20%的前5只证券"
     },
     {
-      "code": "301313",
-      "name": "凡拓数创",
-      "close": 76.49,
-      "changePct": 9.63,
-      "netBuy": 6289.82,
-      "buyAmount": 25405.08,
-      "sellAmount": 19115.26,
-      "reason": "日换手率达到30%的前5只证券"
-    },
-    {
-      "code": "300264",
-      "name": "佳创视讯",
-      "close": 6.58,
-      "changePct": 20.07,
-      "netBuy": 5868.92,
-      "buyAmount": 11404.31,
-      "sellAmount": 5535.39,
-      "reason": "日涨幅达到15%的前5只证券"
-    },
-    {
-      "code": "300556",
-      "name": "丝路视觉",
-      "close": 22.25,
-      "changePct": 20.01,
-      "netBuy": 5114.67,
-      "buyAmount": 13032.0,
-      "sellAmount": 7917.34,
-      "reason": "日换手率达到30%的前5只证券"
-    },
-    {
-      "code": "300556",
-      "name": "丝路视觉",
-      "close": 22.25,
-      "changePct": 20.01,
-      "netBuy": 5114.67,
-      "buyAmount": 13032.0,
-      "sellAmount": 7917.34,
-      "reason": "日涨幅达到15%的前5只证券"
+      "code": "600609",
+      "name": "金杯汽车",
+      "close": 3.83,
+      "changePct": 10.06,
+      "netBuy": 7249.47,
+      "buyAmount": 13759.37,
+      "sellAmount": 6509.91,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
     }
   ],
   "topInflow": [],
