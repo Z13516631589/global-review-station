@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-11-11T15:47:57+08:00",
-  "batch": "盘前消息",
+  "updatedAt": "2026-11-11T16:27:15+08:00",
+  "batch": "盘中刷新",
   "source": "sina_us+yfinance",
   "stale": false,
-  "note": "注意：有 4 个标的数据日期早于最近交易日（美股/中概 2026-11-10、亚太 2026-11-10），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
+  "note": "上一交易日收盘的延迟数据，用于复盘记录。",
   "groups": [
     {
       "market": "美股",
@@ -96,38 +96,34 @@
         {
           "symbol": "^HSI",
           "name": "恒生指数",
-          "price": 24293.8008,
-          "change": -263.2383,
-          "changePct": null,
-          "asOf": "2026-11-11",
-          "stale": true
+          "price": 24315.9199,
+          "change": -241.1191,
+          "changePct": -0.98,
+          "asOf": "2026-11-11"
         },
         {
           "symbol": "^N225",
           "name": "日经225",
           "price": 61248.5898,
           "change": 789.0117,
-          "changePct": null,
-          "asOf": "2026-11-11",
-          "stale": true
+          "changePct": 1.31,
+          "asOf": "2026-11-11"
         },
         {
           "symbol": "^KS11",
           "name": "韩国综合",
           "price": 5375.3599,
           "change": 136.23,
-          "changePct": null,
-          "asOf": "2026-11-11",
-          "stale": true
+          "changePct": 2.6,
+          "asOf": "2026-11-11"
         },
         {
           "symbol": "^TWII",
           "name": "台湾加权",
           "price": 44257.1484,
           "change": 1545.2266,
-          "changePct": null,
-          "asOf": "2026-11-11",
-          "stale": true
+          "changePct": 3.62,
+          "asOf": "2026-11-11"
         }
       ]
     },
@@ -174,33 +170,33 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 4071.0,
-          "change": 40.8,
-          "changePct": 1.01,
+          "price": 4066.7,
+          "change": 36.5,
+          "changePct": 0.91,
           "asOf": "2026-11-11"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 86.21,
-          "change": 0.17,
-          "changePct": 0.2,
+          "price": 86.23,
+          "change": 0.19,
+          "changePct": 0.22,
           "asOf": "2026-11-11"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.6704,
-          "change": -0.0023,
-          "changePct": -0.03,
+          "price": 6.6694,
+          "change": -0.0033,
+          "changePct": -0.05,
           "asOf": "2026-11-11"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 73833.4922,
-          "change": 113.375,
-          "changePct": 0.15,
+          "price": 73804.5703,
+          "change": 84.4531,
+          "changePct": 0.11,
           "asOf": "2026-11-11"
         }
       ]
