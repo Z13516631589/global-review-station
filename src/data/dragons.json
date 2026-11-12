@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-12T16:51:22+08:00",
+  "updatedAt": "2026-11-12T17:44:16+08:00",
   "batch": "盘中刷新",
   "source": "akshare",
   "stale": false,
@@ -27,6 +27,26 @@
       "reason": "日换手率达到30%的前5只证券"
     },
     {
+      "code": "603283",
+      "name": "赛腾股份",
+      "close": 45.29,
+      "changePct": 5.57,
+      "netBuy": 25110.47,
+      "buyAmount": 65124.55,
+      "sellAmount": 40014.08,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "603466",
+      "name": "风语筑",
+      "close": 16.03,
+      "changePct": -4.92,
+      "netBuy": 24023.97,
+      "buyAmount": 52744.14,
+      "sellAmount": 28720.17,
+      "reason": "有价格涨跌幅限制的日价格振幅达到15%的前五只证券"
+    },
+    {
       "code": "002172",
       "name": "澳洋健康",
       "close": 6.66,
@@ -35,6 +55,16 @@
       "buyAmount": 34870.26,
       "sellAmount": 13106.57,
       "reason": "日涨幅偏离值达到7%的前5只证券"
+    },
+    {
+      "code": "601929",
+      "name": "吉视传媒",
+      "close": 2.81,
+      "changePct": 10.2,
+      "netBuy": 15414.67,
+      "buyAmount": 31724.45,
+      "sellAmount": 16309.79,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
     },
     {
       "code": "000678",
@@ -47,6 +77,16 @@
       "reason": "日换手率达到20%的前5只证券"
     },
     {
+      "code": "600127",
+      "name": "金健米业",
+      "close": 10.89,
+      "changePct": 2.74,
+      "netBuy": 7926.69,
+      "buyAmount": 28982.35,
+      "sellAmount": 21055.66,
+      "reason": "有价格涨跌幅限制的日换手率达到20%的前五只证券"
+    },
+    {
       "code": "127119",
       "name": "中鼎转03",
       "close": 136.15,
@@ -55,6 +95,16 @@
       "buyAmount": 10251.47,
       "sellAmount": 2868.4,
       "reason": "上市首日可转债"
+    },
+    {
+      "code": "603725",
+      "name": "天安新材",
+      "close": 13.16,
+      "changePct": 10.03,
+      "netBuy": 6770.61,
+      "buyAmount": 13475.56,
+      "sellAmount": 6704.95,
+      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
     },
     {
       "code": "002696",
@@ -67,64 +117,14 @@
       "reason": "日涨幅偏离值达到7%的前5只证券"
     },
     {
-      "code": "002021",
-      "name": "中捷资源",
-      "close": 2.63,
-      "changePct": 10.04,
-      "netBuy": 3782.17,
-      "buyAmount": 16684.85,
-      "sellAmount": 12902.67,
-      "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
-    },
-    {
-      "code": "123270",
-      "name": "盛德转债",
-      "close": 255.587,
-      "changePct": 20.0,
-      "netBuy": 3139.29,
-      "buyAmount": 96152.48,
-      "sellAmount": 93013.19,
-      "reason": "日涨幅达到15%的前5只可转债"
-    },
-    {
-      "code": "000635",
-      "name": "英力特",
-      "close": 11.0,
-      "changePct": 7.74,
-      "netBuy": 2547.95,
-      "buyAmount": 24979.04,
-      "sellAmount": 22431.09,
-      "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
-    },
-    {
-      "code": "301697",
-      "name": "贝特利",
-      "close": 33.57,
-      "changePct": -4.98,
-      "netBuy": 2122.79,
-      "buyAmount": 7560.79,
-      "sellAmount": 5438.0,
-      "reason": "日换手率达到30%的前5只证券"
-    },
-    {
-      "code": "001381",
-      "name": "皇冠新材",
-      "close": 42.36,
-      "changePct": 2.27,
-      "netBuy": 1997.56,
-      "buyAmount": 7063.67,
-      "sellAmount": 5066.1,
-      "reason": "日换手率达到20%的前5只证券"
-    },
-    {
-      "code": "002425",
-      "name": "凯撒文化",
-      "close": 3.6,
-      "changePct": -6.01,
-      "netBuy": 1891.49,
-      "buyAmount": 13431.5,
-      "sellAmount": 11540.0,
-      "reason": "日振幅值达到15%的前5只证券"
+      "code": "605287",
+      "name": "德才股份",
+      "close": 47.13,
+      "changePct": -9.16,
+      "netBuy": 3788.04,
+      "buyAmount": 13764.67,
+      "sellAmount": 9976.63,
+      "reason": "有价格涨跌幅限制的日收盘价格跌幅偏离值达到7%的前五只证券"
     }
   ],
   "topInflow": [],
