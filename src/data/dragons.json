@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T16:36:47+08:00",
+  "updatedAt": "2026-11-16T17:31:56+08:00",
   "batch": "盘中刷新",
   "source": "akshare",
   "stale": false,
@@ -15,6 +15,26 @@
       "buyAmount": 164120.49,
       "sellAmount": 118407.47,
       "reason": "日跌幅偏离值达到7%的前5只证券"
+    },
+    {
+      "code": "688141",
+      "name": "杰华特",
+      "close": 56.11,
+      "changePct": -16.98,
+      "netBuy": 23434.68,
+      "buyAmount": 58634.19,
+      "sellAmount": 35199.51,
+      "reason": "有价格涨跌幅限制的日收盘价格跌幅达到15%的前五只证券"
+    },
+    {
+      "code": "601929",
+      "name": "吉视传媒",
+      "close": 2.96,
+      "changePct": 10.04,
+      "netBuy": 21413.77,
+      "buyAmount": 30475.37,
+      "sellAmount": 9061.6,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
     },
     {
       "code": "002343",
@@ -47,6 +67,16 @@
       "reason": "日涨幅偏离值达到7%的前5只证券"
     },
     {
+      "code": "603118",
+      "name": "共进股份",
+      "close": 14.71,
+      "changePct": 10.02,
+      "netBuy": 11026.65,
+      "buyAmount": 30640.13,
+      "sellAmount": 19613.48,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
+    },
+    {
       "code": "000678",
       "name": "襄阳轴承",
       "close": 17.78,
@@ -67,6 +97,16 @@
       "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
     },
     {
+      "code": "600936",
+      "name": "北投科技",
+      "close": 4.02,
+      "changePct": 10.14,
+      "netBuy": 8095.49,
+      "buyAmount": 10265.58,
+      "sellAmount": 2170.1,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
+    },
+    {
       "code": "301697",
       "name": "贝特利",
       "close": 27.76,
@@ -77,54 +117,14 @@
       "reason": "日换手率达到30%的前5只证券"
     },
     {
-      "code": "002748",
-      "name": "世龙实业",
-      "close": 13.63,
-      "changePct": 10.01,
-      "netBuy": 4796.65,
-      "buyAmount": 15529.6,
-      "sellAmount": 10732.95,
-      "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
-    },
-    {
-      "code": "300530",
-      "name": "领湃科技",
-      "close": 27.83,
-      "changePct": 20.01,
-      "netBuy": 3953.15,
-      "buyAmount": 11045.72,
-      "sellAmount": 7092.58,
-      "reason": "日涨幅达到15%的前5只证券"
-    },
-    {
-      "code": "002685",
-      "name": "华东重机",
-      "close": 6.09,
-      "changePct": 9.93,
-      "netBuy": 3633.0,
-      "buyAmount": 17072.88,
-      "sellAmount": 13439.87,
-      "reason": "日涨幅偏离值达到7%的前5只证券"
-    },
-    {
-      "code": "301052",
-      "name": "果麦文化",
-      "close": 48.01,
-      "changePct": 4.17,
-      "netBuy": 3188.85,
-      "buyAmount": 11870.92,
-      "sellAmount": 8682.07,
-      "reason": "日换手率达到30%的前5只证券"
-    },
-    {
-      "code": "002148",
-      "name": "北纬科技",
-      "close": 8.75,
-      "changePct": 10.06,
-      "netBuy": 3166.98,
-      "buyAmount": 28452.51,
-      "sellAmount": 25285.54,
-      "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
+      "code": "603687",
+      "name": "大胜达",
+      "close": 15.16,
+      "changePct": 8.67,
+      "netBuy": 4942.26,
+      "buyAmount": 34689.27,
+      "sellAmount": 29747.01,
+      "reason": "有价格涨跌幅限制的日价格振幅达到15%的前五只证券"
     }
   ],
   "topInflow": [],
