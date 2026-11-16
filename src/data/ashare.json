@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-15T20:42:06+08:00",
-  "batch": "周末刷新",
+  "updatedAt": "2026-11-16T15:58:10+08:00",
+  "batch": "盘前消息",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
@@ -53,12 +53,12 @@
     }
   ],
   "breadth": {
-    "up": 744,
-    "down": 4415,
-    "flat": 57,
-    "limitUp": 38,
-    "limitDown": 39,
-    "total": 5216
+    "up": 1109,
+    "down": 4019,
+    "flat": 89,
+    "limitUp": 33,
+    "limitDown": 68,
+    "total": 5217
   },
   "volume": {
     "amount": 19320.77,
@@ -97,94 +97,76 @@
     "balance": 11692.64,
     "change": -86.72,
     "asOf": "2026-11-13",
-    "stale": false
+    "stale": true
   },
   "sentiment": {
-    "score": 23,
+    "score": 24,
     "label": "冰点",
     "desc": "",
     "drivers": [
-      "涨跌家数 744 / 4415，上涨占比 14.4%",
-      "涨停 38 家、跌停 39 家",
+      "涨跌家数 1109 / 4019，上涨占比 21.6%",
+      "涨停 33 家、跌停 68 家",
       "两市成交 19321 亿，环比 +0.00%"
     ]
   },
   "sectors": [
     {
-      "name": "陶瓷行业",
-      "changePct": 2.69,
+      "name": "开发区",
+      "changePct": 2.91,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh603268"
+        "sz000628"
       ]
     },
     {
-      "name": "酿酒行业",
-      "changePct": 1.72,
+      "name": "公路桥梁",
+      "changePct": 2.0,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh600238"
-      ]
-    },
-    {
-      "name": "家具行业",
-      "changePct": 0.88,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh603898"
+        "sh601188"
       ]
     },
     {
       "name": "金融行业",
-      "changePct": 0.63,
+      "changePct": 1.19,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh601169"
-      ]
-    },
-    {
-      "name": "传媒娱乐",
-      "changePct": 0.41,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sz000665"
+        "sh600000"
       ]
     },
     {
       "name": "家电行业",
-      "changePct": 0.4,
+      "changePct": 1.18,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh603366"
+        "sz002035"
       ]
     },
     {
-      "name": "食品行业",
-      "changePct": -0.59,
-      "direction": "down",
+      "name": "酿酒行业",
+      "changePct": 1.05,
+      "direction": "up",
       "driver": "",
       "leading": [
-        "sz002495"
+        "sz000860"
       ]
     },
     {
-      "name": "电力行业",
-      "changePct": -0.42,
-      "direction": "down",
+      "name": "煤炭行业",
+      "changePct": 0.54,
+      "direction": "up",
       "driver": "",
       "leading": [
-        "sz002039"
+        "sh600408"
       ]
     },
     {
       "name": "石油行业",
-      "changePct": -0.38,
+      "changePct": -0.68,
       "direction": "down",
       "driver": "",
       "leading": [
@@ -192,30 +174,48 @@
       ]
     },
     {
-      "name": "环保行业",
-      "changePct": -0.15,
+      "name": "酒店旅游",
+      "changePct": -0.47,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sh603686"
+        "sz000524"
       ]
     },
     {
-      "name": "开发区",
-      "changePct": -0.08,
+      "name": "水泥行业",
+      "changePct": -0.45,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sh600895"
+        "sh600678"
       ]
     },
     {
-      "name": "煤炭行业",
-      "changePct": -0.07,
+      "name": "生物制药",
+      "changePct": -0.32,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sz000034"
+        "sh600530"
+      ]
+    },
+    {
+      "name": "电力行业",
+      "changePct": -0.29,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600483"
+      ]
+    },
+    {
+      "name": "商业百货",
+      "changePct": -0.05,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sz002187"
       ]
     }
   ],
