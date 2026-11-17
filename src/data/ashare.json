@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-17T05:00:48+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-11-17T17:12:18+08:00",
+  "batch": "盘前消息",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
-  "tradeDay": "20261116",
+  "tradeDay": "20261117",
   "indices": [
     {
       "code": "000001",
@@ -53,16 +53,16 @@
     }
   ],
   "breadth": {
-    "up": 1109,
-    "down": 4019,
-    "flat": 89,
-    "limitUp": 33,
-    "limitDown": 68,
+    "up": 1216,
+    "down": 3882,
+    "flat": 119,
+    "limitUp": 37,
+    "limitDown": 84,
     "total": 5217
   },
   "volume": {
-    "amount": 16556.68,
-    "prevAmount": 16556.68,
+    "amount": 14844.9,
+    "prevAmount": 14844.9,
     "changePct": 0.0
   },
   "volumeHistory": {
@@ -92,131 +92,132 @@
     "20261111": 16762.77,
     "20261112": 19320.77,
     "20261113": 16556.68,
-    "20261116": 14844.9
+    "20261116": 14844.9,
+    "20261117": 14844.9
   },
   "margin": {
-    "balance": 11692.64,
-    "change": -86.72,
-    "asOf": "2026-11-13",
-    "stale": true
+    "balance": 11598.13,
+    "change": -94.51,
+    "asOf": "2026-11-16",
+    "stale": false
   },
   "sentiment": {
-    "score": 24,
+    "score": 26,
     "label": "冰点",
     "desc": "",
     "drivers": [
-      "涨跌家数 1109 / 4019，上涨占比 21.6%",
-      "涨停 33 家、跌停 68 家",
-      "两市成交 16557 亿，环比 +0.00%"
+      "涨跌家数 1216 / 3882，上涨占比 23.9%",
+      "涨停 37 家、跌停 84 家",
+      "两市成交 14845 亿，环比 +0.00%"
     ]
   },
   "sectors": [
     {
       "name": "开发区",
-      "changePct": 2.91,
+      "changePct": 2.15,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sz000628"
-      ]
-    },
-    {
-      "name": "公路桥梁",
-      "changePct": 2.0,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh601188"
-      ]
-    },
-    {
-      "name": "金融行业",
-      "changePct": 1.19,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh600000"
+        "sh600895"
       ]
     },
     {
       "name": "家电行业",
-      "changePct": 1.18,
+      "changePct": 1.34,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sz002035"
+        "sh600261"
       ]
     },
     {
-      "name": "酿酒行业",
-      "changePct": 1.05,
+      "name": "化工行业",
+      "changePct": 0.73,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sz000860"
+        "sz002226"
       ]
     },
     {
-      "name": "煤炭行业",
-      "changePct": 0.54,
+      "name": "农药化肥",
+      "changePct": 0.48,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh600408"
+        "sz002749"
       ]
     },
     {
-      "name": "石油行业",
-      "changePct": -0.68,
-      "direction": "down",
+      "name": "电子器件",
+      "changePct": 0.45,
+      "direction": "up",
       "driver": "",
       "leading": [
-        "sz000819"
+        "sh600206"
       ]
     },
     {
-      "name": "酒店旅游",
-      "changePct": -0.47,
-      "direction": "down",
+      "name": "金融行业",
+      "changePct": 0.16,
+      "direction": "up",
       "driver": "",
       "leading": [
-        "sz000524"
+        "sz000686"
       ]
     },
     {
-      "name": "水泥行业",
-      "changePct": -0.45,
+      "name": "船舶制造",
+      "changePct": -0.59,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sh600678"
+        "sz002608"
       ]
     },
     {
-      "name": "生物制药",
-      "changePct": -0.32,
+      "name": "交通运输",
+      "changePct": -0.49,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sh600530"
+        "sh601766"
+      ]
+    },
+    {
+      "name": "公路桥梁",
+      "changePct": -0.37,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600377"
+      ]
+    },
+    {
+      "name": "化纤行业",
+      "changePct": -0.28,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sz000677"
+      ]
+    },
+    {
+      "name": "食品行业",
+      "changePct": -0.22,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sz002557"
       ]
     },
     {
       "name": "电力行业",
-      "changePct": -0.29,
+      "changePct": -0.08,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sh600483"
-      ]
-    },
-    {
-      "name": "商业百货",
-      "changePct": -0.05,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz002187"
+        "sh600642"
       ]
     }
   ],
