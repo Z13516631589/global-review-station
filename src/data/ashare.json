@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-18T03:50:24+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-11-18T10:58:51+08:00",
+  "batch": "美股收盘",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
@@ -53,11 +53,11 @@
     }
   ],
   "breadth": {
-    "up": 1216,
-    "down": 3882,
-    "flat": 119,
-    "limitUp": 37,
-    "limitDown": 84,
+    "up": 928,
+    "down": 4164,
+    "flat": 125,
+    "limitUp": 29,
+    "limitDown": 26,
     "total": 5217
   },
   "volume": {
@@ -96,128 +96,119 @@
     "20261117": 14576.95
   },
   "margin": {
-    "balance": 11598.13,
-    "change": -94.51,
-    "asOf": "2026-11-16",
+    "balance": 11519.89,
+    "change": -78.24,
+    "asOf": "2026-11-17",
     "stale": false
   },
   "sentiment": {
-    "score": 26,
+    "score": 21,
     "label": "冰点",
     "desc": "",
     "drivers": [
-      "涨跌家数 1216 / 3882，上涨占比 23.9%",
-      "涨停 37 家、跌停 84 家",
+      "涨跌家数 928 / 4164，上涨占比 18.2%",
+      "涨停 29 家、跌停 26 家",
       "两市成交 14845 亿，环比 +0.00%"
     ]
   },
   "sectors": [
     {
-      "name": "开发区",
-      "changePct": 2.15,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh600895"
-      ]
-    },
-    {
       "name": "家电行业",
-      "changePct": 1.34,
+      "changePct": 1.83,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh600261"
-      ]
-    },
-    {
-      "name": "化工行业",
-      "changePct": 0.73,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sz002226"
-      ]
-    },
-    {
-      "name": "农药化肥",
-      "changePct": 0.48,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sz002749"
-      ]
-    },
-    {
-      "name": "电子器件",
-      "changePct": 0.45,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh600206"
-      ]
-    },
-    {
-      "name": "金融行业",
-      "changePct": 0.16,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sz000686"
-      ]
-    },
-    {
-      "name": "船舶制造",
-      "changePct": -0.59,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz002608"
-      ]
-    },
-    {
-      "name": "交通运输",
-      "changePct": -0.49,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sh601766"
+        "sh600839"
       ]
     },
     {
       "name": "公路桥梁",
-      "changePct": -0.37,
-      "direction": "down",
+      "changePct": 1.3,
+      "direction": "up",
       "driver": "",
       "leading": [
-        "sh600377"
+        "sh601188"
       ]
     },
     {
-      "name": "化纤行业",
-      "changePct": -0.28,
-      "direction": "down",
+      "name": "陶瓷行业",
+      "changePct": 0.86,
+      "direction": "up",
       "driver": "",
       "leading": [
-        "sz000677"
-      ]
-    },
-    {
-      "name": "食品行业",
-      "changePct": -0.22,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz002557"
+        "sh603268"
       ]
     },
     {
       "name": "电力行业",
-      "changePct": -0.08,
+      "changePct": 0.37,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sh600236"
+      ]
+    },
+    {
+      "name": "煤炭行业",
+      "changePct": 0.36,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sh600408"
+      ]
+    },
+    {
+      "name": "交通运输",
+      "changePct": -0.36,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sh600642"
+        "sh601872"
+      ]
+    },
+    {
+      "name": "电子器件",
+      "changePct": -0.34,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600537"
+      ]
+    },
+    {
+      "name": "造纸行业",
+      "changePct": -0.26,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sz000815"
+      ]
+    },
+    {
+      "name": "供水供气",
+      "changePct": -0.16,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600649"
+      ]
+    },
+    {
+      "name": "电子信息",
+      "changePct": -0.16,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sz300324"
+      ]
+    },
+    {
+      "name": "船舶制造",
+      "changePct": -0.04,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600150"
       ]
     }
   ],

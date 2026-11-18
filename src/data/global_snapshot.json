@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-11-18T03:51:32+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-11-18T11:00:02+08:00",
+  "batch": "美股收盘",
   "source": "yfinance",
   "stale": false,
-  "note": "注意：有 11 个标的数据日期早于最近交易日（美股/中概 2026-11-16、亚太 2026-11-17），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
+  "note": "注意：有 4 个标的数据日期早于最近交易日（美股/中概 2026-11-17、亚太 2026-11-17），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
   "groups": [
     {
       "market": "美股",
@@ -12,47 +12,42 @@
         {
           "symbol": "^GSPC",
           "name": "标普500",
-          "price": 7318.3301,
-          "change": -98.2598,
-          "changePct": null,
-          "asOf": "2026-11-17",
-          "stale": true
+          "price": 7340.5298,
+          "change": -76.0601,
+          "changePct": -1.03,
+          "asOf": "2026-11-17"
         },
         {
           "symbol": "^IXIC",
           "name": "纳斯达克",
-          "price": 24213.4199,
-          "change": -296.3398,
-          "changePct": null,
-          "asOf": "2026-11-17",
-          "stale": true
+          "price": 24328.3828,
+          "change": -181.377,
+          "changePct": -0.74,
+          "asOf": "2026-11-17"
         },
         {
           "symbol": "^NDX",
           "name": "纳斯达克100",
-          "price": 26852.5176,
-          "change": -344.6328,
-          "changePct": null,
-          "asOf": "2026-11-17",
-          "stale": true
+          "price": 27001.7852,
+          "change": -195.3652,
+          "changePct": -0.72,
+          "asOf": "2026-11-17"
         },
         {
           "symbol": "^DJI",
           "name": "道琼斯",
-          "price": 50695.2383,
-          "change": -912.9336,
-          "changePct": null,
-          "asOf": "2026-11-17",
-          "stale": true
+          "price": 50759.4219,
+          "change": -848.75,
+          "changePct": -1.64,
+          "asOf": "2026-11-17"
         },
         {
           "symbol": "^VIX",
           "name": "恐慌指数",
-          "price": 26.05,
-          "change": 3.14,
-          "changePct": null,
-          "asOf": "2026-11-17",
-          "stale": true
+          "price": 25.46,
+          "change": 2.55,
+          "changePct": 11.13,
+          "asOf": "2026-11-17"
         }
       ]
     },
@@ -63,38 +58,34 @@
         {
           "symbol": "NVDA",
           "name": "英伟达",
-          "price": 152.995,
-          "change": -3.145,
-          "changePct": null,
-          "asOf": "2026-11-17",
-          "stale": true
+          "price": 155.46,
+          "change": -0.68,
+          "changePct": -0.44,
+          "asOf": "2026-11-17"
         },
         {
           "symbol": "INTC",
           "name": "英特尔",
-          "price": 53.655,
-          "change": -1.815,
-          "changePct": null,
-          "asOf": "2026-11-17",
-          "stale": true
+          "price": 55.17,
+          "change": -0.3,
+          "changePct": -0.54,
+          "asOf": "2026-11-17"
         },
         {
           "symbol": "GOOGL",
           "name": "谷歌",
-          "price": 279.98,
-          "change": -3.74,
-          "changePct": null,
-          "asOf": "2026-11-17",
-          "stale": true
+          "price": 280.2,
+          "change": -3.52,
+          "changePct": -1.24,
+          "asOf": "2026-11-17"
         },
         {
           "symbol": "WDC",
           "name": "西数/闪迪",
-          "price": 278.973,
-          "change": -1.957,
-          "changePct": null,
-          "asOf": "2026-11-17",
-          "stale": true
+          "price": 283.33,
+          "change": 2.4,
+          "changePct": 0.85,
+          "asOf": "2026-11-17"
         }
       ]
     },
@@ -105,35 +96,38 @@
         {
           "symbol": "^HSI",
           "name": "恒生指数",
-          "price": 23753.8398,
-          "change": 116.2402,
-          "changePct": 0.49,
-          "asOf": "2026-11-17"
+          "price": 23317.9609,
+          "change": -190.209,
+          "changePct": null,
+          "asOf": "2026-11-18",
+          "stale": true
         },
         {
           "symbol": "^N225",
           "name": "日经225",
-          "price": 59662.0195,
-          "change": -1480.332,
-          "changePct": -2.42,
-          "asOf": "2026-11-17"
+          "price": 58696.5391,
+          "change": -163.8906,
+          "changePct": null,
+          "asOf": "2026-11-18",
+          "stale": true
         },
         {
           "symbol": "^KS11",
           "name": "韩国综合",
-          "price": 5100.5,
-          "change": -190.0298,
+          "price": 4984.9902,
+          "change": 16.5103,
           "changePct": null,
-          "asOf": "2026-11-16",
+          "asOf": "2026-11-18",
           "stale": true
         },
         {
           "symbol": "^TWII",
           "name": "台湾加权",
-          "price": 41040.0781,
-          "change": -2635.043,
-          "changePct": -6.03,
-          "asOf": "2026-11-17"
+          "price": 39715.4688,
+          "change": -376.6406,
+          "changePct": null,
+          "asOf": "2026-11-18",
+          "stale": true
         }
       ]
     },
@@ -144,18 +138,18 @@
         {
           "symbol": "005930.KS",
           "name": "三星电子",
-          "price": 196800.0,
-          "change": -9200.0,
-          "changePct": -4.47,
-          "asOf": "2026-11-16"
+          "price": 190800.0,
+          "change": 500.0,
+          "changePct": 0.26,
+          "asOf": "2026-11-18"
         },
         {
           "symbol": "000660.KS",
           "name": "SK海力士",
-          "price": 1120000.0,
-          "change": -96000.0,
-          "changePct": -7.89,
-          "asOf": "2026-11-16"
+          "price": 1123000.0,
+          "change": 25000.0,
+          "changePct": 2.28,
+          "asOf": "2026-11-18"
         }
       ]
     },
@@ -166,11 +160,10 @@
         {
           "symbol": "KWEB",
           "name": "中概互联网ETF",
-          "price": 22.11,
-          "change": -0.45,
-          "changePct": null,
-          "asOf": "2026-11-17",
-          "stale": true
+          "price": 22.08,
+          "change": -0.48,
+          "changePct": -2.13,
+          "asOf": "2026-11-17"
         }
       ]
     },
@@ -181,34 +174,34 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 3850.8999,
-          "change": -2.1001,
-          "changePct": -0.05,
+          "price": 3797.3999,
+          "change": -55.6001,
+          "changePct": -1.44,
           "asOf": "2026-11-17"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 85.82,
-          "change": 0.1,
-          "changePct": 0.12,
+          "price": 85.0,
+          "change": -0.72,
+          "changePct": -0.84,
           "asOf": "2026-11-17"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.6659,
-          "change": -0.0051,
-          "changePct": -0.08,
-          "asOf": "2026-11-17"
+          "price": 6.6669,
+          "change": 0.0027,
+          "changePct": 0.04,
+          "asOf": "2026-11-18"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 63709.3398,
-          "change": -1146.5039,
-          "changePct": -1.77,
-          "asOf": "2026-11-17"
+          "price": 64249.5781,
+          "change": -606.2656,
+          "changePct": -0.93,
+          "asOf": "2026-11-18"
         }
       ]
     }
