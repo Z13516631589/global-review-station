@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-18T10:58:51+08:00",
-  "batch": "美股收盘",
+  "updatedAt": "2026-11-18T16:32:12+08:00",
+  "batch": "盘前消息",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
-  "tradeDay": "20261117",
+  "tradeDay": "20261118",
   "indices": [
     {
       "code": "000001",
@@ -53,16 +53,16 @@
     }
   ],
   "breadth": {
-    "up": 928,
-    "down": 4164,
-    "flat": 125,
-    "limitUp": 29,
-    "limitDown": 26,
+    "up": 1277,
+    "down": 3823,
+    "flat": 117,
+    "limitUp": 42,
+    "limitDown": 47,
     "total": 5217
   },
   "volume": {
-    "amount": 14844.9,
-    "prevAmount": 14844.9,
+    "amount": 14576.95,
+    "prevAmount": 14576.95,
     "changePct": 0.0
   },
   "volumeHistory": {
@@ -93,7 +93,8 @@
     "20261112": 19320.77,
     "20261113": 16556.68,
     "20261116": 14844.9,
-    "20261117": 14576.95
+    "20261117": 14576.95,
+    "20261118": 14576.95
   },
   "margin": {
     "balance": 11519.89,
@@ -102,37 +103,19 @@
     "stale": false
   },
   "sentiment": {
-    "score": 21,
+    "score": 28,
     "label": "冰点",
     "desc": "",
     "drivers": [
-      "涨跌家数 928 / 4164，上涨占比 18.2%",
-      "涨停 29 家、跌停 26 家",
-      "两市成交 14845 亿，环比 +0.00%"
+      "涨跌家数 1277 / 3823，上涨占比 25.0%",
+      "涨停 42 家、跌停 47 家",
+      "两市成交 14577 亿，环比 +0.00%"
     ]
   },
   "sectors": [
     {
-      "name": "家电行业",
-      "changePct": 1.83,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh600839"
-      ]
-    },
-    {
-      "name": "公路桥梁",
-      "changePct": 1.3,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh601188"
-      ]
-    },
-    {
       "name": "陶瓷行业",
-      "changePct": 0.86,
+      "changePct": 2.45,
       "direction": "up",
       "driver": "",
       "leading": [
@@ -140,8 +123,44 @@
       ]
     },
     {
+      "name": "公路桥梁",
+      "changePct": 1.21,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sh601188"
+      ]
+    },
+    {
+      "name": "船舶制造",
+      "changePct": 0.63,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sh600150"
+      ]
+    },
+    {
+      "name": "电子器件",
+      "changePct": 0.61,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sz002463"
+      ]
+    },
+    {
+      "name": "电子信息",
+      "changePct": 0.6,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sz300324"
+      ]
+    },
+    {
       "name": "电力行业",
-      "changePct": 0.37,
+      "changePct": 0.47,
       "direction": "up",
       "driver": "",
       "leading": [
@@ -149,44 +168,17 @@
       ]
     },
     {
-      "name": "煤炭行业",
-      "changePct": 0.36,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh600408"
-      ]
-    },
-    {
-      "name": "交通运输",
-      "changePct": -0.36,
+      "name": "金融行业",
+      "changePct": -0.33,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sh601872"
-      ]
-    },
-    {
-      "name": "电子器件",
-      "changePct": -0.34,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sh600537"
-      ]
-    },
-    {
-      "name": "造纸行业",
-      "changePct": -0.26,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz000815"
+        "sz000776"
       ]
     },
     {
       "name": "供水供气",
-      "changePct": -0.16,
+      "changePct": -0.22,
       "direction": "down",
       "driver": "",
       "leading": [
@@ -194,21 +186,39 @@
       ]
     },
     {
-      "name": "电子信息",
+      "name": "石油行业",
+      "changePct": -0.21,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600871"
+      ]
+    },
+    {
+      "name": "造纸行业",
       "changePct": -0.16,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sz300324"
+        "sz000815"
       ]
     },
     {
-      "name": "船舶制造",
-      "changePct": -0.04,
+      "name": "印刷包装",
+      "changePct": -0.12,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sh600150"
+        "sz002229"
+      ]
+    },
+    {
+      "name": "纺织行业",
+      "changePct": -0.08,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600156"
       ]
     }
   ],
