@@ -1,11 +1,21 @@
 {
-  "updatedAt": "2026-11-19T16:46:24+08:00",
-  "batch": "盘前消息",
+  "updatedAt": "2026-11-19T17:30:22+08:00",
+  "batch": "盘中刷新",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，龙虎榜为收盘后披露口径。",
   "tradeDay": "20261119",
   "items": [
+    {
+      "code": "605488",
+      "name": "福莱新材",
+      "close": 41.24,
+      "changePct": -6.27,
+      "netBuy": 42565.23,
+      "buyAmount": 108033.1,
+      "sellAmount": 65467.87,
+      "reason": "非S证券连续三个交易日内收盘价格跌幅偏离值累计达到20%的证券"
+    },
     {
       "code": "000678",
       "name": "襄阳轴承",
@@ -37,6 +47,26 @@
       "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
     },
     {
+      "code": "600619",
+      "name": "海立股份",
+      "close": 15.07,
+      "changePct": 10.0,
+      "netBuy": 11986.8,
+      "buyAmount": 24873.94,
+      "sellAmount": 12887.14,
+      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
+    },
+    {
+      "code": "002242",
+      "name": "九阳股份",
+      "close": 31.21,
+      "changePct": 10.01,
+      "netBuy": 10630.32,
+      "buyAmount": 69433.21,
+      "sellAmount": 58802.89,
+      "reason": "日涨幅偏离值达到7%的前5只证券"
+    },
+    {
       "code": "002242",
       "name": "九阳股份",
       "close": 31.21,
@@ -47,16 +77,6 @@
       "reason": "日振幅值达到15%的前5只证券"
     },
     {
-      "code": "002242",
-      "name": "九阳股份",
-      "close": 31.21,
-      "changePct": 10.01,
-      "netBuy": 10630.32,
-      "buyAmount": 69433.21,
-      "sellAmount": 58802.89,
-      "reason": "日涨幅偏离值达到7%的前5只证券"
-    },
-    {
       "code": "002579",
       "name": "中京电子",
       "close": 12.17,
@@ -65,6 +85,26 @@
       "buyAmount": 20210.08,
       "sellAmount": 9673.2,
       "reason": "日涨幅偏离值达到7%的前5只证券"
+    },
+    {
+      "code": "600103",
+      "name": "青山纸业",
+      "close": 3.36,
+      "changePct": 7.01,
+      "netBuy": 9575.55,
+      "buyAmount": 17638.61,
+      "sellAmount": 8063.06,
+      "reason": "有价格涨跌幅限制的日换手率达到20%的前五只证券"
+    },
+    {
+      "code": "600103",
+      "name": "青山纸业",
+      "close": 3.36,
+      "changePct": 7.01,
+      "netBuy": 9575.55,
+      "buyAmount": 17638.61,
+      "sellAmount": 8063.06,
+      "reason": "有价格涨跌幅限制的日价格振幅达到15%的前五只证券"
     },
     {
       "code": "301660",
@@ -84,46 +124,6 @@
       "netBuy": 8010.55,
       "buyAmount": 28065.49,
       "sellAmount": 20054.93,
-      "reason": "日换手率达到20%的前5只证券"
-    },
-    {
-      "code": "001358",
-      "name": "兴欣新材",
-      "close": 28.55,
-      "changePct": 10.02,
-      "netBuy": 5574.2,
-      "buyAmount": 8549.43,
-      "sellAmount": 2975.23,
-      "reason": "日振幅值达到15%的前5只证券"
-    },
-    {
-      "code": "301052",
-      "name": "果麦文化",
-      "close": 32.88,
-      "changePct": -11.16,
-      "netBuy": 4390.46,
-      "buyAmount": 15186.95,
-      "sellAmount": 10796.49,
-      "reason": "日换手率达到30%的前5只证券"
-    },
-    {
-      "code": "000995",
-      "name": "皇台酒业",
-      "close": 14.4,
-      "changePct": -10.0,
-      "netBuy": 3883.17,
-      "buyAmount": 22933.18,
-      "sellAmount": 19050.0,
-      "reason": "连续三个交易日内，跌幅偏离值累计达到20%的证券"
-    },
-    {
-      "code": "002685",
-      "name": "华东重机",
-      "close": 7.67,
-      "changePct": 4.07,
-      "netBuy": 3682.76,
-      "buyAmount": 35572.9,
-      "sellAmount": 31890.14,
       "reason": "日换手率达到20%的前5只证券"
     }
   ],
