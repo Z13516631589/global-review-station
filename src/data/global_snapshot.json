@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T17:12:30+08:00",
+  "updatedAt": "2026-11-20T17:57:48+08:00",
   "batch": "盘中刷新",
   "source": "yfinance",
   "stale": false,
@@ -44,8 +44,8 @@
         {
           "symbol": "^VIX",
           "name": "恐慌指数",
-          "price": 28.77,
-          "change": 0.33,
+          "price": 29.63,
+          "change": 1.19,
           "changePct": null,
           "asOf": "2026-11-20",
           "stale": true
@@ -171,33 +171,33 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 3579.7,
-          "change": -105.8,
-          "changePct": -2.87,
+          "price": 3574.2,
+          "change": -111.3,
+          "changePct": -3.02,
           "asOf": "2026-11-20"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 81.65,
-          "change": -1.56,
-          "changePct": -1.87,
+          "price": 80.87,
+          "change": -2.34,
+          "changePct": -2.81,
           "asOf": "2026-11-20"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.6749,
-          "change": 0.0073,
-          "changePct": 0.11,
+          "price": 6.6671,
+          "change": -0.0005,
+          "changePct": -0.01,
           "asOf": "2026-11-20"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 61675.6289,
-          "change": -226.1914,
-          "changePct": -0.37,
+          "price": 61649.7617,
+          "change": -252.0586,
+          "changePct": -0.41,
           "asOf": "2026-11-20"
         }
       ]
