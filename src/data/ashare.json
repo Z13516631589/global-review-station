@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T22:30:41+08:00",
+  "updatedAt": "2026-11-21T00:18:39+08:00",
   "batch": "A股收盘",
   "source": "akshare",
   "stale": false,
@@ -61,9 +61,9 @@
     "total": 5216
   },
   "volume": {
-    "amount": 14222.01,
+    "amount": 13051.47,
     "prevAmount": 13051.47,
-    "changePct": 8.97
+    "changePct": 0.0
   },
   "volumeHistory": {
     "20261009": 19005.4,
@@ -105,13 +105,13 @@
     "stale": false
   },
   "sentiment": {
-    "score": 26,
+    "score": 21,
     "label": "冰点",
     "desc": "",
     "drivers": [
       "涨跌家数 297 / 4897，上涨占比 5.7%",
       "涨停 30 家、跌停 68 家",
-      "两市成交 14222 亿，环比 +8.97%"
+      "两市成交 13051 亿，环比 +0.00%"
     ]
   },
   "sectors": [
