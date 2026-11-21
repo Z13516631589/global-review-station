@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-21T10:36:50+08:00",
-  "batch": "美股收盘",
+  "updatedAt": "2026-11-21T21:26:24+08:00",
+  "batch": "周末刷新",
   "source": "yfinance",
   "stale": false,
   "note": "上一交易日收盘的延迟数据，用于复盘记录。",
@@ -20,16 +20,16 @@
         {
           "symbol": "^IXIC",
           "name": "纳斯达克",
-          "price": 22617.7324,
-          "change": -1261.4668,
+          "price": 22617.7305,
+          "change": -1261.4688,
           "changePct": -5.28,
           "asOf": "2026-11-20"
         },
         {
           "symbol": "^NDX",
           "name": "纳斯达克100",
-          "price": 25028.9824,
-          "change": -1488.0684,
+          "price": 25028.9805,
+          "change": -1488.0703,
           "changePct": -5.61,
           "asOf": "2026-11-20"
         },
@@ -170,33 +170,33 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 3539.0,
-          "change": -146.5,
-          "changePct": -3.98,
+          "price": 3515.3999,
+          "change": -170.1001,
+          "changePct": -4.62,
           "asOf": "2026-11-20"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 83.62,
-          "change": 0.41,
-          "changePct": 0.49,
+          "price": 83.98,
+          "change": 0.77,
+          "changePct": 0.93,
           "asOf": "2026-11-20"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.6623,
-          "change": -0.0042,
-          "changePct": -0.06,
+          "price": 6.6772,
+          "change": 0.0107,
+          "changePct": 0.16,
           "asOf": "2026-11-21"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 58626.9102,
-          "change": -3274.9102,
-          "changePct": -5.29,
+          "price": 59524.1016,
+          "change": 725.1211,
+          "changePct": 1.23,
           "asOf": "2026-11-21"
         }
       ]
