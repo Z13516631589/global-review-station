@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-23T18:40:43+08:00",
-  "batch": "盘中刷新",
+  "updatedAt": "2026-11-23T23:51:09+08:00",
+  "batch": "A股收盘",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
@@ -9,47 +9,47 @@
     {
       "code": "000001",
       "name": "上证指数",
-      "close": 3533.79,
-      "change": -43.83,
-      "changePct": -1.23,
-      "amount": 7025.74,
-      "amplitude": 1.05
+      "close": 3538.95,
+      "change": 5.16,
+      "changePct": 0.15,
+      "amount": 7385.0,
+      "amplitude": 1.92
     },
     {
       "code": "399001",
       "name": "深证成指",
-      "close": 10256.39,
-      "change": -326.81,
-      "changePct": -3.09,
-      "amount": 7196.27,
-      "amplitude": 1.7
+      "close": 10454.37,
+      "change": 197.98,
+      "changePct": 1.93,
+      "amount": 8143.8,
+      "amplitude": 3.82
     },
     {
       "code": "399006",
       "name": "创业板指",
-      "close": 2212.13,
-      "change": -81.22,
-      "changePct": -3.54,
-      "amount": 3349.78,
-      "amplitude": 2.23
+      "close": 2280.2,
+      "change": 68.08,
+      "changePct": 3.08,
+      "amount": 4006.28,
+      "amplitude": 4.94
     },
     {
       "code": "000300",
       "name": "沪深300",
-      "close": 3954.57,
-      "change": -30.27,
-      "changePct": -0.76,
-      "amount": 4411.08,
-      "amplitude": 1.67
+      "close": 3958.29,
+      "change": 3.73,
+      "changePct": 0.09,
+      "amount": 4582.79,
+      "amplitude": 1.69
     },
     {
       "code": "000688",
       "name": "科创50",
-      "close": 1231.09,
-      "change": -39.69,
-      "changePct": -3.12,
-      "amount": 919.45,
-      "amplitude": 2.77
+      "close": 1227.89,
+      "change": -3.2,
+      "changePct": -0.26,
+      "amount": 895.55,
+      "amplitude": 5.33
     }
   ],
   "breadth": {
@@ -61,9 +61,9 @@
     "total": 5213
   },
   "volume": {
-    "amount": 14222.01,
+    "amount": 15528.8,
     "prevAmount": 14222.01,
-    "changePct": 0.0
+    "changePct": 9.19
   },
   "volumeHistory": {
     "20261009": 19005.4,
@@ -97,7 +97,7 @@
     "20261118": 13697.03,
     "20261119": 13051.47,
     "20261120": 14222.01,
-    "20261123": 14222.01
+    "20261123": 15528.8
   },
   "margin": {
     "balance": 11207.68,
@@ -106,13 +106,13 @@
     "stale": true
   },
   "sentiment": {
-    "score": 83,
+    "score": 89,
     "label": "过热",
     "desc": "",
     "drivers": [
       "涨跌家数 4306 / 780，上涨占比 84.7%",
       "涨停 151 家、跌停 7 家",
-      "两市成交 14222 亿，环比 +0.00%"
+      "两市成交 15529 亿，环比 +9.19%"
     ]
   },
   "sectors": [
