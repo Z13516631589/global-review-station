@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-22T21:17:20+08:00",
-  "batch": "周末刷新",
+  "updatedAt": "2026-11-23T17:01:00+08:00",
+  "batch": "盘前消息",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
-  "tradeDay": "20261120",
+  "tradeDay": "20261123",
   "indices": [
     {
       "code": "000001",
@@ -53,16 +53,16 @@
     }
   ],
   "breadth": {
-    "up": 297,
-    "down": 4897,
-    "flat": 22,
-    "limitUp": 30,
-    "limitDown": 68,
-    "total": 5216
+    "up": 4306,
+    "down": 780,
+    "flat": 127,
+    "limitUp": 151,
+    "limitDown": 7,
+    "total": 5213
   },
   "volume": {
-    "amount": 13051.47,
-    "prevAmount": 13051.47,
+    "amount": 14222.01,
+    "prevAmount": 14222.01,
     "changePct": 0.0
   },
   "volumeHistory": {
@@ -96,95 +96,132 @@
     "20261117": 14576.95,
     "20261118": 13697.03,
     "20261119": 13051.47,
-    "20261120": 14222.01
+    "20261120": 14222.01,
+    "20261123": 14222.01
   },
   "margin": {
     "balance": 11207.68,
     "change": -206.1,
     "asOf": "2026-11-20",
-    "stale": false
+    "stale": true
   },
   "sentiment": {
-    "score": 21,
-    "label": "冰点",
+    "score": 83,
+    "label": "过热",
     "desc": "",
     "drivers": [
-      "涨跌家数 297 / 4897，上涨占比 5.7%",
-      "涨停 30 家、跌停 68 家",
-      "两市成交 13051 亿，环比 +0.00%"
+      "涨跌家数 4306 / 780，上涨占比 84.7%",
+      "涨停 151 家、跌停 7 家",
+      "两市成交 14222 亿，环比 +0.00%"
     ]
   },
   "sectors": [
     {
-      "name": "金融行业",
-      "changePct": 0.17,
+      "name": "次新股",
+      "changePct": 5.1,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh601398"
-      ]
-    },
-    {
-      "name": "酿酒行业",
-      "changePct": 0.1,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh600519"
+        "sh688836"
       ]
     },
     {
       "name": "家具行业",
-      "changePct": -2.02,
-      "direction": "down",
+      "changePct": 4.47,
+      "direction": "up",
       "driver": "",
       "leading": [
         "sz002718"
       ]
     },
     {
-      "name": "电力行业",
-      "changePct": -1.93,
-      "direction": "down",
+      "name": "仪器仪表",
+      "changePct": 4.11,
+      "direction": "up",
       "driver": "",
       "leading": [
-        "sh600886"
+        "sz300007"
       ]
     },
     {
-      "name": "煤炭行业",
-      "changePct": -1.59,
-      "direction": "down",
+      "name": "传媒娱乐",
+      "changePct": 3.99,
+      "direction": "up",
       "driver": "",
       "leading": [
-        "sh600408"
+        "sz300426"
       ]
     },
     {
-      "name": "农林牧渔",
-      "changePct": -1.37,
-      "direction": "down",
+      "name": "机械行业",
+      "changePct": 3.65,
+      "direction": "up",
       "driver": "",
       "leading": [
-        "sh600467"
+        "sz300421"
       ]
     },
     {
-      "name": "供水供气",
-      "changePct": -1.33,
+      "name": "电子信息",
+      "changePct": 3.23,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sz300394"
+      ]
+    },
+    {
+      "name": "酿酒行业",
+      "changePct": -1.73,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sz000593"
+        "sz000995"
+      ]
+    },
+    {
+      "name": "金融行业",
+      "changePct": -0.72,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sz000783"
       ]
     },
     {
       "name": "公路桥梁",
-      "changePct": -1.28,
+      "changePct": -0.69,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sh600106"
+        "sh601188"
+      ]
+    },
+    {
+      "name": "电力行业",
+      "changePct": -0.28,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600769"
+      ]
+    },
+    {
+      "name": "物资外贸",
+      "changePct": -0.21,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600278"
+      ]
+    },
+    {
+      "name": "煤炭行业",
+      "changePct": -0.2,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600721"
       ]
     }
   ],
