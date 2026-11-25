@@ -1,130 +1,130 @@
 {
-  "updatedAt": "2026-11-25T05:10:25+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-11-25T17:50:51+08:00",
+  "batch": "盘前消息",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，龙虎榜为收盘后披露口径。",
-  "tradeDay": "20261124",
+  "tradeDay": "20261125",
   "items": [
     {
       "code": "002242",
       "name": "九阳股份",
-      "close": 35.05,
+      "close": 38.56,
       "changePct": 10.01,
-      "netBuy": 22097.62,
-      "buyAmount": 34326.19,
-      "sellAmount": 12228.57,
-      "reason": "日涨幅偏离值达到7%的前5只证券"
-    },
-    {
-      "code": "603662",
-      "name": "柯力传感",
-      "close": 53.01,
-      "changePct": 10.0,
-      "netBuy": 14551.11,
-      "buyAmount": 30818.58,
-      "sellAmount": 16267.47,
-      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
-    },
-    {
-      "code": "300539",
-      "name": "横河精密",
-      "close": 22.58,
-      "changePct": 19.98,
-      "netBuy": 13579.06,
-      "buyAmount": 20860.64,
-      "sellAmount": 7281.58,
-      "reason": "日涨幅达到15%的前5只证券"
-    },
-    {
-      "code": "605488",
-      "name": "福莱新材",
-      "close": 51.45,
-      "changePct": 10.01,
-      "netBuy": 13557.24,
-      "buyAmount": 41585.03,
-      "sellAmount": 28027.79,
-      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
-    },
-    {
-      "code": "002611",
-      "name": "东方精工",
-      "close": 13.37,
-      "changePct": 10.04,
-      "netBuy": 12359.71,
-      "buyAmount": 24911.35,
-      "sellAmount": 12551.65,
-      "reason": "日涨幅偏离值达到7%的前5只证券"
-    },
-    {
-      "code": "301261",
-      "name": "恒工精密",
-      "close": 76.01,
-      "changePct": 14.03,
-      "netBuy": 11900.64,
-      "buyAmount": 36467.48,
-      "sellAmount": 24566.84,
-      "reason": "连续三个交易日内，涨幅偏离值累计达到30%的证券"
-    },
-    {
-      "code": "601599",
-      "name": "浙文影业",
-      "close": 4.02,
-      "changePct": 10.14,
-      "netBuy": 9756.47,
-      "buyAmount": 29793.1,
-      "sellAmount": 20036.63,
-      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
-    },
-    {
-      "code": "301252",
-      "name": "同星科技",
-      "close": 42.48,
-      "changePct": 20.0,
-      "netBuy": 9148.61,
-      "buyAmount": 24156.0,
-      "sellAmount": 15007.39,
-      "reason": "连续三个交易日内，涨幅偏离值累计达到30%的证券"
-    },
-    {
-      "code": "603103",
-      "name": "横店影视",
-      "close": 18.26,
-      "changePct": 10.0,
-      "netBuy": 8587.43,
-      "buyAmount": 18519.6,
-      "sellAmount": 9932.17,
-      "reason": "非S证券连续三个交易日内收盘价格涨幅偏离值累计达到20%的证券"
-    },
-    {
-      "code": "603030",
-      "name": "全筑股份",
-      "close": 2.37,
-      "changePct": 10.23,
-      "netBuy": 8535.58,
-      "buyAmount": 12353.38,
-      "sellAmount": 3817.8,
-      "reason": "有价格涨跌幅限制的日收盘价格涨幅偏离值达到7%的前五只证券"
-    },
-    {
-      "code": "301575",
-      "name": "艾芬达",
-      "close": 34.42,
-      "changePct": 20.01,
-      "netBuy": 7659.66,
-      "buyAmount": 14946.89,
-      "sellAmount": 7287.23,
-      "reason": "日涨幅达到15%的前5只证券"
-    },
-    {
-      "code": "002348",
-      "name": "高乐股份",
-      "close": 8.67,
-      "changePct": 10.03,
-      "netBuy": 7249.31,
-      "buyAmount": 40706.49,
-      "sellAmount": 33457.17,
+      "netBuy": 37195.16,
+      "buyAmount": 108709.07,
+      "sellAmount": 71513.91,
       "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "600103",
+      "name": "青山纸业",
+      "close": 3.78,
+      "changePct": 9.88,
+      "netBuy": 25268.37,
+      "buyAmount": 38960.1,
+      "sellAmount": 13691.73,
+      "reason": "有价格涨跌幅限制的日换手率达到20%的前五只证券"
+    },
+    {
+      "code": "600410",
+      "name": "华胜天成",
+      "close": 17.92,
+      "changePct": 4.37,
+      "netBuy": 12399.82,
+      "buyAmount": 46091.6,
+      "sellAmount": 33691.78,
+      "reason": "有价格涨跌幅限制的日换手率达到20%的前五只证券"
+    },
+    {
+      "code": "002651",
+      "name": "利君股份",
+      "close": 7.9,
+      "changePct": 10.03,
+      "netBuy": 10016.53,
+      "buyAmount": 14711.36,
+      "sellAmount": 4694.82,
+      "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "002122",
+      "name": "汇洲智能",
+      "close": 3.59,
+      "changePct": 10.12,
+      "netBuy": 9446.8,
+      "buyAmount": 16538.2,
+      "sellAmount": 7091.4,
+      "reason": "日涨幅偏离值达到7%的前5只证券"
+    },
+    {
+      "code": "002122",
+      "name": "汇洲智能",
+      "close": 3.59,
+      "changePct": 10.12,
+      "netBuy": 9376.87,
+      "buyAmount": 16540.84,
+      "sellAmount": 7163.97,
+      "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "002548",
+      "name": "金新农",
+      "close": 5.01,
+      "changePct": 10.11,
+      "netBuy": 8440.58,
+      "buyAmount": 16604.87,
+      "sellAmount": 8164.28,
+      "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "002708",
+      "name": "光洋股份",
+      "close": 22.8,
+      "changePct": -1.26,
+      "netBuy": 7625.25,
+      "buyAmount": 66129.49,
+      "sellAmount": 58504.23,
+      "reason": "连续三个交易日内，涨幅偏离值累计达到20%的证券"
+    },
+    {
+      "code": "002242",
+      "name": "九阳股份",
+      "close": 38.56,
+      "changePct": 10.01,
+      "netBuy": 6331.73,
+      "buyAmount": 76886.51,
+      "sellAmount": 70554.78,
+      "reason": "日涨幅偏离值达到7%的前5只证券"
+    },
+    {
+      "code": "301066",
+      "name": "万事利",
+      "close": 12.74,
+      "changePct": 19.96,
+      "netBuy": 6109.4,
+      "buyAmount": 11110.48,
+      "sellAmount": 5001.09,
+      "reason": "日涨幅达到15%的前5只证券"
+    },
+    {
+      "code": "301066",
+      "name": "万事利",
+      "close": 12.74,
+      "changePct": 19.96,
+      "netBuy": 5737.32,
+      "buyAmount": 13669.39,
+      "sellAmount": 7932.07,
+      "reason": "连续三个交易日内，涨幅偏离值累计达到30%的证券"
+    },
+    {
+      "code": "002642",
+      "name": "荣联科技",
+      "close": 8.54,
+      "changePct": 10.05,
+      "netBuy": 5659.59,
+      "buyAmount": 32610.27,
+      "sellAmount": 26950.68,
+      "reason": "日涨幅偏离值达到7%的前5只证券"
     }
   ],
   "topInflow": [],
