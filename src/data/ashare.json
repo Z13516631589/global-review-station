@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-25T05:10:24+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-11-25T12:22:25+08:00",
+  "batch": "美股收盘",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
@@ -53,12 +53,12 @@
     }
   ],
   "breadth": {
-    "up": 1838,
-    "down": 3267,
-    "flat": 114,
-    "limitUp": 64,
-    "limitDown": 4,
-    "total": 5219
+    "up": 2757,
+    "down": 2340,
+    "flat": 119,
+    "limitUp": 70,
+    "limitDown": 3,
+    "total": 5216
   },
   "volume": {
     "amount": 15528.8,
@@ -101,128 +101,128 @@
     "20261124": 15528.8
   },
   "margin": {
-    "balance": 11189.33,
-    "change": -18.35,
-    "asOf": "2026-11-23",
+    "balance": 11195.33,
+    "change": 6.0,
+    "asOf": "2026-11-24",
     "stale": false
   },
   "sentiment": {
-    "score": 42,
-    "label": "中性偏弱",
+    "score": 57,
+    "label": "偏强",
     "desc": "",
     "drivers": [
-      "涨跌家数 1838 / 3267，上涨占比 36.0%",
-      "涨停 64 家、跌停 4 家",
+      "涨跌家数 2757 / 2340，上涨占比 54.1%",
+      "涨停 70 家、跌停 3 家",
       "两市成交 15529 亿，环比 +0.00%"
     ]
   },
   "sectors": [
     {
-      "name": "陶瓷行业",
-      "changePct": 2.21,
+      "name": "酒店旅游",
+      "changePct": 2.24,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh603268"
+        "sz002306"
       ]
     },
     {
-      "name": "开发区",
-      "changePct": 1.73,
+      "name": "供水供气",
+      "changePct": 1.93,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sz000628"
+        "sz000593"
       ]
     },
     {
-      "name": "飞机制造",
-      "changePct": 1.5,
+      "name": "纺织机械",
+      "changePct": 1.89,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh600118"
+        "sz002196"
+      ]
+    },
+    {
+      "name": "综合行业",
+      "changePct": 1.8,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sh600576"
+      ]
+    },
+    {
+      "name": "生物制药",
+      "changePct": 1.66,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sz300086"
+      ]
+    },
+    {
+      "name": "纺织行业",
+      "changePct": 1.45,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sz002144"
+      ]
+    },
+    {
+      "name": "金融行业",
+      "changePct": -0.41,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sz000712"
+      ]
+    },
+    {
+      "name": "化纤行业",
+      "changePct": -0.35,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sz000677"
+      ]
+    },
+    {
+      "name": "煤炭行业",
+      "changePct": -0.12,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600157"
+      ]
+    },
+    {
+      "name": "电力行业",
+      "changePct": -0.11,
+      "direction": "down",
+      "driver": "",
+      "leading": [
+        "sh600868"
       ]
     },
     {
       "name": "船舶制造",
-      "changePct": 1.35,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sh600150"
-      ]
-    },
-    {
-      "name": "家电行业",
-      "changePct": 0.95,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sz002242"
-      ]
-    },
-    {
-      "name": "电器行业",
-      "changePct": 0.85,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sz002164"
-      ]
-    },
-    {
-      "name": "交通运输",
-      "changePct": -0.43,
+      "changePct": -0.07,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sh600180"
+        "sz300123"
       ]
     },
     {
-      "name": "房地产",
-      "changePct": -0.34,
+      "name": "玻璃行业",
+      "changePct": -0.06,
       "direction": "down",
       "driver": "",
       "leading": [
-        "sz000608"
-      ]
-    },
-    {
-      "name": "电子信息",
-      "changePct": -0.28,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sh600289"
-      ]
-    },
-    {
-      "name": "商业百货",
-      "changePct": -0.26,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sh600814"
-      ]
-    },
-    {
-      "name": "次新股",
-      "changePct": -0.22,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz301716"
-      ]
-    },
-    {
-      "name": "食品行业",
-      "changePct": -0.1,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz002387"
+        "sh603021"
       ]
     }
   ],
