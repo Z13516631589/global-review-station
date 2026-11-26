@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-27T01:51:59+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-11-27T03:45:54+08:00",
+  "batch": "A股盘后",
   "source": "yfinance",
   "stale": false,
   "note": "注意：有 2 个标的数据日期早于最近交易日（美股/中概 2026-11-25、亚太 2026-11-26），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
@@ -172,33 +172,33 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 3594.3,
-          "change": 58.5,
-          "changePct": 1.65,
+          "price": 3593.3999,
+          "change": 57.5999,
+          "changePct": 1.63,
           "asOf": "2026-11-26"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 84.79,
-          "change": 1.11,
-          "changePct": 1.33,
+          "price": 84.91,
+          "change": 1.23,
+          "changePct": 1.47,
           "asOf": "2026-11-26"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.6505,
-          "change": -0.0135,
-          "changePct": -0.2,
+          "price": 6.6592,
+          "change": -0.0048,
+          "changePct": -0.07,
           "asOf": "2026-11-26"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 60454.2812,
-          "change": 76.082,
-          "changePct": 0.13,
+          "price": 60593.3008,
+          "change": 215.1016,
+          "changePct": 0.36,
           "asOf": "2026-11-26"
         }
       ]
