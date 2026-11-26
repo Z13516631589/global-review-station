@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-11-26T11:40:54+08:00",
-  "batch": "美股收盘",
+  "updatedAt": "2026-11-25T18:00:00+08:00",
+  "batch": "A股收盘",
   "source": "yfinance",
   "stale": false,
-  "note": "注意：有 4 个标的数据日期早于最近交易日（美股/中概 2026-11-25、亚太 2026-11-25），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
+  "note": "美股为 11 月 25 日收盘（对应 11 月 25 日 A 股盘后的外盘变化），亚太为 11 月 25 日收盘，均经公开报道核对；恐慌指数为盘中报价，未纳入正文。",
   "groups": [
     {
       "market": "美股",
@@ -96,38 +96,34 @@
         {
           "symbol": "^HSI",
           "name": "恒生指数",
-          "price": 22417.7109,
-          "change": 451.7012,
-          "changePct": null,
-          "asOf": "2026-11-26",
-          "stale": true
+          "price": 21966.01,
+          "change": -253.3,
+          "changePct": -1.14,
+          "asOf": "2026-11-25"
         },
         {
           "symbol": "^N225",
           "name": "日经225",
-          "price": 57886.9492,
-          "change": 875.3281,
-          "changePct": null,
-          "asOf": "2026-11-26",
-          "stale": true
+          "price": 57011.62,
+          "change": -1630.24,
+          "changePct": -2.78,
+          "asOf": "2026-11-25"
         },
         {
           "symbol": "^KS11",
           "name": "韩国综合",
-          "price": 4736.2598,
-          "change": 38.75,
-          "changePct": null,
-          "asOf": "2026-11-26",
-          "stale": true
+          "price": 4697.51,
+          "change": -308.36,
+          "changePct": -6.16,
+          "asOf": "2026-11-25"
         },
         {
           "symbol": "^TWII",
           "name": "台湾加权",
-          "price": 39011.0391,
-          "change": 815.6094,
-          "changePct": null,
-          "asOf": "2026-11-26",
-          "stale": true
+          "price": 38195.43,
+          "change": -1925.82,
+          "changePct": -4.8,
+          "asOf": "2026-11-25"
         }
       ]
     },
