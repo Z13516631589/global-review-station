@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-27T11:41:31+08:00",
-  "batch": "美股收盘",
+  "updatedAt": "2026-11-27T17:39:55+08:00",
+  "batch": "盘前消息",
   "source": "akshare",
   "stale": false,
   "note": "延迟数据，来自公开免费数据源（新浪财经 / 东方财富），仅用于复盘记录。",
-  "tradeDay": "20261126",
+  "tradeDay": "20261127",
   "indices": [
     {
       "code": "000001",
@@ -53,11 +53,11 @@
     }
   ],
   "breadth": {
-    "up": 4320,
-    "down": 811,
-    "flat": 88,
-    "limitUp": 95,
-    "limitDown": 0,
+    "up": 5025,
+    "down": 181,
+    "flat": 13,
+    "limitUp": 435,
+    "limitDown": 1,
     "total": 5219
   },
   "volume": {
@@ -100,7 +100,8 @@
     "20261123": 15528.8,
     "20261124": 16550.86,
     "20261125": 13830.97,
-    "20261126": 13830.97
+    "20261126": 13830.97,
+    "20261127": 13830.97
   },
   "margin": {
     "balance": 11010.7,
@@ -113,24 +114,33 @@
     "label": "过热",
     "desc": "",
     "drivers": [
-      "涨跌家数 4320 / 811，上涨占比 84.2%",
-      "涨停 95 家、跌停 0 家",
+      "涨跌家数 5025 / 181，上涨占比 96.5%",
+      "涨停 435 家、跌停 1 家",
       "两市成交 13831 亿，环比 +0.00%"
     ]
   },
   "sectors": [
     {
       "name": "次新股",
-      "changePct": 6.06,
+      "changePct": 15.35,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sh688827"
+        "bj920298"
+      ]
+    },
+    {
+      "name": "电子信息",
+      "changePct": 9.85,
+      "direction": "up",
+      "driver": "",
+      "leading": [
+        "sz300324"
       ]
     },
     {
       "name": "电子器件",
-      "changePct": 4.81,
+      "changePct": 9.82,
       "direction": "up",
       "driver": "",
       "leading": [
@@ -138,93 +148,30 @@
       ]
     },
     {
-      "name": "开发区",
-      "changePct": 4.66,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sz000628"
-      ]
-    },
-    {
-      "name": "电子信息",
-      "changePct": 4.36,
-      "direction": "up",
-      "driver": "",
-      "leading": [
-        "sz300047"
-      ]
-    },
-    {
       "name": "机械行业",
-      "changePct": 3.44,
+      "changePct": 9.27,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sz300056"
+        "sz300308"
       ]
     },
     {
       "name": "仪器仪表",
-      "changePct": 3.28,
+      "changePct": 8.39,
       "direction": "up",
       "driver": "",
       "leading": [
-        "sz002197"
+        "sz300112"
       ]
     },
     {
-      "name": "食品行业",
-      "changePct": -0.59,
-      "direction": "down",
+      "name": "玻璃行业",
+      "changePct": 8.26,
+      "direction": "up",
       "driver": "",
       "leading": [
-        "sh600186"
-      ]
-    },
-    {
-      "name": "公路桥梁",
-      "changePct": -0.58,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sh600106"
-      ]
-    },
-    {
-      "name": "家电行业",
-      "changePct": -0.55,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz002403"
-      ]
-    },
-    {
-      "name": "石油行业",
-      "changePct": -0.47,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz002629"
-      ]
-    },
-    {
-      "name": "船舶制造",
-      "changePct": -0.2,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz300008"
-      ]
-    },
-    {
-      "name": "农药化肥",
-      "changePct": -0.03,
-      "direction": "down",
-      "driver": "",
-      "leading": [
-        "sz002513"
+        "sz300395"
       ]
     }
   ],

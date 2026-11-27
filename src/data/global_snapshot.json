@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-11-27T11:42:13+08:00",
-  "batch": "美股收盘",
+  "updatedAt": "2026-11-27T17:41:02+08:00",
+  "batch": "盘前消息",
   "source": "yfinance",
   "stale": false,
-  "note": "注意：有 13 个标的数据日期早于最近交易日（美股/中概 2026-11-26、亚太 2026-11-26），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
+  "note": "注意：有 10 个标的数据日期早于最近交易日（美股/中概 2026-11-26、亚太 2026-11-27），各数据源当日 K 线尚未更新，已压下涨跌幅、仅保留价格，页面已标注具体日期。",
   "groups": [
     {
       "market": "美股",
@@ -48,10 +48,11 @@
         {
           "symbol": "^VIX",
           "name": "恐慌指数",
-          "price": 26.8,
-          "change": -1.49,
-          "changePct": -5.27,
-          "asOf": "2026-11-26"
+          "price": 24.61,
+          "change": -2.19,
+          "changePct": null,
+          "asOf": "2026-11-27",
+          "stale": true
         }
       ]
     },
@@ -104,38 +105,34 @@
         {
           "symbol": "^HSI",
           "name": "恒生指数",
-          "price": 22366.3008,
-          "change": 139.4199,
-          "changePct": null,
-          "asOf": "2026-11-27",
-          "stale": true
+          "price": 22694.7695,
+          "change": 467.8887,
+          "changePct": 2.11,
+          "asOf": "2026-11-27"
         },
         {
           "symbol": "^N225",
           "name": "日经225",
-          "price": 58172.0391,
-          "change": 672.8789,
-          "changePct": null,
-          "asOf": "2026-11-27",
-          "stale": true
+          "price": 58711.1094,
+          "change": 1211.9492,
+          "changePct": 2.11,
+          "asOf": "2026-11-27"
         },
         {
           "symbol": "^KS11",
           "name": "韩国综合",
-          "price": 4875.2202,
-          "change": 164.0103,
-          "changePct": null,
-          "asOf": "2026-11-27",
-          "stale": true
+          "price": 4915.6802,
+          "change": 204.4702,
+          "changePct": 4.34,
+          "asOf": "2026-11-27"
         },
         {
           "symbol": "^TWII",
           "name": "台湾加权",
-          "price": 39329.4805,
-          "change": 177.6719,
-          "changePct": null,
-          "asOf": "2026-11-27",
-          "stale": true
+          "price": 39308.0781,
+          "change": 156.2695,
+          "changePct": 0.4,
+          "asOf": "2026-11-27"
         }
       ]
     },
@@ -146,17 +143,17 @@
         {
           "symbol": "005930.KS",
           "name": "三星电子",
-          "price": 178000.0,
-          "change": 6700.0,
-          "changePct": 3.91,
+          "price": 179100.0,
+          "change": 7800.0,
+          "changePct": 4.55,
           "asOf": "2026-11-27"
         },
         {
           "symbol": "000660.KS",
           "name": "SK海力士",
-          "price": 1101000.0,
-          "change": 48000.0,
-          "changePct": 4.56,
+          "price": 1110000.0,
+          "change": 57000.0,
+          "changePct": 5.41,
           "asOf": "2026-11-27"
         }
       ]
@@ -183,33 +180,33 @@
         {
           "symbol": "GC=F",
           "name": "COMEX黄金",
-          "price": 3654.3,
-          "change": 118.5,
-          "changePct": 3.35,
-          "asOf": "2026-11-26"
+          "price": 3706.2,
+          "change": 170.3999,
+          "changePct": 4.82,
+          "asOf": "2026-11-27"
         },
         {
           "symbol": "CL=F",
           "name": "WTI原油",
-          "price": 85.77,
-          "change": 2.09,
-          "changePct": 2.5,
-          "asOf": "2026-11-26"
+          "price": 85.97,
+          "change": 2.29,
+          "changePct": 2.74,
+          "asOf": "2026-11-27"
         },
         {
           "symbol": "USDCNY=X",
           "name": "美元/人民币",
-          "price": 6.6643,
-          "change": 0.0003,
-          "changePct": 0.0,
+          "price": 6.6436,
+          "change": -0.0204,
+          "changePct": -0.31,
           "asOf": "2026-11-27"
         },
         {
           "symbol": "BTC-USD",
           "name": "比特币",
-          "price": 61499.0508,
-          "change": 1120.8516,
-          "changePct": 1.86,
+          "price": 61709.0312,
+          "change": 1214.3203,
+          "changePct": 2.01,
           "asOf": "2026-11-27"
         }
       ]
