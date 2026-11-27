@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-28T01:37:09+08:00",
-  "batch": "A股收盘",
+  "updatedAt": "2026-11-28T03:35:39+08:00",
+  "batch": "A股盘后",
   "source": "akshare+rss",
   "analyzer": "rules",
   "stale": false,
